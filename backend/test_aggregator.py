@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 
 from backend.connectors.adzuna import AdzunaConnector
+from backend.connectors.jooble import JoobleConnector
 from backend.services.job_aggregator import JobAggregator
 
 
@@ -8,9 +9,13 @@ def main() -> None:
     load_dotenv()
 
     adzuna = AdzunaConnector(country="in")
+    jooble = JoobleConnector()
 
     aggregator = JobAggregator(
-        sources=[adzuna]
+        sources=[
+            adzuna,
+            jooble,
+        ]
     )
 
     jobs = aggregator.search(
@@ -24,6 +29,7 @@ def main() -> None:
     for index, job in enumerate(jobs, start=1):
         print(
             f"{index}. "
+            f"[{job.source}] "
             f"{job.company} — "
             f"{job.title} — "
             f"{', '.join(job.location)}"
