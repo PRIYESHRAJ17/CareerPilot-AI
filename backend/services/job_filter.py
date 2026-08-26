@@ -1,14 +1,12 @@
-from typing import List, Optional
+from typing import List
 
-from backend.schemas.job import Job
 from backend.schemas.candidate import CandidateProfile
+from backend.schemas.job import Job
 
 
 class JobFilter:
     """
-    Deterministic pre-filter for job opportunities.
-
-    This layer handles hard constraints before semantic/AI ranking.
+    Deterministic hard filter for CareerPilot jobs.
     """
 
     def filter(
@@ -16,19 +14,33 @@ class JobFilter:
         jobs: List[Job],
         candidate: CandidateProfile,
     ) -> List[Job]:
+
         filtered: List[Job] = []
 
         for job in jobs:
-            if not self._location_match(job, candidate):
+
+            if not self._location_match(
+                job,
+                candidate,
+            ):
                 continue
 
-            if not self._salary_match(job, candidate):
+            if not self._salary_match(
+                job,
+                candidate,
+            ):
                 continue
 
-            if not self._work_mode_match(job, candidate):
+            if not self._work_mode_match(
+                job,
+                candidate,
+            ):
                 continue
 
-            if not self._notice_period_match(job, candidate):
+            if not self._notice_period_match(
+                job,
+                candidate,
+            ):
                 continue
 
             filtered.append(job)
@@ -40,12 +52,6 @@ class JobFilter:
         job: Job,
         candidate: CandidateProfile,
     ) -> bool:
-        """
-        Hard location filter.
-
-        If the candidate has no location preference,
-        all locations are accepted.
-        """
 
         if not candidate.preferred_locations:
             return True
@@ -72,35 +78,70 @@ class JobFilter:
         candidate: CandidateProfile,
     ) -> bool:
         """
-        Salary filter.
+        Salary is a lower-bound preference.
 
-        Jobs without salary data are not rejected here.
-        They are allowed through for later scoring.
+        Example:
+
+            candidate = 6 LPA
+
+            job 6-10  -> PASS
+            job 8-12  -> PASS
+            job 20-50 -> PASS
+            job 50-70 -> PASS
+            job 5-12  -> REJECT
+            unknown   -> KEEP as UNDISCLOSED
+
+        Unknown salary is retained because the company may
+        have a good opportunity but simply does not publish
+        compensation.
         """
 
-        minimum = candidate.career_goal.minimum_salary_lpa
+        minimum = (
+            candidate
+            .career_goal
+            .minimum_salary_lpa
+        )
 
         if minimum is None:
             return True
 
-        if job.salary.max_lpa is None:
+        salary_min = job.salary.min_lpa
+        salary_max = job.salary.max_lpa
+
+        # No usable salary information.
+        #
+        # Keep the job and let the API/UI mark it
+        # as UNDISCLOSED.
+        if (
+            salary_min is None
+            and salary_max is None
+        ):
             return True
 
-        return job.salary.max_lpa >= minimum
+        # The advertised minimum is the safest value
+        # for evaluating a candidate's minimum salary.
+        if salary_min is not None:
+            return salary_min >= minimum
+
+        # Rare fallback: only a maximum exists.
+        if salary_max is not None:
+            return salary_max >= minimum
+
+        return True
 
     @staticmethod
     def _work_mode_match(
         job: Job,
         candidate: CandidateProfile,
     ) -> bool:
-        """
-        Work-mode filter.
-
-        Empty preferences mean no restriction.
-        """
 
         if not candidate.preferred_work_modes:
             return True
+
+        preferred = {
+            mode.casefold()
+            for mode in candidate.preferred_work_modes
+        }
 
         if job.remote:
             job_modes = {
@@ -115,24 +156,15 @@ class JobFilter:
                 "hybrid",
             }
 
-        preferred = {
-            mode.casefold()
-            for mode in candidate.preferred_work_modes
-        }
-
-        return bool(job_modes.intersection(preferred))
+        return bool(
+            job_modes.intersection(
+                preferred
+            )
+        )
 
     @staticmethod
     def _notice_period_match(
         job: Job,
         candidate: CandidateProfile,
     ) -> bool:
-        """
-        Placeholder for future India-specific notice-period
-        compatibility.
-
-        We currently allow all jobs because our canonical Job
-        schema does not yet contain employer notice-period data.
-        """
-
         return True

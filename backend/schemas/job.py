@@ -26,14 +26,49 @@ class Job:
     remote: bool = False
     employment_type: Optional[str] = None
 
-    experience: Experience = field(default_factory=Experience)
-    salary: Salary = field(default_factory=Salary)
+    experience: Experience = field(
+        default_factory=Experience
+    )
 
-    skills: List[str] = field(default_factory=list)
+    salary: Salary = field(
+        default_factory=Salary
+    )
+
+    skills: List[str] = field(
+        default_factory=list
+    )
+
     description: str = ""
 
     apply_url: str = ""
     source_url: str = ""
+
     posted_at: Optional[str] = None
 
-    metadata: dict = field(default_factory=dict)
+    metadata: dict = field(
+        default_factory=dict
+    )
+
+    # All discovered sources for this canonical
+    # opportunity.
+    sources: List[str] = field(
+        default_factory=list
+    )
+
+    source_records: List[dict] = field(
+        default_factory=list
+    )
+
+    @property
+    def source_count(self) -> int:
+        """
+        Number of distinct job sources that contain
+        this opportunity.
+        """
+
+        if self.sources:
+            return len(
+                set(self.sources)
+            )
+
+        return 1 if self.source else 0

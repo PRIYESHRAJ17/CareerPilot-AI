@@ -18,6 +18,21 @@ from backend.services.semantic_matcher import (
 
 @dataclass
 class FinalMatch:
+    """
+    Complete CareerPilot match result.
+
+    Contains:
+        - deterministic evidence
+        - semantic evidence
+        - final score
+        - decision
+        - confidence
+        - detailed score breakdown
+        - matched skills
+        - skill gaps
+        - explanation
+    """
+
     deterministic_score: float
     semantic_score: float
     final_score: float
@@ -25,19 +40,30 @@ class FinalMatch:
     decision: str
     confidence: float
 
-    strengths: List[str]
+    # Detailed deterministic dimensions.
+    role_fit: float
+    skill_fit: float
+    experience_fit: float
+    location_fit: float
+    salary_fit: float
+    career_goal_fit: float
+
+    # Skills.
+    matched_skills: List[str]
     skill_gaps: List[str]
 
+    # Explainability.
+    strengths: List[str]
     explanation: str
 
 
 class FinalMatchEngine:
     """
-    Combines deterministic evidence and semantic evidence.
+    Combines deterministic and semantic evidence.
 
-    Hard constraints stay deterministic.
-    Semantic similarity enriches, but does not blindly override,
-    objective evidence.
+    Deterministic evidence remains the objective foundation.
+    Semantic similarity enriches the result without blindly
+    overriding hard evidence.
     """
 
     DETERMINISTIC_WEIGHT = 0.60
@@ -54,12 +80,20 @@ class FinalMatchEngine:
         requirements: JobRequirements,
     ) -> FinalMatch:
 
+        # --------------------------------------------------
+        # 1. Deterministic evidence
+        # --------------------------------------------------
+
         deterministic: MatchBreakdown = (
             self.match_engine.score(
                 candidate=candidate,
                 job=job,
             )
         )
+
+        # --------------------------------------------------
+        # 2. Semantic evidence
+        # --------------------------------------------------
 
         semantic: SemanticMatch = (
             self.semantic_matcher.compare(
@@ -68,6 +102,10 @@ class FinalMatchEngine:
                 requirements=requirements,
             )
         )
+
+        # --------------------------------------------------
+        # 3. Final hybrid score
+        # --------------------------------------------------
 
         final_score = round(
             (
@@ -79,39 +117,104 @@ class FinalMatchEngine:
             2,
         )
 
+        # --------------------------------------------------
+        # 4. Decision
+        # --------------------------------------------------
+
         decision = self._decision(
             final_score
         )
+
+        # --------------------------------------------------
+        # 5. Confidence
+        # --------------------------------------------------
 
         confidence = self._confidence(
             deterministic,
             semantic,
         )
 
+        # --------------------------------------------------
+        # 6. Strengths
+        # --------------------------------------------------
+
         strengths = self._strengths(
             deterministic,
             semantic,
+        )
+
+        # --------------------------------------------------
+        # 7. Skill evidence
+        # --------------------------------------------------
+
+        matched_skills = list(
+            deterministic.matched_skills
         )
 
         skill_gaps = list(
             deterministic.missing_skills
         )
 
-        explanation = self._explanation(
-            deterministic,
-            semantic,
-            final_score,
-            decision,
-        )
+        # --------------------------------------------------
+        # 8. Explanation
+        # --------------------------------------------------
 
-        return FinalMatch(
-            deterministic_score=deterministic.overall_score,
-            semantic_score=semantic.overall_similarity,
+        explanation = self._explanation(
+            deterministic=deterministic,
+            semantic=semantic,
             final_score=final_score,
             decision=decision,
+        )
+
+        # --------------------------------------------------
+        # 9. Complete result
+        # --------------------------------------------------
+
+        return FinalMatch(
+            deterministic_score=(
+                deterministic.overall_score
+            ),
+
+            semantic_score=(
+                semantic.overall_similarity
+            ),
+
+            final_score=final_score,
+
+            decision=decision,
+
             confidence=confidence,
-            strengths=strengths,
+
+            role_fit=(
+                deterministic.role_fit
+            ),
+
+            skill_fit=(
+                deterministic.skill_fit
+            ),
+
+            experience_fit=(
+                deterministic.experience_fit
+            ),
+
+            location_fit=(
+                deterministic.location_fit
+            ),
+
+            salary_fit=(
+                deterministic.salary_fit
+            ),
+
+            career_goal_fit=(
+                deterministic.career_goal_fit
+            ),
+
+            matched_skills=matched_skills,
+
             skill_gaps=skill_gaps,
+
+            strengths=strengths,
+
             explanation=explanation,
         )
 
@@ -174,6 +277,11 @@ class FinalMatchEngine:
                 "Strong skill alignment"
             )
 
+        if deterministic.experience_fit >= 90:
+            strengths.append(
+                "Strong experience alignment"
+            )
+
         if deterministic.location_fit >= 90:
             strengths.append(
                 "Strong location alignment"
@@ -182,6 +290,11 @@ class FinalMatchEngine:
         if deterministic.salary_fit >= 90:
             strengths.append(
                 "Salary target alignment"
+            )
+
+        if deterministic.career_goal_fit >= 90:
+            strengths.append(
+                "Strong career goal alignment"
             )
 
         if semantic.skill_similarity >= 85:
@@ -195,7 +308,9 @@ class FinalMatchEngine:
             )
 
         return list(
-            dict.fromkeys(strengths)
+            dict.fromkeys(
+                strengths
+            )
         )
 
     @staticmethod
@@ -210,7 +325,21 @@ class FinalMatchEngine:
             f"CareerPilot calculated a final compatibility "
             f"score of {final_score}/100 using "
             f"{deterministic.overall_score}/100 deterministic "
-            f"evidence and {semantic.overall_similarity}/100 "
-            f"semantic compatibility. "
-            f"The recommended action is {decision}."
+            f"evidence and "
+            f"{semantic.overall_similarity}/100 semantic "
+            f"compatibility. "
+            f"Role fit was "
+            f"{deterministic.role_fit}/100, "
+            f"skill fit was "
+            f"{deterministic.skill_fit}/100, "
+            f"experience fit was "
+            f"{deterministic.experience_fit}/100, "
+            f"location fit was "
+            f"{deterministic.location_fit}/100, "
+            f"salary fit was "
+            f"{deterministic.salary_fit}/100, "
+            f"and career-goal fit was "
+            f"{deterministic.career_goal_fit}/100. "
+            f"The recommended action is "
+            f"{decision}."
         )

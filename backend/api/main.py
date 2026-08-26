@@ -1,16 +1,23 @@
 from dotenv import load_dotenv
 
-# Load local environment variables before any connector is created.
 load_dotenv()
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
-from backend.api.models import JobSearchRequest
+from backend.api.models import (
+    JobSearchRequest,
+    JobSearchResponse,
+)
+
 from backend.schemas.candidate import (
     CandidateProfile,
     CareerGoal,
 )
-from backend.services.search_service import CareerSearchService
+
+from backend.services.search_service import (
+    CareerSearchService,
+)
 
 
 app = FastAPI(
@@ -19,34 +26,45 @@ app = FastAPI(
         "Agentic Career Intelligence API "
         "for job discovery and matching."
     ),
-    version="0.2.0",
+    version="0.3.0",
 )
 
 
-# Create the search service only after .env has been loaded.
-search_service = CareerSearchService()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+search_service = (
+    CareerSearchService()
+)
 
 
 @app.get("/health")
 def health():
-    """Basic API health endpoint."""
-
     return {
         "status": "healthy",
         "service": "careerpilot-api",
-        "version": "0.2.0",
+        "version": "0.3.0",
     }
 
 
-@app.post("/jobs/search")
+@app.post(
+    "/jobs/search",
+    response_model=JobSearchResponse,
+)
 def search_jobs(
     request: JobSearchRequest,
 ):
-    """
-    Search live job sources and return ranked CareerPilot matches.
-    """
-
     try:
+
         candidate = CandidateProfile(
             candidate_id="api-user",
 
@@ -83,20 +101,42 @@ def search_jobs(
             ),
         )
 
-        results = search_service.search(
-            candidate=candidate,
-            query=request.role,
-            location=request.location,
+        results = (
+            search_service.search(
+                candidate=candidate,
+                query=request.role,
+                location=request.location,
+            )
         )
 
-        return {
-            "query": request.role,
-            "location": request.location,
-            "result_count": len(results),
-            "results": results,
-        }
+        salary_summary = (
+            search_service
+            .build_salary_summary(
+                results=results,
+                minimum_salary_lpa=(
+                    request.minimum_salary_lpa
+                ),
+            )
+        )
+
+        source_summary = (
+            search_service
+            .build_source_summary(
+                results=results,
+            )
+        )
+
+        return JobSearchResponse(
+            query=request.role,
+            location=request.location,
+            result_count=len(results),
+            results=results,
+            salary_summary=salary_summary,
+            source_summary=source_summary,
+        )
 
     except Exception as exc:
+
         raise HTTPException(
             status_code=500,
             detail=str(exc),
