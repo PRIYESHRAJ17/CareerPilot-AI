@@ -211,6 +211,86 @@ class JobResult(BaseModel):
 
 
 # ==========================================================
+# CAREER INTELLIGENCE
+# ==========================================================
+
+class CandidateIntelligenceResponse(BaseModel):
+    """
+    Structured intelligence about the candidate generated
+    from the candidate profile.
+    """
+
+    profile_completeness: float = 0.0
+
+    normalized_skills: List[str] = Field(
+        default_factory=list,
+    )
+
+    skill_categories: dict[str, List[str]] = Field(
+        default_factory=dict,
+    )
+
+    strengths: List[str] = Field(
+        default_factory=list,
+    )
+
+    missing_information: List[str] = Field(
+        default_factory=list,
+    )
+
+    career_direction: List[str] = Field(
+        default_factory=list,
+    )
+
+    target_roles: List[str] = Field(
+        default_factory=list,
+    )
+
+    target_industries: List[str] = Field(
+        default_factory=list,
+    )
+
+    readiness_level: str = "EARLY_STAGE"
+
+    readiness_score: float = 0.0
+
+    recommendations: List[str] = Field(
+        default_factory=list,
+    )
+
+
+# ==========================================================
+# CAREER STRATEGY
+# ==========================================================
+
+class CareerStrategyResponse(BaseModel):
+    """
+    Personalized career strategy derived from candidate
+    intelligence.
+    """
+
+    primary_role: str
+
+    career_directions: List[str] = Field(
+        default_factory=list,
+    )
+
+    priority_skills: List[str] = Field(
+        default_factory=list,
+    )
+
+    improvement_areas: List[str] = Field(
+        default_factory=list,
+    )
+
+    recommended_actions: List[str] = Field(
+        default_factory=list,
+    )
+
+    strategy_summary: str = ""
+
+
+# ==========================================================
 # SALARY SUMMARY
 # ==========================================================
 
@@ -258,3 +338,15 @@ class JobSearchResponse(BaseModel):
     salary_summary: SalarySummary
 
     source_summary: SourceSummary
+
+    # ------------------------------------------------------
+    # Career Intelligence
+    # ------------------------------------------------------
+
+    candidate_intelligence: CandidateIntelligenceResponse
+
+    # ------------------------------------------------------
+    # Career Strategy
+    # ------------------------------------------------------
+
+    career_strategy: CareerStrategyResponse
