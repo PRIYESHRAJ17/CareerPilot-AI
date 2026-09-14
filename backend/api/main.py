@@ -65,6 +65,8 @@ from backend.services.llm_resume_reasoner import (
     LLMResumeReasoner,
 )
 
+from backend.api.agentic import router as agentic_router
+
 
 # ============================================================
 # APPLICATION
@@ -81,6 +83,13 @@ app = FastAPI(
     ),
     version="0.6.0",
 )
+
+
+# ============================================================
+# AGENTIC API
+# ============================================================
+
+app.include_router(agentic_router)
 
 
 # ============================================================
@@ -485,16 +494,16 @@ async def analyze_resume_for_job(
         │                                 │
         └───────────────┬─────────────────┘
                         ↓
-              Resume Rewrite Engine
+               Resume Rewrite Engine
                         ↓
-              Evidence-backed
-              Rewrite Suggestions
+               Evidence-backed
+               Rewrite Suggestions
                         ↓
-              LLM Resume Reasoner
+               LLM Resume Reasoner
                         ↓
-              Evidence Validation
+               Evidence Validation
                         ↓
-              ACCEPTED / REJECTED
+               ACCEPTED / REJECTED
 
     Important:
     The LLM reasoning layer never replaces the
@@ -591,12 +600,6 @@ async def analyze_resume_for_job(
         # ----------------------------------------------------
         # 6. BUILD VERIFIED TARGET REQUIREMENTS
         # ----------------------------------------------------
-        #
-        # We intentionally do not treat the entire job
-        # description as resume evidence.
-        #
-        # Requirements are first extracted and classified
-        # by the job-specific analyzer.
 
         extracted_requirements = []
 
@@ -666,16 +669,6 @@ async def analyze_resume_for_job(
         # ----------------------------------------------------
         # 9. LLM RESUME REASONER
         # ----------------------------------------------------
-        #
-        # The reasoner receives only the rewrite
-        # suggestions generated from resume evidence.
-        #
-        # provider=none currently means deterministic
-        # fallback generation + real evidence validation.
-        #
-        # Once a provider is configured, this same pipeline
-        # can perform actual LLM generation while retaining
-        # the validator.
 
         llm_reasoning_result = (
             llm_resume_reasoner.analyze(
@@ -812,7 +805,7 @@ async def analyze_resume_for_job(
             },
 
             # ------------------------------------------------
-            # NEW: LLM Reasoning
+            # LLM Reasoning
             # ------------------------------------------------
 
             "llm_reasoning": llm_reasoning,

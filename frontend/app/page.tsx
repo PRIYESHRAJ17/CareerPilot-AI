@@ -1,423 +1,952 @@
 "use client";
 
 import {
-  BriefcaseBusiness,
-  Building2,
-  CalendarDays,
-  ChevronDown,
-  CircleUserRound,
-  FileText,
-  Gauge,
-  LayoutDashboard,
-  MessageSquareText,
-  Moon,
+  Activity,
+  ArrowRight,
+  BrainCircuit,
+  CheckCircle2,
+  Circle,
+  Loader2,
   Search,
-  Settings,
+  ShieldCheck,
   Sparkles,
   Target,
   UserRound,
+  XCircle,
 } from "lucide-react";
 
-const navItems = [
+import {
+  runAgenticWorkflow,
+  type AgenticRunResponse,
+  type DelegationTrace,
+} from "../lib/agentic";
+
+import { useMemo, useState } from "react";
+
+
+const AGENTS = [
   {
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    active: false,
+    id: "supervisor",
+    label: "Supervisor",
+    description: "Plans and orchestrates the workflow.",
   },
   {
-    label: "Opportunities",
-    icon: BriefcaseBusiness,
-    active: true,
+    id: "candidate",
+    label: "Candidate",
+    description: "Builds candidate intelligence.",
   },
   {
-    label: "Career Twin",
-    icon: Target,
-    active: false,
-  },
-  {
+    id: "resume",
     label: "Resume",
-    icon: FileText,
-    active: false,
+    description: "Analyzes resume evidence.",
   },
   {
-    label: "Companies",
-    icon: Building2,
-    active: false,
+    id: "job",
+    label: "Job",
+    description: "Understands opportunities and requirements.",
   },
   {
-    label: "Interviews",
-    icon: MessageSquareText,
-    active: false,
+    id: "strategy",
+    label: "Strategy",
+    description: "Builds career direction.",
   },
   {
-    label: "Applications",
-    icon: CalendarDays,
-    active: false,
+    id: "recommendation",
+    label: "Recommendation",
+    description: "Synthesizes personalized actions.",
+  },
+  {
+    id: "validation",
+    label: "Validation",
+    description: "Verifies the final workflow output.",
   },
 ];
 
-const quickStats = [
-  {
-    label: "Live opportunities",
-    value: "15",
-    detail: "Across 2 sources",
-  },
-  {
-    label: "Strong matches",
-    value: "6",
-    detail: "80+ compatibility",
-  },
-  {
-    label: "New today",
-    value: "9",
-    detail: "Fresh listings",
-  },
-];
 
-const opportunities = [
-  {
-    company: "PhonePe",
-    role: "Software Engineer — Backend",
-    location: "Bangalore",
-    mode: "On-site",
-    score: 92,
-    decision: "Strong match",
-    sourceCount: 1,
-    skills: ["Python", "SQL", "Backend"],
-  },
-  {
-    company: "Suki",
-    role: "Software Engineer III — Backend",
-    location: "Bangalore",
-    mode: "On-site",
-    score: 84,
-    decision: "Good match",
-    sourceCount: 1,
-    skills: ["Python", "APIs", "Backend"],
-  },
-  {
-    company: "ABB",
-    role: "Software Engineer",
-    location: "Bangalore",
-    mode: "Hybrid",
-    score: 81,
-    decision: "Good match",
-    sourceCount: 1,
-    skills: ["Software", "Engineering", "Git"],
-  },
-];
+function agentLabel(value?: string | null): string {
+  if (!value) {
+    return "Unknown";
+  }
+
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+
+function getAgentState(
+  agent: string,
+  result: AgenticRunResponse | null,
+): "done" | "active" | "idle" {
+  if (!result) {
+    return "idle";
+  }
+
+  if (
+    result.agents_used.includes(agent)
+  ) {
+    if (
+      result.status === "COMPLETED" ||
+      result.status === "FAILED"
+    ) {
+      return "done";
+    }
+
+    return "active";
+  }
+
+  if (
+    result.current_agent === agent
+  ) {
+    return "active";
+  }
+
+  return "idle";
+}
+
+
+function getLatestDelegation(
+  traces: DelegationTrace[],
+): DelegationTrace | null {
+  if (!traces.length) {
+    return null;
+  }
+
+  return traces[traces.length - 1];
+}
+
+
+function getRecommendationTitle(
+  recommendation: Record<string, unknown>,
+): string {
+  const title = recommendation.title;
+
+  return typeof title === "string"
+    ? title
+    : "Career action";
+}
+
+
+function getRecommendationAction(
+  recommendation: Record<string, unknown>,
+): string {
+  const action = recommendation.action;
+
+  return typeof action === "string"
+    ? action
+    : "Review this recommendation.";
+}
+
 
 export default function Home() {
+  const [
+    userGoal,
+    setUserGoal,
+  ] = useState(
+    "Find AI Engineer opportunities and tell me what I should do next.",
+  );
+
+  const [
+    role,
+    setRole,
+  ] = useState("AI Engineer");
+
+  const [
+    skills,
+    setSkills,
+  ] = useState(
+    "Python, FastAPI, SQL",
+  );
+
+  const [
+    location,
+    setLocation,
+  ] = useState("Bengaluru");
+
+  const [
+    loading,
+    setLoading,
+  ] = useState(false);
+
+  const [
+    error,
+    setError,
+  ] = useState<string | null>(null);
+
+  const [
+    result,
+    setResult,
+  ] = useState<AgenticRunResponse | null>(null);
+
+
+  const latestDelegation = useMemo(
+    () =>
+      getLatestDelegation(
+        result?.delegation_trace ?? [],
+      ),
+    [
+      result?.delegation_trace,
+    ],
+  );
+
+
+  const runCareerPilot = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const candidateSkills = skills
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      const requestId =
+        `frontend-${Date.now()}`;
+
+      const response =
+        await runAgenticWorkflow({
+          request_id: requestId,
+
+          thread_id:
+            `frontend-thread-${Date.now()}`,
+
+          user_goal: userGoal,
+
+          candidate_profile: {
+            candidate_id: requestId,
+
+            headline: role,
+
+            skills: candidateSkills,
+
+            technical_skills:
+              candidateSkills,
+
+            projects: [
+              "CareerPilot",
+            ],
+
+            preferred_locations: [
+              location,
+            ],
+
+            career_goal: {
+              target_roles: [
+                role,
+              ],
+            },
+          },
+
+          conversation_context: [],
+        });
+
+      setResult(response);
+    } catch (runError) {
+      setError(
+        runError instanceof Error
+          ? runError.message
+          : "Unable to run CareerPilot.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   return (
     <main className="min-h-screen bg-[#080a0f] text-white">
-      <div className="flex min-h-screen">
-        {/* Sidebar */}
-        <aside className="hidden w-[260px] shrink-0 border-r border-white/8 bg-[#0b0e14] lg:flex lg:flex-col">
-          <div className="flex h-20 items-center gap-3 border-b border-white/8 px-6">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-black">
-              <Sparkles size={18} strokeWidth={2.2} />
+      <div className="mx-auto max-w-[1500px] px-5 py-6 md:px-8 md:py-8">
+
+        {/* HEADER */}
+
+        <header className="flex flex-col gap-5 border-b border-white/8 pb-7 md:flex-row md:items-end md:justify-between">
+
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-white/55">
+              <Sparkles size={12} />
+              CareerPilot Agentic OS
             </div>
+
+            <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
+              Your career,
+              <br />
+              <span className="text-white/40">
+                intelligently orchestrated.
+              </span>
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/45 md:text-base">
+              CareerPilot coordinates specialist agents,
+              deterministic intelligence and validation to
+              turn your career goal into an actionable plan.
+            </p>
+          </div>
+
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3">
+            <div className="flex items-center gap-2">
+              <Activity
+                size={15}
+                className={
+                  result?.status === "COMPLETED"
+                    ? "text-white"
+                    : "text-white/35"
+                }
+              />
+
+              <span className="text-xs font-medium">
+                {result
+                  ? result.status
+                  : "READY"}
+              </span>
+            </div>
+
+            <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/30">
+              Agentic workflow
+            </div>
+          </div>
+
+        </header>
+
+
+        {/* INPUT AREA */}
+
+        <section className="mt-6 overflow-hidden rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.10),transparent_35%),linear-gradient(135deg,#11151d,#0b0d12)] p-6 md:p-8">
+
+          <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
 
             <div>
-              <div className="text-[15px] font-semibold tracking-tight">
-                CareerPilot
-              </div>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-white/35">
-                AI Career OS
-              </div>
-            </div>
-          </div>
-
-          <div className="px-4 pt-6">
-            <div className="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30">
-              Workspace
-            </div>
-
-            <nav className="space-y-1">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <button
-                    key={item.label}
-                    className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm transition ${
-                      item.active
-                        ? "bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.07)]"
-                        : "text-white/55 hover:bg-white/5 hover:text-white"
-                    }`}
-                  >
-                    <Icon size={17} />
-                    <span>{item.label}</span>
-
-                    {item.label === "Career Twin" && (
-                      <span className="ml-auto rounded-full bg-white/8 px-2 py-0.5 text-[9px] uppercase tracking-wider text-white/35">
-                        Soon
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </nav>
-          </div>
-
-          <div className="mt-auto border-t border-white/8 p-4">
-            <button className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/50 hover:bg-white/5 hover:text-white">
-              <Settings size={17} />
-              Settings
-            </button>
-
-            <div className="mt-3 flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.03] p-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
-                <UserRound size={16} />
+              <div className="text-[10px] uppercase tracking-[0.18em] text-white/30">
+                What should CareerPilot do?
               </div>
 
-              <div className="min-w-0">
-                <div className="truncate text-sm font-medium">
-                  Your Career Profile
-                </div>
-                <div className="text-[11px] text-white/35">
-                  4 skills tracked
-                </div>
-              </div>
-
-              <ChevronDown
-                className="ml-auto text-white/30"
-                size={15}
+              <textarea
+                value={userGoal}
+                onChange={(event) =>
+                  setUserGoal(
+                    event.target.value,
+                  )
+                }
+                rows={4}
+                className="mt-3 w-full resize-none rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-6 text-white outline-none transition placeholder:text-white/25 focus:border-white/20"
+                placeholder="Tell CareerPilot what you want to accomplish..."
               />
             </div>
-          </div>
-        </aside>
 
-        {/* Main workspace */}
-        <section className="flex min-w-0 flex-1 flex-col">
-          {/* Header */}
-          <header className="flex h-20 items-center justify-between border-b border-white/8 px-5 md:px-8">
-            <div className="flex min-w-0 items-center gap-3">
-              <div className="lg:hidden">
-                <button className="rounded-xl border border-white/10 p-2.5">
-                  <Gauge size={18} />
-                </button>
-              </div>
+
+            <div className="grid gap-3">
 
               <div>
-                <div className="text-[11px] uppercase tracking-[0.2em] text-white/30">
-                  Opportunities
+                <label className="text-[10px] uppercase tracking-[0.16em] text-white/30">
+                  Target role
+                </label>
+
+                <input
+                  value={role}
+                  onChange={(event) =>
+                    setRole(
+                      event.target.value,
+                    )
+                  }
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none focus:border-white/20"
+                />
+              </div>
+
+
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.16em] text-white/30">
+                  Skills
+                </label>
+
+                <input
+                  value={skills}
+                  onChange={(event) =>
+                    setSkills(
+                      event.target.value,
+                    )
+                  }
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none focus:border-white/20"
+                />
+              </div>
+
+
+              <div>
+                <label className="text-[10px] uppercase tracking-[0.16em] text-white/30">
+                  Location
+                </label>
+
+                <input
+                  value={location}
+                  onChange={(event) =>
+                    setLocation(
+                      event.target.value,
+                    )
+                  }
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none focus:border-white/20"
+                />
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+
+            <div className="flex items-center gap-2 text-xs text-white/35">
+              <ShieldCheck size={15} />
+              Deterministic validation remains active.
+            </div>
+
+            <button
+              onClick={runCareerPilot}
+              disabled={
+                loading ||
+                !userGoal.trim()
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {loading ? (
+                <>
+                  <Loader2
+                    size={16}
+                    className="animate-spin"
+                  />
+                  CareerPilot is thinking...
+                </>
+              ) : (
+                <>
+                  <Search size={16} />
+                  Run CareerPilot
+                  <ArrowRight size={16} />
+                </>
+              )}
+            </button>
+
+          </div>
+
+        </section>
+
+
+        {/* ERROR */}
+
+        {error && (
+          <section className="mt-5 rounded-2xl border border-red-400/20 bg-red-400/5 p-4">
+            <div className="flex items-start gap-3">
+              <XCircle
+                size={18}
+                className="mt-0.5 shrink-0 text-red-300"
+              />
+
+              <div>
+                <div className="text-sm font-medium text-red-200">
+                  Workflow failed
                 </div>
-                <h1 className="text-xl font-semibold tracking-tight md:text-2xl">
-                  Find roles worth your time.
-                </h1>
+
+                <div className="mt-1 text-xs leading-5 text-red-200/60">
+                  {error}
+                </div>
               </div>
             </div>
+          </section>
+        )}
 
-            <div className="flex items-center gap-2">
-              <button className="hidden rounded-xl border border-white/10 p-2.5 text-white/55 transition hover:bg-white/5 hover:text-white sm:block">
-                <Moon size={17} />
-              </button>
 
-              <button className="rounded-xl border border-white/10 p-2.5 text-white/55 transition hover:bg-white/5 hover:text-white">
-                <CircleUserRound size={17} />
-              </button>
-            </div>
-          </header>
+        {/* EMPTY STATE */}
 
-          {/* Content */}
-          <div className="flex-1 overflow-y-auto">
-            <div className="mx-auto max-w-[1500px] px-5 py-6 md:px-8 md:py-8">
-              {/* Hero/search */}
-              <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.10),transparent_35%),linear-gradient(135deg,#11151d,#0b0d12)] p-6 md:p-8">
-                <div className="max-w-3xl">
-                  <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-white/55">
-                    <Sparkles size={12} />
-                    Career intelligence
-                  </div>
+        {!result && !loading && (
+          <section className="mt-6 grid gap-4 md:grid-cols-3">
 
-                  <h2 className="text-3xl font-semibold leading-tight tracking-[-0.03em] md:text-5xl">
-                    Search the market.
-                    <br />
-                    <span className="text-white/45">
-                      Understand where you fit.
-                    </span>
+            {[
+              {
+                icon: UserRound,
+                title: "Understand me",
+                text: "Candidate intelligence builds a structured view of your skills and readiness.",
+              },
+              {
+                icon: BrainCircuit,
+                title: "Reason about my career",
+                text: "Specialists combine your profile, goals and opportunity signals.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Verify the answer",
+                text: "Validation checks the resulting workflow before it reaches you.",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-3xl border border-white/8 bg-white/[0.025] p-6"
+                >
+                  <Icon
+                    size={20}
+                    className="text-white/60"
+                  />
+
+                  <h2 className="mt-5 text-lg font-semibold">
+                    {item.title}
                   </h2>
 
-                  <p className="mt-4 max-w-2xl text-sm leading-6 text-white/45 md:text-base">
-                    CareerPilot combines live job discovery with
-                    candidate-specific matching, skill-gap analysis and
-                    explainable recommendations.
+                  <p className="mt-2 text-sm leading-6 text-white/35">
+                    {item.text}
                   </p>
                 </div>
+              );
+            })}
 
-                <div className="mt-7 grid gap-3 lg:grid-cols-[1.5fr_1fr_1fr_auto]">
-                  <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5">
-                    <Search
-                      size={18}
-                      className="shrink-0 text-white/35"
-                    />
-                    <div>
-                      <div className="text-[10px] uppercase tracking-wider text-white/30">
-                        Role
-                      </div>
-                      <div className="mt-0.5 text-sm text-white/80">
-                        Software Engineer
-                      </div>
-                    </div>
-                  </div>
+          </section>
+        )}
 
-                  <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5">
-                    <div className="text-[10px] uppercase tracking-wider text-white/30">
-                      Location
-                    </div>
-                    <div className="mt-0.5 text-sm text-white/80">
-                      Bangalore
-                    </div>
-                  </div>
 
-                  <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5">
-                    <div className="text-[10px] uppercase tracking-wider text-white/30">
-                      Minimum salary
-                    </div>
-                    <div className="mt-0.5 text-sm text-white/80">
-                      ₹6 LPA
-                    </div>
-                  </div>
+        {/* LOADING */}
 
-                  <button className="rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:bg-white/90">
-                    Find matches
-                  </button>
-                </div>
-              </div>
+        {loading && (
+          <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.025] p-7">
 
-              {/* Stats */}
-              <div className="mt-6 grid gap-3 md:grid-cols-3">
-                {quickStats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-white/8 bg-white/[0.025] p-5"
-                  >
-                    <div className="text-[11px] uppercase tracking-[0.17em] text-white/30">
-                      {stat.label}
-                    </div>
-                    <div className="mt-2 text-3xl font-semibold tracking-tight">
-                      {stat.value}
-                    </div>
-                    <div className="mt-1 text-xs text-white/35">
-                      {stat.detail}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="flex items-center gap-3">
+              <Loader2
+                size={18}
+                className="animate-spin"
+              />
 
-              {/* Opportunities */}
-              <div className="mt-8">
-                <div className="flex items-end justify-between gap-4">
-                  <div>
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-white/30">
-                      Recommended
-                    </div>
-                    <h3 className="mt-1 text-xl font-semibold tracking-tight">
-                      Opportunities for you
-                    </h3>
-                  </div>
-
-                  <button className="text-xs font-medium text-white/45 hover:text-white">
-                    View all
-                  </button>
+              <div>
+                <div className="text-sm font-medium">
+                  CareerPilot is orchestrating specialists
                 </div>
 
-                <div className="mt-4 space-y-3">
-                  {opportunities.map((job) => (
-                    <article
-                      key={`${job.company}-${job.role}`}
-                      className="group rounded-[24px] border border-white/8 bg-white/[0.02] p-5 transition hover:border-white/15 hover:bg-white/[0.035]"
-                    >
-                      <div className="flex flex-col gap-5 xl:flex-row xl:items-center">
-                        <div className="flex min-w-0 flex-1 items-start gap-4">
-                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-sm font-semibold">
-                            {job.company
-                              .slice(0, 2)
-                              .toUpperCase()}
-                          </div>
-
-                          <div className="min-w-0">
-                            <div className="flex flex-wrap items-center gap-2">
-                              <span className="text-[11px] uppercase tracking-[0.16em] text-white/30">
-                                {job.company}
-                              </span>
-
-                              <span className="rounded-full border border-white/8 px-2 py-0.5 text-[9px] uppercase tracking-wider text-white/30">
-                                {job.sourceCount} source
-                              </span>
-                            </div>
-
-                            <h4 className="mt-1 truncate text-base font-semibold">
-                              {job.role}
-                            </h4>
-
-                            <div className="mt-2 flex flex-wrap gap-2 text-xs text-white/35">
-                              <span>{job.location}</span>
-                              <span>•</span>
-                              <span>{job.mode}</span>
-                            </div>
-
-                            <div className="mt-3 flex flex-wrap gap-2">
-                              {job.skills.map((skill) => (
-                                <span
-                                  key={skill}
-                                  className="rounded-full bg-white/5 px-2.5 py-1 text-[10px] text-white/45"
-                                >
-                                  {skill}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center justify-between gap-4 xl:justify-end">
-                          <div className="min-w-[110px]">
-                            <div className="text-[10px] uppercase tracking-[0.18em] text-white/30">
-                              Match
-                            </div>
-
-                            <div className="mt-1 flex items-baseline gap-1">
-                              <span className="text-3xl font-semibold tracking-tight">
-                                {job.score}
-                              </span>
-                              <span className="text-xs text-white/30">
-                                /100
-                              </span>
-                            </div>
-
-                            <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/8">
-                              <div
-                                className="h-full rounded-full bg-white"
-                                style={{
-                                  width: `${job.score}%`,
-                                }}
-                              />
-                            </div>
-                          </div>
-
-                          <div className="text-right">
-                            <div className="text-[10px] uppercase tracking-[0.16em] text-white/30">
-                              Recommendation
-                            </div>
-
-                            <div className="mt-1 text-sm font-medium text-white/80">
-                              {job.decision}
-                            </div>
-                          </div>
-
-                          <button className="rounded-xl border border-white/10 px-4 py-2.5 text-xs font-medium text-white/70 transition group-hover:border-white/20 group-hover:text-white">
-                            Analyze
-                          </button>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
+                <div className="mt-1 text-xs text-white/35">
+                  Planning, analyzing, strategizing and validating...
                 </div>
               </div>
             </div>
+
+            <div className="mt-6 grid gap-2 md:grid-cols-7">
+
+              {AGENTS.map((agent) => (
+                <div
+                  key={agent.id}
+                  className="rounded-2xl border border-white/8 bg-black/15 p-3"
+                >
+                  <div className="flex items-center gap-2">
+                    <Circle
+                      size={10}
+                      className="text-white/30"
+                    />
+
+                    <span className="text-[10px] font-medium text-white/60">
+                      {agent.label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+
+            </div>
+
+          </section>
+        )}
+
+
+        {/* RESULTS */}
+
+        {result && (
+          <div className="mt-6 grid gap-4 xl:grid-cols-[1.35fr_0.65fr]">
+
+            {/* MAIN */}
+
+            <div className="space-y-4">
+
+              {/* WORKFLOW */}
+
+              <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
+
+                <div className="flex flex-col justify-between gap-4 md:flex-row md:items-start">
+
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.18em] text-white/30">
+                      Agent orchestration
+                    </div>
+
+                    <h2 className="mt-2 text-2xl font-semibold">
+                      Workflow trace
+                    </h2>
+
+                    <p className="mt-2 text-sm text-white/35">
+                      {latestDelegation
+                        ? `Last delegation: ${agentLabel(latestDelegation.from_agent)} → ${agentLabel(latestDelegation.to_agent)}`
+                        : "Workflow completed without delegation trace."}
+                    </p>
+                  </div>
+
+
+                  <div className="rounded-xl border border-white/10 px-3 py-2 text-xs text-white/50">
+                    {result.agents_used.length} agents used
+                  </div>
+
+                </div>
+
+
+                <div className="mt-6 grid gap-2 md:grid-cols-7">
+
+                  {AGENTS.map((agent) => {
+
+                    const state =
+                      getAgentState(
+                        agent.id,
+                        result,
+                      );
+
+                    return (
+                      <div
+                        key={agent.id}
+                        className={`rounded-2xl border p-3 transition ${
+                          state === "done"
+                            ? "border-white/15 bg-white/[0.06]"
+                            : state === "active"
+                              ? "border-white/20 bg-white/[0.10]"
+                              : "border-white/8 bg-black/10"
+                        }`}
+                      >
+
+                        <div className="flex items-center gap-2">
+
+                          {state === "done" ? (
+                            <CheckCircle2
+                              size={14}
+                              className="text-white"
+                            />
+                          ) : state === "active" ? (
+                            <Loader2
+                              size={14}
+                              className="animate-spin text-white"
+                            />
+                          ) : (
+                            <Circle
+                              size={14}
+                              className="text-white/25"
+                            />
+                          )}
+
+                          <span className="text-[10px] font-medium text-white/65">
+                            {agent.label}
+                          </span>
+
+                        </div>
+
+                        <div className="mt-2 text-[9px] leading-4 text-white/25">
+                          {agent.description}
+                        </div>
+
+                      </div>
+                    );
+                  })}
+
+                </div>
+
+
+                <div className="mt-6 space-y-2">
+
+                  {result.delegation_trace.map(
+                    (trace, index) => (
+                      <div
+                        key={`${trace.from_agent}-${trace.to_agent}-${index}`}
+                        className="flex items-center gap-3 rounded-xl border border-white/6 bg-black/10 px-4 py-3"
+                      >
+
+                        <div className="text-xs font-medium text-white/65">
+                          {agentLabel(
+                            trace.from_agent,
+                          )}
+                        </div>
+
+                        <ArrowRight
+                          size={14}
+                          className="text-white/25"
+                        />
+
+                        <div className="text-xs text-white/50">
+                          {agentLabel(
+                            trace.to_agent,
+                          )}
+                        </div>
+
+                        <span className="ml-auto text-[9px] uppercase tracking-wider text-white/25">
+                          {trace.status}
+                        </span>
+
+                      </div>
+                    ),
+                  )}
+
+                </div>
+
+              </section>
+
+
+              {/* RECOMMENDATIONS */}
+
+              <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
+
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/30">
+                  Personalized output
+                </div>
+
+                <h2 className="mt-2 text-2xl font-semibold">
+                  What CareerPilot recommends
+                </h2>
+
+
+                <div className="mt-5 space-y-3">
+
+                  {result.recommendations.length ? (
+                    result.recommendations.map(
+                      (recommendation, index) => (
+                        <article
+                          key={index}
+                          className="rounded-2xl border border-white/8 bg-black/10 p-5"
+                        >
+
+                          <div className="flex items-start gap-4">
+
+                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-black">
+                              {index + 1}
+                            </div>
+
+                            <div className="min-w-0">
+                              <h3 className="font-medium">
+                                {getRecommendationTitle(
+                                  recommendation,
+                                )}
+                              </h3>
+
+                              <p className="mt-1 text-sm leading-6 text-white/45">
+                                {getRecommendationAction(
+                                  recommendation,
+                                )}
+                              </p>
+
+                              {typeof recommendation.reason ===
+                                "string" &&
+                                recommendation.reason && (
+                                  <p className="mt-3 text-xs leading-5 text-white/30">
+                                    {recommendation.reason}
+                                  </p>
+                                )}
+
+                            </div>
+
+                          </div>
+
+                        </article>
+                      ),
+                    )
+                  ) : (
+                    <div className="rounded-2xl border border-white/8 p-5 text-sm text-white/35">
+                      No recommendations returned.
+                    </div>
+                  )}
+
+                </div>
+
+              </section>
+
+            </div>
+
+
+            {/* SIDEBAR */}
+
+            <aside className="space-y-4">
+
+              {/* VALIDATION */}
+
+              <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
+
+                <div className="flex items-center gap-2">
+                  <ShieldCheck
+                    size={17}
+                  />
+
+                  <span className="text-[10px] uppercase tracking-[0.18em] text-white/35">
+                    Trust layer
+                  </span>
+                </div>
+
+                <div className="mt-4">
+
+                  {result.final_validation?.valid ? (
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2
+                        size={24}
+                        className="text-white"
+                      />
+
+                      <div>
+                        <div className="text-lg font-semibold">
+                          Validated
+                        </div>
+
+                        <div className="text-xs text-white/35">
+                          Workflow passed final checks.
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-3">
+                      <XCircle
+                        size={24}
+                        className="text-white/60"
+                      />
+
+                      <div>
+                        <div className="text-lg font-semibold">
+                          Review required
+                        </div>
+
+                        <div className="text-xs text-white/35">
+                          Validation did not fully pass.
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                </div>
+
+
+                <div className="mt-5 grid grid-cols-2 gap-2">
+
+                  <div className="rounded-xl border border-white/8 bg-black/10 p-3">
+                    <div className="text-[9px] uppercase tracking-wider text-white/25">
+                      Retries
+                    </div>
+
+                    <div className="mt-1 text-xl font-semibold">
+                      {result.retry_count}
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-white/8 bg-black/10 p-3">
+                    <div className="text-[9px] uppercase tracking-wider text-white/25">
+                      Tools
+                    </div>
+
+                    <div className="mt-1 text-xl font-semibold">
+                      {result.tools_used.length}
+                    </div>
+                  </div>
+
+                </div>
+
+              </section>
+
+
+              {/* NEXT ACTION */}
+
+              <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
+
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/30">
+                  Next best action
+                </div>
+
+                {result.next_action ? (
+                  <>
+                    <h2 className="mt-3 text-xl font-semibold">
+                      {typeof result.next_action.title ===
+                      "string"
+                        ? result.next_action.title
+                        : "Continue your career plan"}
+                    </h2>
+
+                    <p className="mt-3 text-sm leading-6 text-white/40">
+                      {typeof result.next_action.action ===
+                      "string"
+                        ? result.next_action.action
+                        : "Review the recommendations and take the highest-impact action."}
+                    </p>
+                  </>
+                ) : (
+                  <p className="mt-3 text-sm leading-6 text-white/35">
+                    Review the recommendations above and
+                    take the highest-impact action first.
+                  </p>
+                )}
+
+              </section>
+
+
+              {/* CANDIDATE INTELLIGENCE */}
+
+              <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
+
+                <div className="flex items-center gap-2">
+                  <Target size={17} />
+
+                  <span className="text-[10px] uppercase tracking-[0.18em] text-white/30">
+                    Candidate intelligence
+                  </span>
+                </div>
+
+
+                {result.candidate_intelligence ? (
+                  <div className="mt-5 space-y-4">
+
+                    <div>
+                      <div className="text-[9px] uppercase tracking-wider text-white/25">
+                        Readiness
+                      </div>
+
+                      <div className="mt-1 text-lg font-semibold">
+                        {typeof result
+                          .candidate_intelligence
+                          .readiness_level ===
+                        "string"
+                          ? result
+                              .candidate_intelligence
+                              .readiness_level
+                          : "Assessed"}
+                      </div>
+                    </div>
+
+
+                    <div>
+                      <div className="text-[9px] uppercase tracking-wider text-white/25">
+                        Readiness score
+                      </div>
+
+                      <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/8">
+                        <div
+                          className="h-full rounded-full bg-white"
+                          style={{
+                            width: `${Math.max(
+                              0,
+                              Math.min(
+                                100,
+                                Number(
+                                  result
+                                    .candidate_intelligence
+                                    .readiness_score ??
+                                    0,
+                                ),
+                              ),
+                            )}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                  </div>
+                ) : (
+                  <div className="mt-4 text-sm text-white/35">
+                    Candidate intelligence is not available.
+                  </div>
+                )}
+
+              </section>
+
+            </aside>
+
           </div>
-        </section>
+        )}
+
       </div>
     </main>
   );
