@@ -155,6 +155,20 @@ class ValidationAgent:
             }
         )
 
+        knowledge_evidence = state.get("career_knowledge_evidence") or []
+        knowledge_valid = bool(knowledge_evidence)
+        knowledge_check = {
+            "valid": knowledge_valid,
+            "evidence_count": len(knowledge_evidence),
+            "source_count": len({x.get("source_id") for x in knowledge_evidence if isinstance(x, dict) and x.get("source_id")}),
+            "issues": [] if knowledge_valid else ["No career knowledge evidence was retrieved."],
+        }
+        validation_results.append({
+            "check": "career_knowledge_evidence",
+            "status": "PASS" if knowledge_valid else "FAIL",
+            "result": knowledge_check,
+        })
+
         # ========================================================
         # 4. OVERALL DECISION
         # ========================================================

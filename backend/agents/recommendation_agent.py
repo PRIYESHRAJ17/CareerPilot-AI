@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, List
 
+from backend.tools.knowledge_tools import career_knowledge_tool
+
 
 class RecommendationAgent:
     """
@@ -24,6 +26,22 @@ class RecommendationAgent:
             )
 
         updated_state = dict(state)
+
+        knowledge_result = career_knowledge_tool.invoke({
+            "query": state.get("user_goal", ""),
+            "top_k": 5,
+        })
+        updated_state["career_knowledge_evidence"] = (
+            knowledge_result.get("evidence", [])
+        )
+        knowledge_trace = list(updated_state.get("tool_trace", []) or [])
+        knowledge_trace.append({
+            "tool": "search_career_knowledge",
+            "agent": self.name,
+            "status": "completed",
+            "result_count": knowledge_result.get("count", 0),
+        })
+        updated_state["tool_trace"] = knowledge_trace
 
         candidate_intelligence = (
             state.get("candidate_intelligence") or {}

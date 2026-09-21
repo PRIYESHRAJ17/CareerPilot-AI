@@ -125,6 +125,8 @@ class CareerPilotState(TypedDict, total=False):
 
     tool_trace: list[ToolTraceEntry]
 
+    career_knowledge_evidence: list[dict[str, Any]]
+
     delegation_trace: list[dict[str, Any]]
 
     # ============================================================
@@ -220,6 +222,8 @@ def create_initial_state(
         agent_trace=[],
 
         tool_trace=[],
+
+        career_knowledge_evidence=[],
 
         delegation_trace=[],
 

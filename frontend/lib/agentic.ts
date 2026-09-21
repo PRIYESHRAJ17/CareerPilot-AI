@@ -19,6 +19,21 @@ export interface DelegationTrace {
   status: string;
 }
 
+export interface KnowledgeEvidence {
+  evidence_id: string;
+  source_id: string;
+  publisher: string;
+  title: string;
+  category: string;
+  topics: string[];
+  url: string;
+  resolved_url: string;
+  retrieval_method: string;
+  relevance: number;
+  text: string;
+}
+
+
 export interface AgenticRunResponse {
   request_id: string;
   thread_id: string;
@@ -29,6 +44,8 @@ export interface AgenticRunResponse {
   tools_used: string[];
 
   delegation_trace: DelegationTrace[];
+
+  career_knowledge_evidence: KnowledgeEvidence[];
 
   candidate_intelligence?: Record<string, unknown> | null;
   resume_intelligence?: Record<string, unknown> | null;

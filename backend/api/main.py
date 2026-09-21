@@ -65,6 +65,10 @@ from backend.services.llm_resume_reasoner import (
     LLMResumeReasoner,
 )
 
+from backend.api.knowledge import (
+    router as knowledge_router,
+)
+
 from backend.api.agentic import router as agentic_router
 
 
@@ -91,6 +95,9 @@ app = FastAPI(
 
 app.include_router(agentic_router)
 
+app.include_router(
+    knowledge_router
+)
 
 # ============================================================
 # CORS

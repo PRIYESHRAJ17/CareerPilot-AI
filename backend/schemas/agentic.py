@@ -306,6 +306,10 @@ class AgenticRunResponse(BaseModel):
         default_factory=list
     )
 
+    career_knowledge_evidence: List[Dict[str, Any]] = Field(
+        default_factory=list
+    )
+
     delegation_trace: List[Dict[str, Any]] = Field(
         default_factory=list
     )

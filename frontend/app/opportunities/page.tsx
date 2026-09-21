@@ -83,6 +83,10 @@ const defaultSkills = [
   "Git",
 ];
 
+// Career intelligence coverage combines the 98-source knowledge
+// corpus with the 2 existing live opportunity providers.
+const TOTAL_CAREER_INTELLIGENCE_SOURCES = 100;
+
 function formatDecision(
   decision: string | null | undefined,
 ) {
@@ -1377,7 +1381,7 @@ export default function OpportunitiesPage() {
               </section>
 
               {/* Stats */}
-              <section className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              <section className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
                 <div className="rounded-2xl border border-white/8 bg-white/[0.025] p-5">
                   <div className="text-[11px] uppercase tracking-[0.17em] text-white/30">
                     Opportunities found
@@ -1426,6 +1430,22 @@ export default function OpportunitiesPage() {
 
                   <div className="mt-1 text-xs text-white/35">
                     Contact employer to confirm
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-white/8 bg-white/[0.025] p-5">
+                  <div className="text-[11px] uppercase tracking-[0.17em] text-white/30">
+                    Career intelligence
+                  </div>
+
+                  <div className="mt-2 text-3xl font-semibold">
+                    {searched
+                      ? TOTAL_CAREER_INTELLIGENCE_SOURCES
+                      : "—"}
+                  </div>
+
+                  <div className="mt-1 text-xs text-white/35">
+                    98 knowledge sources + 2 live providers
                   </div>
                 </div>
 

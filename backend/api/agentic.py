@@ -100,6 +100,10 @@ def _build_response(
             state.get("tools_used") or []
         ),
 
+        career_knowledge_evidence=_serialize(
+            state.get("career_knowledge_evidence") or []
+        ),
+
         delegation_trace=_serialize(
             state.get("delegation_trace") or []
         ),
@@ -228,6 +232,33 @@ def run_agentic_workflow(
             state["candidate_profile"] = (
                 request.candidate_profile
             )
+        else:
+            # A bare career question still needs a minimal candidate
+            # context so the existing Candidate -> Strategy ->
+            # Recommendation -> Validation workflow can execute.
+            state["candidate_profile"] = {
+                "candidate_id": "agentic-user",
+                "name": "CareerPilot User",
+                "headline": request.user_goal,
+                "skills": [],
+                "technical_skills": [],
+                "soft_skills": [],
+                "years_of_experience": 0.0,
+                "education": [],
+                "certifications": [],
+                "projects": [],
+                "preferred_locations": [],
+                "preferred_work_modes": [],
+                "metadata": {},
+                "career_goal": {
+                    "target_roles": [request.user_goal],
+                    "target_industries": [],
+                    "target_locations": [],
+                    "minimum_salary_lpa": None,
+                    "preferred_work_modes": [],
+                    "target_timeline_months": None,
+                },
+            }
 
         if request.resume_base64:
             state["resume_base64"] = (
