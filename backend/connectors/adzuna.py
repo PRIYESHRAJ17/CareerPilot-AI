@@ -19,6 +19,29 @@ class AdzunaConnector(JobSource):
 
     name = "adzuna"
 
+    display_name = "Adzuna"
+
+    category = "job_aggregator"
+
+    countries = ["IN"]
+
+    requires_credentials = True
+
+    credential_env_vars = [
+        "ADZUNA_APP_ID",
+        "ADZUNA_APP_KEY",
+    ]
+
+    supports_paging = True
+
+    supports_remote_filter = True
+
+    supports_salary_filter = True
+
+    website = "https://www.adzuna.in/"
+
+    api_url = "https://api.adzuna.com/"
+
     RETRYABLE_STATUS_CODES = {
         429,
         500,
@@ -33,26 +56,72 @@ class AdzunaConnector(JobSource):
         timeout: int = 15,
         max_retries: int = 3,
     ) -> None:
-        self.app_id = os.getenv("ADZUNA_APP_ID")
-        self.app_key = os.getenv("ADZUNA_APP_KEY")
-        self.country = country
-        self.timeout = timeout
-        self.max_retries = max_retries
 
-    def _validate_credentials(self) -> None:
-        if not self.app_id or not self.app_key:
-            raise RuntimeError(
-                "Missing ADZUNA_APP_ID or ADZUNA_APP_KEY "
-                "environment variables."
-            )
+        self.app_id = os.getenv(
+            "ADZUNA_APP_ID"
+        )
+
+        self.app_key = os.getenv(
+            "ADZUNA_APP_KEY"
+        )
+
+        self.country = (
+            country.strip().lower()
+            if country
+            else "in"
+        )
+
+        self.timeout = max(
+            1,
+            int(timeout),
+        )
+
+        self.max_retries = max(
+            1,
+            int(max_retries),
+        )
+
+    # =========================================================
+    # CONFIGURATION
+    # =========================================================
+
+    def _validate_credentials(
+        self,
+    ) -> None:
+        """
+        Validate required Adzuna credentials.
+        """
+
+        # Refresh environment-backed credentials so the
+        # connector also works correctly in long-running
+        # development sessions.
+        self.app_id = os.getenv(
+            "ADZUNA_APP_ID"
+        )
+
+        self.app_key = os.getenv(
+            "ADZUNA_APP_KEY"
+        )
+
+        self.validate_configuration()
+
+    # =========================================================
+    # URL / REQUEST BUILDING
+    # =========================================================
 
     def _build_search_url(
         self,
         page: int,
     ) -> str:
+
+        safe_page = max(
+            1,
+            int(page),
+        )
+
         return (
             "https://api.adzuna.com/v1/api/jobs/"
-            f"{self.country}/search/{page}"
+            f"{self.country}/search/{safe_page}"
         )
 
     def _build_params(
@@ -63,10 +132,15 @@ class AdzunaConnector(JobSource):
         filters: Dict[str, Any],
     ) -> Dict[str, Any]:
 
+        safe_limit = max(
+            1,
+            int(limit),
+        )
+
         params: Dict[str, Any] = {
             "app_id": self.app_id,
             "app_key": self.app_key,
-            "results_per_page": limit,
+            "results_per_page": safe_limit,
             "what": query,
         }
 
@@ -87,6 +161,7 @@ class AdzunaConnector(JobSource):
         )
 
         for key in supported_filters:
+
             if (
                 key in filters
                 and filters[key] is not None
@@ -94,6 +169,10 @@ class AdzunaConnector(JobSource):
                 params[key] = filters[key]
 
         return params
+
+    # =========================================================
+    # SEARCH
+    # =========================================================
 
     def search(
         self,
@@ -106,7 +185,9 @@ class AdzunaConnector(JobSource):
 
         self._validate_credentials()
 
-        url = self._build_search_url(page)
+        url = self._build_search_url(
+            page
+        )
 
         params = self._build_params(
             query=query,
@@ -119,12 +200,18 @@ class AdzunaConnector(JobSource):
             requests.Response
         ] = None
 
-        backoff_seconds = [1, 3, 7]
+        backoff_seconds = [
+            1,
+            3,
+            7,
+        ]
 
         for attempt in range(
             self.max_retries
         ):
+
             try:
+
                 response = requests.get(
                     url,
                     params=params,
@@ -135,31 +222,38 @@ class AdzunaConnector(JobSource):
                     response.status_code
                     in self.RETRYABLE_STATUS_CODES
                 ):
+
                     if attempt < (
                         self.max_retries - 1
                     ):
+
                         wait_time = (
                             backoff_seconds[
                                 min(
                                     attempt,
-                                    len(backoff_seconds) - 1,
+                                    len(
+                                        backoff_seconds
+                                    )
+                                    - 1,
                                 )
                             ]
                         )
 
                         print(
-                            f"[Adzuna] HTTP "
+                            "[Adzuna] HTTP "
                             f"{response.status_code}. "
-                            f"Retrying in "
+                            "Retrying in "
                             f"{wait_time}s..."
                         )
 
                         time.sleep(
                             wait_time
                         )
+
                         continue
 
                 response.raise_for_status()
+
                 break
 
             except requests.RequestException as exc:
@@ -167,24 +261,29 @@ class AdzunaConnector(JobSource):
                 if attempt < (
                     self.max_retries - 1
                 ):
+
                     wait_time = (
                         backoff_seconds[
                             min(
                                 attempt,
-                                len(backoff_seconds) - 1,
+                                len(
+                                    backoff_seconds
+                                )
+                                - 1,
                             )
                         ]
                     )
 
                     print(
                         "[Adzuna] Request failed. "
-                        f"Retrying in "
+                        "Retrying in "
                         f"{wait_time}s..."
                     )
 
                     time.sleep(
                         wait_time
                     )
+
                     continue
 
                 raise RuntimeError(
@@ -194,20 +293,25 @@ class AdzunaConnector(JobSource):
                 ) from exc
 
         if response is None:
+
             raise RuntimeError(
                 "Adzuna request failed without "
                 "a response."
             )
 
         if not response.ok:
+
             raise RuntimeError(
                 "Adzuna returned HTTP "
                 f"{response.status_code}."
             )
 
         try:
+
             data = response.json()
+
         except ValueError as exc:
+
             raise RuntimeError(
                 "Adzuna returned invalid JSON."
             ) from exc
@@ -217,8 +321,16 @@ class AdzunaConnector(JobSource):
             [],
         )
 
+        if not isinstance(
+            results,
+            list,
+        ):
+            return []
+
         return [
-            self.normalize(raw_job)
+            self.normalize_and_enrich(
+                raw_job
+            )
             for raw_job in results
             if isinstance(
                 raw_job,
@@ -226,15 +338,22 @@ class AdzunaConnector(JobSource):
             )
         ]
 
+    # =========================================================
+    # HEALTH
+    # =========================================================
+
     def health_check(
         self,
     ) -> Dict[str, Any]:
 
         try:
+
             self._validate_credentials()
 
             response = requests.get(
-                self._build_search_url(1),
+                self._build_search_url(
+                    1
+                ),
                 params={
                     "app_id": self.app_id,
                     "app_key": self.app_key,
@@ -247,7 +366,9 @@ class AdzunaConnector(JobSource):
             return {
                 "source": self.name,
                 "healthy": response.ok,
-                "status_code": response.status_code,
+                "status_code": (
+                    response.status_code
+                ),
                 "message": (
                     "Adzuna API is reachable."
                     if response.ok
@@ -259,6 +380,7 @@ class AdzunaConnector(JobSource):
             }
 
         except Exception as exc:
+
             return {
                 "source": self.name,
                 "healthy": False,
@@ -266,18 +388,26 @@ class AdzunaConnector(JobSource):
                 "message": str(exc),
             }
 
+    # =========================================================
+    # NORMALIZATION
+    # =========================================================
+
     def normalize(
         self,
         raw_job: Dict[str, Any],
     ) -> Job:
 
         location_data = (
-            raw_job.get("location")
+            raw_job.get(
+                "location"
+            )
             or {}
         )
 
         company_data = (
-            raw_job.get("company")
+            raw_job.get(
+                "company"
+            )
             or {}
         )
 
@@ -301,10 +431,12 @@ class AdzunaConnector(JobSource):
         # annual salary values.
         #
         # Convert INR annual salary into LPA.
+
         salary = Salary(
             min_lpa=(
                 round(
-                    salary_min_raw / 100000,
+                    salary_min_raw
+                    / 100000,
                     2,
                 )
                 if salary_min_raw is not None
@@ -312,7 +444,8 @@ class AdzunaConnector(JobSource):
             ),
             max_lpa=(
                 round(
-                    salary_max_raw / 100000,
+                    salary_max_raw
+                    / 100000,
                     2,
                 )
                 if salary_max_raw is not None
@@ -427,10 +560,16 @@ class AdzunaConnector(JobSource):
                 ),
 
                 "original_adzuna_id": (
-                    raw_job.get("id")
+                    raw_job.get(
+                        "id"
+                    )
                 ),
             },
         )
+
+    # =========================================================
+    # EXTRACTION HELPERS
+    # =========================================================
 
     @staticmethod
     def _extract_locations(
@@ -440,7 +579,9 @@ class AdzunaConnector(JobSource):
         raw_values: List[str] = []
 
         raw_values.extend(
-            location_data.get("area")
+            location_data.get(
+                "area"
+            )
             or []
         )
 
@@ -456,11 +597,14 @@ class AdzunaConnector(JobSource):
             )
 
         normalized: List[str] = []
+
         seen = set()
 
         for value in raw_values:
 
-            for part in str(value).split(","):
+            for part in str(
+                value
+            ).split(","):
 
                 cleaned = part.strip()
 
@@ -473,6 +617,7 @@ class AdzunaConnector(JobSource):
                     continue
 
                 seen.add(key)
+
                 normalized.append(
                     cleaned
                 )
@@ -500,6 +645,7 @@ class AdzunaConnector(JobSource):
             contract_time
             and contract_type
         ):
+
             return (
                 f"{contract_time}_"
                 f"{contract_type}"
@@ -560,14 +706,19 @@ class AdzunaConnector(JobSource):
         value: Any,
     ) -> Optional[float]:
 
-        if value is None or value == "":
+        if value is None:
+            return None
+
+        if value == "":
             return None
 
         try:
+
             return float(value)
 
         except (
             TypeError,
             ValueError,
         ):
+
             return None

@@ -1,0 +1,5628 @@
+{
+  "total": 128,
+  "live": 96,
+  "configured": 0,
+  "degraded": 32,
+  "offline": 0,
+  "unverified": 0,
+  "rejected": 0,
+  "jobs_returned": 417,
+  "jobs_normalized": 417,
+  "jobs_with_provenance": 417,
+  "jobs_with_url": 417,
+  "fresh_jobs": 354,
+  "live_percentage": 75.0,
+  "results": [
+    {
+      "name": "ats_greenhouse_stripe",
+      "display_name": "stripe (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1803.66,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:23.751976+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_stripe",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1000.67,
+          "jobs_available": 701,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_anyscale",
+      "display_name": "anyscale (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 2785.99,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:25.555667+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_anyscale",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1166.14,
+          "jobs_available": 1,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_openai",
+      "display_name": "openai (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 1,
+      "latency_ms": 1773.62,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:28.341688+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_openai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 822.29,
+          "jobs_available": 830,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_figma",
+      "display_name": "figma (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1187.37,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:30.115339+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_figma",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 474.55,
+          "jobs_available": 163,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_palantir",
+      "display_name": "palantir (Lever)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 19509.7,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:31.302733+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_palantir",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 3839.81,
+          "jobs_available": 321,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_perplexity",
+      "display_name": "perplexity (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 2,
+      "latency_ms": 723.21,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:50.812462+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_perplexity",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 361.03,
+          "jobs_available": 123,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 3,
+          "canonical_jobs_reused": 3,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_anthropic",
+      "display_name": "anthropic (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1993.67,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:51.535703+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_anthropic",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1037.44,
+          "jobs_available": 618,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_zoox",
+      "display_name": "zoox (Lever)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 4,
+      "latency_ms": 6154.09,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:53.529425+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_zoox",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 3159.0,
+          "jobs_available": 241,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_cursor",
+      "display_name": "cursor (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 1,
+      "latency_ms": 802.94,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:30:59.683537+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_cursor",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 542.43,
+          "jobs_available": 126,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_robinhood",
+      "display_name": "robinhood (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 992.71,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:00.486499+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_robinhood",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 485.5,
+          "jobs_available": 159,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_spotify",
+      "display_name": "spotify (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 5090.62,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:01.479243+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_spotify",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 2680.51,
+          "jobs_available": 79,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_cohere",
+      "display_name": "cohere (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 638.26,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:06.569885+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_cohere",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 303.48,
+          "jobs_available": 147,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_brex",
+      "display_name": "brex (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1065.45,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:07.208169+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_brex",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 539.14,
+          "jobs_available": 259,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_waabi",
+      "display_name": "waabi (Lever)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 5962.1,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:08.273648+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_waabi",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 3006.05,
+          "jobs_available": 87,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_cerebras",
+      "display_name": "cerebras (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 879.88,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:14.235780+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_cerebras",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 574.56,
+          "jobs_available": 112,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_databricks",
+      "display_name": "databricks (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1468.8,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:15.115700+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_databricks",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 692.28,
+          "jobs_available": 887,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_wealthfront",
+      "display_name": "wealthfront (Lever)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 1,
+      "latency_ms": 4326.43,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:16.584520+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_wealthfront",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 2160.64,
+          "jobs_available": 23,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_harvey",
+      "display_name": "harvey (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 986.78,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:20.910977+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_harvey",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 638.91,
+          "jobs_available": 304,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_deepmind",
+      "display_name": "deepmind (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": false,
+      "search_ok": false,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 5383.18,
+      "message": "Provider endpoint is reachable only partially or failed health validation.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:21.897777+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_deepmind",
+          "healthy": false,
+          "status_code": null,
+          "latency_ms": 5383.13,
+          "jobs_available": 0,
+          "message": "ats_greenhouse_deepmind request failed after 3 attempts: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true"
+        }
+      }
+    },
+    {
+      "name": "ats_lever_neon",
+      "display_name": "neon (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 3805.26,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:27.280980+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_neon",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1891.11,
+          "jobs_available": 12,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_sierra",
+      "display_name": "sierra (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 3,
+      "latency_ms": 999.86,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:31.086258+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_sierra",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 649.76,
+          "jobs_available": 207,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 3,
+          "canonical_jobs_reused": 3,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_coinbase",
+      "display_name": "coinbase (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1036.72,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:32.086155+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_coinbase",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 511.45,
+          "jobs_available": 210,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_zilliz",
+      "display_name": "zilliz (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 3749.28,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:33.122897+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_zilliz",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1869.34,
+          "jobs_available": 12,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_decagon",
+      "display_name": "decagon (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 0,
+      "latency_ms": 942.94,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:36.872212+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_decagon",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 646.91,
+          "jobs_available": 146,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_affirm",
+      "display_name": "affirm (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 997.45,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:37.815169+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_affirm",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 494.11,
+          "jobs_available": 180,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_meesho",
+      "display_name": "meesho (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 5123.6,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:38.812648+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_meesho",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 2651.9,
+          "jobs_available": 54,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_elevenlabs",
+      "display_name": "elevenlabs (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 935.39,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:43.936270+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_elevenlabs",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 604.0,
+          "jobs_available": 207,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_block",
+      "display_name": "block (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1068.52,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:44.871686+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_block",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 508.56,
+          "jobs_available": 214,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_fampay",
+      "display_name": "fampay (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 4503.54,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:45.940249+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_fampay",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 2324.03,
+          "jobs_available": 15,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_etched",
+      "display_name": "etched (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 2,
+      "latency_ms": 835.96,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:50.443810+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_etched",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 551.33,
+          "jobs_available": 109,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 3,
+          "canonical_jobs_reused": 3,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_chime",
+      "display_name": "chime (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1145.78,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:51.279788+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_chime",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 666.05,
+          "jobs_available": 66,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_cred",
+      "display_name": "cred (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 3305.93,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:52.425686+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_cred",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1611.95,
+          "jobs_available": 12,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_cognition",
+      "display_name": "cognition (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 897.74,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:55.731647+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_cognition",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 612.12,
+          "jobs_available": 103,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_sofi",
+      "display_name": "sofi (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1059.68,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:56.629408+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_sofi",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 471.59,
+          "jobs_available": 58,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_veeva",
+      "display_name": "veeva (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 0,
+      "latency_ms": 14398.16,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:31:57.689250+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_veeva",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 5356.67,
+          "jobs_available": 916,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_deepgram",
+      "display_name": "deepgram (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 693.9,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:12.087441+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_deepgram",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 338.82,
+          "jobs_available": 91,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_upstart",
+      "display_name": "upstart (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1096.77,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:12.781397+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_upstart",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 556.14,
+          "jobs_available": 91,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_swordhealth",
+      "display_name": "swordhealth (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 5048.68,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:13.878214+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_swordhealth",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 1260.13,
+          "jobs_available": 0,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_fireworks",
+      "display_name": "fireworks (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 952.14,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:18.926927+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_fireworks",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 598.22,
+          "jobs_available": 82,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_carta",
+      "display_name": "carta (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 1069.18,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:19.879094+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_carta",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 503.68,
+          "jobs_available": 78,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_matchgroup",
+      "display_name": "matchgroup (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 5696.38,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:20.948338+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_matchgroup",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 2881.08,
+          "jobs_available": 75,
+          "message": "lever public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_suno",
+      "display_name": "suno (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 927.87,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:26.644743+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_suno",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 564.57,
+          "jobs_available": 63,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_gusto",
+      "display_name": "gusto (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1090.7,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:27.572643+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_gusto",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 536.95,
+          "jobs_available": 96,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_samsara",
+      "display_name": "samsara (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": false,
+      "search_ok": false,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 8081.07,
+      "message": "Provider endpoint is reachable only partially or failed health validation.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:28.663392+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_samsara",
+          "healthy": false,
+          "status_code": null,
+          "latency_ms": 8081.01,
+          "jobs_available": 0,
+          "message": "ats_lever_samsara request failed after 3 attempts: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/samsara?mode=json"
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_midjourney",
+      "display_name": "midjourney (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 850.42,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:36.744481+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_midjourney",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 561.67,
+          "jobs_available": 18,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_airbnb",
+      "display_name": "airbnb (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1263.41,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:37.594920+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_airbnb",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 599.78,
+          "jobs_available": 159,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_lever_postman",
+      "display_name": "postman (Lever)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": false,
+      "search_ok": false,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 7762.81,
+      "message": "Provider endpoint is reachable only partially or failed health validation.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:38.858363+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_lever_postman",
+          "healthy": false,
+          "status_code": null,
+          "latency_ms": 7762.77,
+          "jobs_available": 0,
+          "message": "ats_lever_postman request failed after 3 attempts: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/postman?mode=json"
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_poolside",
+      "display_name": "poolside (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 917.61,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:46.621194+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_poolside",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 588.65,
+          "jobs_available": 6,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_reddit",
+      "display_name": "reddit (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1105.26,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:47.538824+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_reddit",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 533.65,
+          "jobs_available": 150,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_character",
+      "display_name": "character (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 1089.56,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:48.644124+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_character",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 575.82,
+          "jobs_available": 13,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_pinterest",
+      "display_name": "pinterest (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1070.78,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:49.733702+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_pinterest",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 559.87,
+          "jobs_available": 153,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_runway",
+      "display_name": "runway (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 0,
+      "latency_ms": 721.76,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:50.804514+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_runway",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 504.34,
+          "jobs_available": 4,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_discord",
+      "display_name": "discord (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 968.19,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:51.526295+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_discord",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 477.83,
+          "jobs_available": 49,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_ashby",
+      "display_name": "Ashby (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 0,
+      "latency_ms": 930.96,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:52.494516+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_ashby",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 599.67,
+          "jobs_available": 66,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_cloudflare",
+      "display_name": "cloudflare (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1576.85,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:53.425529+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_cloudflare",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 778.72,
+          "jobs_available": 394,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_notion",
+      "display_name": "notion (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 588.2,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:55.002431+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_notion",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 285.84,
+          "jobs_available": 128,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_datadog",
+      "display_name": "datadog (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1216.43,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:55.590659+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_datadog",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 599.99,
+          "jobs_available": 449,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_ramp",
+      "display_name": "ramp (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 4,
+      "latency_ms": 718.72,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:56.807127+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_ramp",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 350.26,
+          "jobs_available": 158,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_amplitude",
+      "display_name": "amplitude (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 4,
+      "jobs_normalized": 4,
+      "jobs_with_provenance": 4,
+      "jobs_with_url": 4,
+      "fresh_jobs": 4,
+      "latency_ms": 1097.79,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:57.525869+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_amplitude",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 551.35,
+          "jobs_available": 37,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 4,
+          "canonical_jobs_reused": 4,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 4,
+          "normalized": 4,
+          "with_provenance": 4,
+          "with_url": 4,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_plaid",
+      "display_name": "plaid (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 978.48,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:58.623689+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_plaid",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 623.96,
+          "jobs_available": 122,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_vercel",
+      "display_name": "vercel (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1359.58,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:32:59.602211+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_vercel",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 779.4,
+          "jobs_available": 88,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_snowflake",
+      "display_name": "snowflake (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1305.34,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:00.961830+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_snowflake",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 810.81,
+          "jobs_available": 349,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_lyft",
+      "display_name": "lyft (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 4,
+      "jobs_normalized": 4,
+      "jobs_with_provenance": 4,
+      "jobs_with_url": 4,
+      "fresh_jobs": 4,
+      "latency_ms": 1160.83,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:02.267199+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_lyft",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 566.02,
+          "jobs_available": 175,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 4,
+          "canonical_jobs_reused": 4,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 4,
+          "normalized": 4,
+          "with_provenance": 4,
+          "with_url": 4,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_replit",
+      "display_name": "replit (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 993.01,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:03.428056+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_replit",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 649.03,
+          "jobs_available": 75,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_doordashusa",
+      "display_name": "doordashusa (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1815.85,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:04.421244+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_doordashusa",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 836.57,
+          "jobs_available": 457,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_supabase",
+      "display_name": "supabase (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 679.24,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:06.237168+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_supabase",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 340.99,
+          "jobs_available": 56,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_instacart",
+      "display_name": "instacart (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1203.4,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:06.916433+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_instacart",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 593.85,
+          "jobs_available": 116,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_temporal",
+      "display_name": "temporal (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 980.31,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:08.119867+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_temporal",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 652.74,
+          "jobs_available": 63,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_roblox",
+      "display_name": "roblox (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1243.24,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:09.100224+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_roblox",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 594.13,
+          "jobs_available": 257,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_modal",
+      "display_name": "modal (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 864.84,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:10.343497+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_modal",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 565.81,
+          "jobs_available": 39,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_dropbox",
+      "display_name": "dropbox (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 4,
+      "jobs_normalized": 4,
+      "jobs_with_provenance": 4,
+      "jobs_with_url": 4,
+      "fresh_jobs": 4,
+      "latency_ms": 1181.72,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:11.208361+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_dropbox",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 584.23,
+          "jobs_available": 44,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 4,
+          "canonical_jobs_reused": 4,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 4,
+          "normalized": 4,
+          "with_provenance": 4,
+          "with_url": 4,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_linear",
+      "display_name": "linear (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 586.35,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:12.390131+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_linear",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 303.84,
+          "jobs_available": 30,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_twilio",
+      "display_name": "twilio (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1224.63,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:12.976503+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_twilio",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 613.01,
+          "jobs_available": 138,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_sentry",
+      "display_name": "sentry (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 914.95,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:14.201162+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_sentry",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 594.13,
+          "jobs_available": 41,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_okta",
+      "display_name": "okta (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1503.57,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:15.116143+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_okta",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 659.36,
+          "jobs_available": 333,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_render",
+      "display_name": "render (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 0,
+      "latency_ms": 942.14,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:16.619756+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_render",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 610.92,
+          "jobs_available": 40,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_mongodb",
+      "display_name": "mongodb (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1436.43,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:17.561920+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_mongodb",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 657.4,
+          "jobs_available": 396,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_railway",
+      "display_name": "railway (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 0,
+      "latency_ms": 926.62,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:18.998390+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_railway",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 624.14,
+          "jobs_available": 8,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_elastic",
+      "display_name": "elastic (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1654.66,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:19.925043+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_elastic",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 821.29,
+          "jobs_available": 384,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_benchling",
+      "display_name": "benchling (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 3,
+      "latency_ms": 987.32,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:21.579752+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_benchling",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 648.41,
+          "jobs_available": 56,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 3,
+          "canonical_jobs_reused": 3,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_samsara",
+      "display_name": "samsara (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1376.4,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:22.567098+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_samsara",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 656.44,
+          "jobs_available": 248,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_applied",
+      "display_name": "applied (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 1322.33,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:23.943581+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_applied",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 831.54,
+          "jobs_available": 306,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_verkada",
+      "display_name": "verkada (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1326.65,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:25.265944+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_verkada",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 657.39,
+          "jobs_available": 304,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_handshake",
+      "display_name": "handshake (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 4,
+      "latency_ms": 993.82,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:26.592643+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_handshake",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 635.33,
+          "jobs_available": 72,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_duolingo",
+      "display_name": "duolingo (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 1215.18,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:27.586508+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_duolingo",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 644.32,
+          "jobs_available": 82,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_substack",
+      "display_name": "substack (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 3,
+      "latency_ms": 892.46,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:28.801726+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_substack",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 618.2,
+          "jobs_available": 16,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 3,
+          "canonical_jobs_reused": 3,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_linkedin",
+      "display_name": "linkedin (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 1053.39,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:29.694243+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_linkedin",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 519.33,
+          "jobs_available": 53,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_thumbtack",
+      "display_name": "thumbtack (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 4,
+      "latency_ms": 876.0,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:30.747647+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_thumbtack",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 554.52,
+          "jobs_available": 54,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 4,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_asana",
+      "display_name": "asana (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1037.66,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:31.623673+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_asana",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 526.84,
+          "jobs_available": 97,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_miro",
+      "display_name": "miro (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 776.44,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:32.661364+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_miro",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 534.02,
+          "jobs_available": 28,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_gitlab",
+      "display_name": "gitlab (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1264.71,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:33.437839+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_gitlab",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 611.15,
+          "jobs_available": 199,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_airbyte",
+      "display_name": "airbyte (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 911.34,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:34.702611+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_airbyte",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 575.78,
+          "jobs_available": 12,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_klaviyo",
+      "display_name": "klaviyo (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 1298.28,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:35.613987+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_klaviyo",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 635.11,
+          "jobs_available": 148,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_astronomer",
+      "display_name": "astronomer (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 978.05,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:36.912306+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_astronomer",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 605.68,
+          "jobs_available": 20,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_rubrik",
+      "display_name": "rubrik (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1212.56,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:37.890387+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_rubrik",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 602.41,
+          "jobs_available": 140,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_baseten",
+      "display_name": "baseten (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 1098.49,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:39.102984+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_baseten",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 671.05,
+          "jobs_available": 101,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_toast",
+      "display_name": "toast (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1315.91,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:40.201513+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_toast",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 644.78,
+          "jobs_available": 345,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_clerk",
+      "display_name": "clerk (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 1006.55,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:41.517468+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_clerk",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 662.53,
+          "jobs_available": 2,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_twitch",
+      "display_name": "twitch (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1180.94,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:42.524040+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_twitch",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 578.42,
+          "jobs_available": 59,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_clickhouse",
+      "display_name": "clickhouse (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1102.51,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:43.705014+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_clickhouse",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 699.93,
+          "jobs_available": 189,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_zscaler",
+      "display_name": "zscaler (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1370.99,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:44.807559+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_zscaler",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 664.82,
+          "jobs_available": 380,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_confluent",
+      "display_name": "confluent (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 894.18,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:46.178622+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_confluent",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 561.56,
+          "jobs_available": 20,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_squarespace",
+      "display_name": "squarespace (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 1108.61,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:47.072849+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_squarespace",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 563.54,
+          "jobs_available": 34,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_docker",
+      "display_name": "docker (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 1,
+      "latency_ms": 1005.24,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:48.181485+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_docker",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 607.04,
+          "jobs_available": 58,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_nextdoor",
+      "display_name": "nextdoor (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 901.14,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:49.186797+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_nextdoor",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 468.34,
+          "jobs_available": 23,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_inngest",
+      "display_name": "inngest (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 700.29,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:50.087956+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_inngest",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 495.59,
+          "jobs_available": 1,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_oscar",
+      "display_name": "oscar (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1005.77,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:50.788277+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_oscar",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 503.76,
+          "jobs_available": 280,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_langchain",
+      "display_name": "langchain (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1121.35,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:51.794069+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_langchain",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 568.23,
+          "jobs_available": 102,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_flexport",
+      "display_name": "flexport (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 1000.88,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:52.915445+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_flexport",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 494.31,
+          "jobs_available": 199,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_llamaindex",
+      "display_name": "llamaindex (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 864.04,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:53.916353+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_llamaindex",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 499.03,
+          "jobs_available": 9,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_checkr",
+      "display_name": "checkr (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1182.68,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:54.780422+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_checkr",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 610.89,
+          "jobs_available": 49,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_lumaai",
+      "display_name": "lumaai (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 909.39,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:55.963128+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_lumaai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 582.51,
+          "jobs_available": 30,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_cockroachlabs",
+      "display_name": "cockroachlabs (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1123.51,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:56.872565+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_cockroachlabs",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 544.25,
+          "jobs_available": 19,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_materialize",
+      "display_name": "materialize (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 909.64,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:57.996112+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_materialize",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 585.01,
+          "jobs_available": 3,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_xai",
+      "display_name": "xai (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1283.06,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:33:58.905787+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_xai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 639.17,
+          "jobs_available": 276,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_nousresearch",
+      "display_name": "nousresearch (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 836.24,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:00.188873+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_nousresearch",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 534.19,
+          "jobs_available": 10,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_scaleai",
+      "display_name": "scaleai (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1183.62,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:01.025139+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_scaleai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 590.05,
+          "jobs_available": 203,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_physicalintelligence",
+      "display_name": "physicalintelligence (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 991.89,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:02.208796+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_physicalintelligence",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 666.21,
+          "jobs_available": 35,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_togetherai",
+      "display_name": "togetherai (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1093.94,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:03.200708+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_togetherai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 551.36,
+          "jobs_available": 78,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_pinecone",
+      "display_name": "pinecone (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 1,
+      "latency_ms": 941.91,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:04.294672+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_pinecone",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 604.57,
+          "jobs_available": 7,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_gleanwork",
+      "display_name": "gleanwork (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1219.95,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:05.236602+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_gleanwork",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 599.92,
+          "jobs_available": 130,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_posthog",
+      "display_name": "posthog (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 892.23,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:06.456624+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_posthog",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 581.66,
+          "jobs_available": 8,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_snorkelai",
+      "display_name": "snorkelai (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1149.97,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:07.348906+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_snorkelai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 568.28,
+          "jobs_available": 38,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 5,
+          "canonical_jobs_reused": 5,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_prefect",
+      "display_name": "prefect (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 892.41,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:08.498912+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_prefect",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 593.19,
+          "jobs_available": 8,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_assemblyai",
+      "display_name": "assemblyai (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 956.91,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:09.391350+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_assemblyai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 506.86,
+          "jobs_available": 10,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 1,
+          "canonical_jobs_reused": 1,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_reflectionai",
+      "display_name": "reflectionai (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "DEGRADED",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 795.58,
+      "message": "Search succeeded but returned no jobs.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:10.348282+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_reflectionai",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 549.68,
+          "jobs_available": 55,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 0,
+          "canonical_jobs_reused": 0,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 0,
+          "normalized": 0,
+          "with_provenance": 0,
+          "with_url": 0,
+          "fresh": 0,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_greenhouse_sambanovasystems",
+      "display_name": "sambanovasystems (Greenhouse)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 3,
+      "latency_ms": 942.11,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:11.143890+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_greenhouse_sambanovasystems",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 482.5,
+          "jobs_available": 61,
+          "message": "greenhouse public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 3,
+          "canonical_jobs_reused": 3,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 3,
+          "freshness_days": 180
+        }
+      }
+    },
+    {
+      "name": "ats_ashby_resend",
+      "display_name": "resend (Ashby)",
+      "adapter_type": "ats_public",
+      "state": "LIVE",
+      "configuration_ok": true,
+      "health_ok": true,
+      "search_ok": true,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 750.59,
+      "message": "Provider passed live verification.",
+      "error_type": null,
+      "error": null,
+      "checked_at": "2026-09-27T11:34:12.086033+00:00",
+      "evidence": {
+        "health": {
+          "source": "ats_ashby_resend",
+          "healthy": true,
+          "status_code": 200,
+          "latency_ms": 518.68,
+          "jobs_available": 9,
+          "message": "ashby public job-board endpoint reachable."
+        },
+        "normalization": {
+          "returned": 2,
+          "canonical_jobs_reused": 2,
+          "normalized_from_raw": 0,
+          "errors": 0,
+          "error_samples": []
+        },
+        "job_validation": {
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
+          "freshness_days": 180
+        }
+      }
+    }
+  ],
+  "catalog": {
+    "target": 128,
+    "candidate_count": 128,
+    "platform_counts": {
+      "greenhouse": 56,
+      "lever": 16,
+      "ashby": 56
+    }
+  },
+  "verification_parameters": {
+    "query": "software engineer",
+    "location": "remote",
+    "limit": 5,
+    "freshness_days": 180,
+    "concurrency": 8
+  },
+  "admission_policy": {
+    "configured_is_not_live": true,
+    "live_requires_real_jobs": true,
+    "live_requires_normalization": true,
+    "live_requires_provenance": true,
+    "live_requires_job_url": true,
+    "live_requires_freshness": true
+  }
+}

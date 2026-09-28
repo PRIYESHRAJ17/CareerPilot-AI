@@ -8,6 +8,13 @@ from fastapi import APIRouter, HTTPException
 
 from backend.graph.state import create_initial_state
 from backend.graph.workflow import invoke_careerpilot
+
+from backend.services.career_twin import (
+    get_or_create,
+    merge_twin_into_candidate_profile,
+    update_from_candidate,
+)
+
 from backend.schemas.agentic import (
     AgenticHealthResponse,
     AgenticRunRequest,
@@ -23,7 +30,8 @@ router = APIRouter(
 
 def _serialize(value: Any) -> Any:
     """
-    Convert CareerPilot/Pydantic/LangGraph values into JSON-safe data.
+    Convert CareerPilot/Pydantic/LangGraph values
+    into JSON-safe data.
     """
 
     if value is None:
@@ -33,7 +41,9 @@ def _serialize(value: Any) -> Any:
         return value.value
 
     if hasattr(value, "model_dump"):
-        return value.model_dump(mode="json")
+        return value.model_dump(
+            mode="json"
+        )
 
     if is_dataclass(value):
         return asdict(value)
@@ -44,7 +54,10 @@ def _serialize(value: Any) -> Any:
             for key, item in value.items()
         }
 
-    if isinstance(value, (list, tuple, set)):
+    if isinstance(
+        value,
+        (list, tuple, set),
+    ):
         return [
             _serialize(item)
             for item in value
@@ -56,124 +69,226 @@ def _serialize(value: Any) -> Any:
 def _build_response(
     state: dict[str, Any],
 ) -> AgenticRunResponse:
-    workflow = state.get("workflow")
+
+    workflow = state.get(
+        "workflow"
+    )
 
     request_id = str(
-        state.get("request_id")
-        or getattr(workflow, "workflow_id", "")
+        state.get(
+            "request_id"
+        )
+        or getattr(
+            workflow,
+            "workflow_id",
+            "",
+        )
     )
 
     thread_id = str(
-        state.get("thread_id")
-        or getattr(workflow, "thread_id", "")
+        state.get(
+            "thread_id"
+        )
+        or getattr(
+            workflow,
+            "thread_id",
+            "",
+        )
     )
 
     status = (
-        getattr(workflow, "status", None)
-        or state.get("workflow_status")
+        getattr(
+            workflow,
+            "status",
+            None,
+        )
+        or state.get(
+            "workflow_status"
+        )
         or "UNKNOWN"
     )
 
     current_agent = (
-        getattr(workflow, "current_agent", None)
-        or state.get("current_agent")
+        getattr(
+            workflow,
+            "current_agent",
+            None,
+        )
+        or state.get(
+            "current_agent"
+        )
     )
-
-    current_agent = _serialize(current_agent)
-
-    status = _serialize(status)
 
     return AgenticRunResponse(
         request_id=request_id,
 
         thread_id=thread_id,
 
-        status=status,
+        status=_serialize(
+            status
+        ),
 
-        current_agent=current_agent,
+        current_agent=_serialize(
+            current_agent
+        ),
 
         agents_used=_serialize(
-            state.get("agents_used") or []
+            state.get(
+                "agents_used"
+            )
+            or []
         ),
 
         tools_used=_serialize(
-            state.get("tools_used") or []
+            state.get(
+                "tools_used"
+            )
+            or []
         ),
 
         career_knowledge_evidence=_serialize(
-            state.get("career_knowledge_evidence") or []
+            state.get(
+                "career_knowledge_evidence"
+            )
+            or []
         ),
 
+        # ----------------------------------------------------
+        # WEEK 6 — CAREER TWIN
+        # ----------------------------------------------------
+
+        career_twin=_serialize(
+            state.get(
+                "career_twin"
+            )
+            or {}
+        ),
+
+        career_memory_events=_serialize(
+            state.get(
+                "career_memory_events"
+            )
+            or []
+        ),
+
+        # ----------------------------------------------------
+        # EXISTING INTELLIGENCE
+        # ----------------------------------------------------
+
         delegation_trace=_serialize(
-            state.get("delegation_trace") or []
+            state.get(
+                "delegation_trace"
+            )
+            or []
         ),
 
         candidate_intelligence=_serialize(
-            state.get("candidate_intelligence")
+            state.get(
+                "candidate_intelligence"
+            )
         ),
 
         resume_intelligence=_serialize(
-            state.get("resume_intelligence")
+            state.get(
+                "resume_intelligence"
+            )
         ),
 
         ats_analysis=_serialize(
-            state.get("ats_analysis")
+            state.get(
+                "ats_analysis"
+            )
         ),
 
         job_fit_analysis=_serialize(
-            state.get("job_fit_analysis")
+            state.get(
+                "job_fit_analysis"
+            )
         ),
 
         rewrite_analysis=_serialize(
-            state.get("rewrite_analysis")
+            state.get(
+                "rewrite_analysis"
+            )
         ),
 
         rewrite_candidates=_serialize(
-            state.get("rewrite_candidates") or []
+            state.get(
+                "rewrite_candidates"
+            )
+            or []
         ),
 
         validated_rewrites=_serialize(
-            state.get("validated_rewrites") or []
+            state.get(
+                "validated_rewrites"
+            )
+            or []
         ),
 
         job=_serialize(
-            state.get("job")
+            state.get(
+                "job"
+            )
         ),
 
         job_requirements=_serialize(
-            state.get("job_requirements")
+            state.get(
+                "job_requirements"
+            )
         ),
 
         skill_gaps=_serialize(
-            state.get("skill_gaps") or []
+            state.get(
+                "skill_gaps"
+            )
+            or []
         ),
 
         career_strategy=_serialize(
-            state.get("career_strategy")
+            state.get(
+                "career_strategy"
+            )
         ),
 
         recommendations=_serialize(
-            state.get("recommendations") or []
+            state.get(
+                "recommendations"
+            )
+            or []
         ),
 
         next_action=_serialize(
-            state.get("next_action")
+            state.get(
+                "next_action"
+            )
         ),
 
         final_validation=_serialize(
-            state.get("final_validation")
+            state.get(
+                "final_validation"
+            )
         ),
 
         final_response=_serialize(
-            state.get("final_response")
+            state.get(
+                "final_response"
+            )
         ),
 
         retry_count=int(
-            state.get("retry_count", 0) or 0
+            state.get(
+                "retry_count",
+                0,
+            )
+            or 0
         ),
 
         errors=_serialize(
-            state.get("errors") or []
+            state.get(
+                "errors"
+            )
+            or []
         ),
     )
 
@@ -183,6 +298,7 @@ def _build_response(
     response_model=AgenticHealthResponse,
 )
 def agentic_health():
+
     return AgenticHealthResponse(
         status="healthy",
         service="careerpilot-agentic",
@@ -198,17 +314,26 @@ def agentic_health():
 def run_agentic_workflow(
     request: AgenticRunRequest,
 ):
+
     """
-    Run the complete CareerPilot agentic workflow.
+    Run the complete CareerPilot
+    agentic workflow.
 
-    Existing deterministic APIs remain untouched.
+    Week 6 enhancement:
 
-    This endpoint creates shared CareerPilot state, seeds the
-    supplied user/candidate/job/resume context, executes LangGraph,
-    and returns the structured agentic result.
+        Request
+           ↓
+        Career Twin hydration
+           ↓
+        Agentic workflow
+           ↓
+        Career Twin persistence
+           ↓
+        Response
     """
 
     try:
+
         request_id = (
             request.request_id
             or f"agentic-{id(request)}"
@@ -219,6 +344,10 @@ def run_agentic_workflow(
             or request_id
         )
 
+        # ----------------------------------------------------
+        # CREATE SHARED STATE
+        # ----------------------------------------------------
+
         state = create_initial_state(
             request_id=request_id,
             user_goal=request.user_goal,
@@ -228,62 +357,224 @@ def run_agentic_workflow(
             ),
         )
 
-        if request.candidate_profile is not None:
-            state["candidate_profile"] = (
+        # ----------------------------------------------------
+        # CANDIDATE PROFILE
+        # ----------------------------------------------------
+
+        if (
+            request.candidate_profile
+            is not None
+        ):
+
+            state[
+                "candidate_profile"
+            ] = (
                 request.candidate_profile
             )
+
         else:
-            # A bare career question still needs a minimal candidate
-            # context so the existing Candidate -> Strategy ->
-            # Recommendation -> Validation workflow can execute.
-            state["candidate_profile"] = {
-                "candidate_id": "agentic-user",
-                "name": "CareerPilot User",
-                "headline": request.user_goal,
+
+            # Bare career question still receives
+            # a valid minimal candidate context.
+
+            state[
+                "candidate_profile"
+            ] = {
+
+                "candidate_id":
+                    "agentic-user",
+
+                "name":
+                    "CareerPilot User",
+
+                "headline":
+                    request.user_goal,
+
                 "skills": [],
+
                 "technical_skills": [],
+
                 "soft_skills": [],
-                "years_of_experience": 0.0,
+
+                "years_of_experience":
+                    0.0,
+
                 "education": [],
+
                 "certifications": [],
+
                 "projects": [],
+
                 "preferred_locations": [],
+
                 "preferred_work_modes": [],
+
                 "metadata": {},
+
                 "career_goal": {
-                    "target_roles": [request.user_goal],
+
+                    "target_roles": [
+                        request.user_goal
+                    ],
+
                     "target_industries": [],
+
                     "target_locations": [],
-                    "minimum_salary_lpa": None,
+
+                    "minimum_salary_lpa":
+                        None,
+
                     "preferred_work_modes": [],
-                    "target_timeline_months": None,
+
+                    "target_timeline_months":
+                        None,
                 },
             }
 
+        # ====================================================
+        # WEEK 6 — CAREER TWIN HYDRATION
+        # ====================================================
+
+        candidate_id = str(
+            (
+                state.get(
+                    "candidate_profile"
+                )
+                or {}
+            ).get(
+                "candidate_id"
+            )
+            or "agentic-user"
+        )
+
+        career_twin = get_or_create(
+            candidate_id
+        )
+
+        state[
+            "career_twin"
+        ] = career_twin.model_dump(
+            mode="json"
+        )
+
+        # Historical Career Twin state is merged into
+        # the active candidate context before agents run.
+
+        state[
+            "candidate_profile"
+        ] = (
+            merge_twin_into_candidate_profile(
+                state[
+                    "candidate_profile"
+                ],
+                career_twin,
+            )
+        )
+
+        # ----------------------------------------------------
+        # OPTIONAL INPUTS
+        # ----------------------------------------------------
+
         if request.resume_base64:
-            state["resume_base64"] = (
+
+            state[
+                "resume_base64"
+            ] = (
                 request.resume_base64
             )
 
         if request.job_description:
-            state["job_description"] = (
+
+            state[
+                "job_description"
+            ] = (
                 request.job_description
             )
 
         if request.job_query:
-            state["job_query"] = (
+
+            state[
+                "job_query"
+            ] = (
                 request.job_query
             )
 
-        state = invoke_careerpilot(state)
+        # ====================================================
+        # RUN LANGGRAPH
+        # ====================================================
 
-        return _build_response(state)
+        state = invoke_careerpilot(
+            state
+        )
+
+        # ====================================================
+        # WEEK 6 — PERSIST CAREER TWIN
+        # ====================================================
+
+        updated_twin = (
+            update_from_candidate(
+                candidate=(
+                    state.get(
+                        "candidate_profile"
+                    )
+                    or {}
+                ),
+
+                candidate_intelligence=(
+                    state.get(
+                        "candidate_intelligence"
+                    )
+                    or {}
+                ),
+
+                skill_gaps=(
+                    state.get(
+                        "skill_gaps"
+                    )
+                    or []
+                ),
+
+                recommendations=(
+                    state.get(
+                        "recommendations"
+                    )
+                    or []
+                ),
+            )
+        )
+
+        state[
+            "career_twin"
+        ] = updated_twin.model_dump(
+            mode="json"
+        )
+
+        state[
+            "career_memory_events"
+        ] = [
+            event.model_dump(
+                mode="json"
+            )
+            for event in (
+                updated_twin.memory[
+                    -10:
+                ]
+            )
+        ]
+
+        return _build_response(
+            state
+        )
 
     except HTTPException:
         raise
 
     except Exception as exc:
+
         raise HTTPException(
             status_code=500,
-            detail=f"Agentic workflow failed: {exc}",
+            detail=(
+                "Agentic workflow failed: "
+                f"{exc}"
+            ),
         ) from exc

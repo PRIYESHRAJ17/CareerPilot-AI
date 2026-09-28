@@ -19,6 +19,28 @@ class JoobleConnector(JobSource):
 
     name = "jooble"
 
+    display_name = "Jooble"
+
+    category = "job_aggregator"
+
+    countries = ["IN"]
+
+    requires_credentials = True
+
+    credential_env_vars = [
+        "JOOBLE_API_KEY",
+    ]
+
+    supports_paging = True
+
+    supports_remote_filter = True
+
+    supports_salary_filter = False
+
+    website = "https://in.jooble.org/"
+
+    api_url = "https://in.jooble.org/api/"
+
     RETRYABLE_STATUS_CODES = {
         429,
         500,
@@ -32,20 +54,42 @@ class JoobleConnector(JobSource):
         timeout: int = 15,
         max_retries: int = 3,
     ) -> None:
+
         self.api_key = os.getenv(
             "JOOBLE_API_KEY"
         )
 
-        self.timeout = timeout
-        self.max_retries = max_retries
+        self.timeout = max(
+            1,
+            int(timeout),
+        )
 
-    def _validate_credentials(self) -> None:
+        self.max_retries = max(
+            1,
+            int(max_retries),
+        )
 
-        if not self.api_key:
-            raise RuntimeError(
-                "Missing JOOBLE_API_KEY "
-                "environment variable."
-            )
+    # =========================================================
+    # CONFIGURATION
+    # =========================================================
+
+    def _validate_credentials(
+        self,
+    ) -> None:
+
+        # Refresh environment-backed credentials so the
+        # connector also works correctly in long-running
+        # development sessions.
+
+        self.api_key = os.getenv(
+            "JOOBLE_API_KEY"
+        )
+
+        self.validate_configuration()
+
+    # =========================================================
+    # SEARCH
+    # =========================================================
 
     def search(
         self,
@@ -69,14 +113,24 @@ class JoobleConnector(JobSource):
                 location
                 or "India"
             ),
-            "page": str(page),
-            "ResultOnPage": str(limit),
+            "page": str(
+                max(
+                    1,
+                    int(page),
+                )
+            ),
+            "ResultOnPage": str(
+                max(
+                    1,
+                    int(limit),
+                )
+            ),
         }
 
         # IMPORTANT:
-        # Do not pass candidate salary into Jooble
-        # here. CareerPilot applies salary locally
-        # after building the broad market pool.
+        # Candidate salary is intentionally not sent to
+        # Jooble here. CareerPilot applies salary logic
+        # locally after building the broad market pool.
 
         response: Optional[
             requests.Response
@@ -97,6 +151,7 @@ class JoobleConnector(JobSource):
         ):
 
             try:
+
                 response = requests.post(
                     url,
                     json=payload,
@@ -111,6 +166,7 @@ class JoobleConnector(JobSource):
                     response.status_code
                     in self.RETRYABLE_STATUS_CODES
                 ):
+
                     if attempt < (
                         self.max_retries - 1
                     ):
@@ -127,16 +183,18 @@ class JoobleConnector(JobSource):
                         print(
                             "[Jooble] HTTP "
                             f"{response.status_code}. "
-                            f"Retrying in "
+                            "Retrying in "
                             f"{wait_time}s..."
                         )
 
                         time.sleep(
                             wait_time
                         )
+
                         continue
 
                 response.raise_for_status()
+
                 break
 
             except requests.RequestException as exc:
@@ -158,13 +216,14 @@ class JoobleConnector(JobSource):
 
                     print(
                         "[Jooble] Request failed. "
-                        f"Retrying in "
+                        "Retrying in "
                         f"{wait_time}s..."
                     )
 
                     time.sleep(
                         wait_time
                     )
+
                     continue
 
                 raise RuntimeError(
@@ -174,6 +233,7 @@ class JoobleConnector(JobSource):
                 ) from exc
 
         if response is None:
+
             raise RuntimeError(
                 "Jooble request failed without "
                 "a response."
@@ -182,6 +242,7 @@ class JoobleConnector(JobSource):
         if not response.ok:
 
             if last_error:
+
                 raise RuntimeError(
                     "Jooble request failed after "
                     f"{self.max_retries} attempts: "
@@ -194,9 +255,11 @@ class JoobleConnector(JobSource):
             )
 
         try:
+
             data = response.json()
 
         except ValueError as exc:
+
             raise RuntimeError(
                 "Jooble returned invalid JSON."
             ) from exc
@@ -206,8 +269,16 @@ class JoobleConnector(JobSource):
             [],
         )
 
+        if not isinstance(
+            results,
+            list,
+        ):
+            return []
+
         return [
-            self.normalize(job)
+            self.normalize_and_enrich(
+                job
+            )
             for job in results
             if isinstance(
                 job,
@@ -215,11 +286,16 @@ class JoobleConnector(JobSource):
             )
         ]
 
+    # =========================================================
+    # HEALTH
+    # =========================================================
+
     def health_check(
         self,
     ) -> Dict[str, Any]:
 
         try:
+
             self._validate_credentials()
 
             response = requests.post(
@@ -271,6 +347,10 @@ class JoobleConnector(JobSource):
                 "status_code": None,
                 "message": str(exc),
             }
+
+    # =========================================================
+    # NORMALIZATION
+    # =========================================================
 
     def normalize(
         self,
@@ -398,6 +478,10 @@ class JoobleConnector(JobSource):
             },
         )
 
+    # =========================================================
+    # SALARY PARSING
+    # =========================================================
+
     @staticmethod
     def _parse_salary(
         value: Any,
@@ -421,16 +505,18 @@ class JoobleConnector(JobSource):
         if value is None:
             return None, None
 
-        text = str(value).strip()
+        text = str(
+            value
+        ).strip()
 
         if not text:
             return None, None
 
         lowered = text.lower()
 
-        # --------------------------------------------------
-        # Case 1: salary already expressed in LPA
-        # --------------------------------------------------
+        # -----------------------------------------------------
+        # Case 1: already in LPA
+        # -----------------------------------------------------
 
         if "lpa" in lowered:
 
@@ -448,6 +534,7 @@ class JoobleConnector(JobSource):
             ]
 
             if len(values) == 1:
+
                 return (
                     values[0],
                     None,
@@ -458,9 +545,9 @@ class JoobleConnector(JobSource):
                 values[1],
             )
 
-        # --------------------------------------------------
-        # Case 2: annual INR values
-        # --------------------------------------------------
+        # -----------------------------------------------------
+        # Case 2: annual INR
+        # -----------------------------------------------------
 
         numbers = re.findall(
             r"\d+(?:,\d{3})*(?:\.\d+)?",
@@ -475,6 +562,7 @@ class JoobleConnector(JobSource):
         for number in numbers:
 
             try:
+
                 values.append(
                     float(
                         number.replace(
@@ -485,17 +573,18 @@ class JoobleConnector(JobSource):
                 )
 
             except ValueError:
+
                 continue
 
         if not values:
             return None, None
 
-        # Convert annual INR → LPA.
         if len(values) == 1:
 
             return (
                 round(
-                    values[0] / 100000,
+                    values[0]
+                    / 100000,
                     2,
                 ),
                 None,
@@ -503,14 +592,20 @@ class JoobleConnector(JobSource):
 
         return (
             round(
-                values[0] / 100000,
+                values[0]
+                / 100000,
                 2,
             ),
             round(
-                values[1] / 100000,
+                values[1]
+                / 100000,
                 2,
             ),
         )
+
+    # =========================================================
+    # LOCATION
+    # =========================================================
 
     @staticmethod
     def _normalize_location(
@@ -527,6 +622,7 @@ class JoobleConnector(JobSource):
         ]
 
         result: List[str] = []
+
         seen = set()
 
         for part in parts:
@@ -537,9 +633,16 @@ class JoobleConnector(JobSource):
                 continue
 
             seen.add(key)
-            result.append(part)
+
+            result.append(
+                part
+            )
 
         return result
+
+    # =========================================================
+    # REMOTE DETECTION
+    # =========================================================
 
     @staticmethod
     def _detect_remote(

@@ -310,6 +310,14 @@ class AgenticRunResponse(BaseModel):
         default_factory=list
     )
 
+    career_twin: Dict[str, Any] = Field(
+    default_factory=dict
+)
+
+    career_memory_events: List[Dict[str, Any]] = Field(
+    default_factory=list
+    )
+
     delegation_trace: List[Dict[str, Any]] = Field(
         default_factory=list
     )

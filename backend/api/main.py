@@ -69,6 +69,10 @@ from backend.api.knowledge import (
     router as knowledge_router,
 )
 
+from backend.api.career_twin import (
+    router as career_twin_router,
+)
+
 from backend.api.agentic import router as agentic_router
 
 
@@ -94,6 +98,10 @@ app = FastAPI(
 # ============================================================
 
 app.include_router(agentic_router)
+
+app.include_router(
+    career_twin_router
+)
 
 app.include_router(
     knowledge_router

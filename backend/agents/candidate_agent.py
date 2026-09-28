@@ -1,35 +1,45 @@
 from __future__ import annotations
 
-from dataclasses import asdict, is_dataclass
-from typing import Any, Dict
+from dataclasses import (
+    asdict,
+    is_dataclass,
+)
+from typing import (
+    Any,
+    Dict,
+)
 
-from backend.tools.candidate_tools import analyze_candidate
+from backend.tools.candidate_tools import (
+    analyze_candidate,
+)
 
 
 class CandidateAgent:
     """
-    Specialist agent responsible for candidate intelligence.
+    Specialist agent responsible for
+    candidate intelligence.
 
-    Responsibility:
-        Shared CareerPilot State
-                    ↓
-              Candidate Agent
-                    ↓
-          analyze_candidate tool
-                    ↓
-          candidate_intelligence
-                    ↓
-          Shared CareerPilot State
+    Week 6 enhancement:
 
-    The agent does not duplicate candidate-intelligence logic.
-    Deterministic computation remains inside the tool/service layer.
+        Career Twin
+              ↓
+        Candidate Agent
+              ↓
+        Candidate Intelligence
+
+    The Career Twin provides historical
+    candidate context while the deterministic
+    candidate intelligence engine remains
+    the computation authority.
     """
 
     name = "candidate"
 
     def __init__(self) -> None:
+
         self.tools = {
-            "analyze_candidate": analyze_candidate,
+            "analyze_candidate":
+                analyze_candidate,
         }
 
     # ============================================================
@@ -40,54 +50,190 @@ class CandidateAgent:
         self,
         state: Dict[str, Any],
     ) -> Dict[str, Any]:
-        """
-        Execute the Candidate Agent against shared workflow state.
 
-        Required state:
-            candidate_profile
+        if not isinstance(
+            state,
+            dict,
+        ):
 
-        Produced state:
-            candidate_intelligence
-            current_agent
-            last_decision
-            agents_used
-            tools_used
-            agent_trace
-            tool_trace
-        """
-
-        if not isinstance(state, dict):
             raise TypeError(
-                "CandidateAgent state must be a dictionary."
+                "CandidateAgent state "
+                "must be a dictionary."
             )
 
-        candidate_profile = state.get(
-            "candidate_profile"
+        candidate_profile = (
+            state.get(
+                "candidate_profile"
+            )
         )
 
         if candidate_profile is None:
+
             raise ValueError(
                 "Candidate Agent requires "
-                "'candidate_profile' in shared state."
+                "'candidate_profile' "
+                "in shared state."
             )
 
-        candidate_data = self._serialize(
-            candidate_profile
+        # --------------------------------------------------------
+        # ACTIVE CANDIDATE
+        # --------------------------------------------------------
+
+        candidate_data = (
+            self._serialize(
+                candidate_profile
+            )
         )
 
         if not isinstance(
             candidate_data,
             dict,
         ):
+
             raise TypeError(
-                "candidate_profile must serialize to a dictionary."
+                "candidate_profile must "
+                "serialize to a dictionary."
             )
+
+        # ========================================================
+        # WEEK 6 — CAREER TWIN CONTEXT
+        # ========================================================
+
+        career_twin = (
+            state.get(
+                "career_twin"
+            )
+            or {}
+        )
+
+        twin_profile = (
+            career_twin.get(
+                "profile"
+            )
+            or {}
+        )
+
+        if twin_profile:
+
+            # ----------------------------------------------------
+            # Merge historical skills / evidence
+            # ----------------------------------------------------
+
+            for field in (
+                "skills",
+                "technical_skills",
+                "soft_skills",
+                "education",
+                "certifications",
+                "projects",
+                "experience",
+            ):
+
+                current_values = list(
+                    candidate_data.get(
+                        field
+                    )
+                    or []
+                )
+
+                historical_values = list(
+                    twin_profile.get(
+                        field
+                    )
+                    or []
+                )
+
+                candidate_data[
+                    field
+                ] = list(
+                    dict.fromkeys(
+                        current_values
+                        + historical_values
+                    )
+                )
+
+            # ----------------------------------------------------
+            # Merge career goals
+            # ----------------------------------------------------
+
+            career_goal = dict(
+                candidate_data.get(
+                    "career_goal"
+                )
+                or {}
+            )
+
+            for field in (
+                "target_roles",
+                "target_industries",
+                "target_locations",
+            ):
+
+                current_values = list(
+                    career_goal.get(
+                        field
+                    )
+                    or []
+                )
+
+                historical_values = list(
+                    twin_profile.get(
+                        field
+                    )
+                    or []
+                )
+
+                career_goal[
+                    field
+                ] = list(
+                    dict.fromkeys(
+                        current_values
+                        + historical_values
+                    )
+                )
+
+            # ----------------------------------------------------
+            # Preserve persistent preferences
+            # ----------------------------------------------------
+
+            if (
+                not career_goal.get(
+                    "minimum_salary_lpa"
+                )
+            ):
+
+                career_goal[
+                    "minimum_salary_lpa"
+                ] = twin_profile.get(
+                    "minimum_salary_lpa"
+                )
+
+            if (
+                not career_goal.get(
+                    "target_timeline_months"
+                )
+            ):
+
+                career_goal[
+                    "target_timeline_months"
+                ] = twin_profile.get(
+                    "timeline_months"
+                )
+
+            candidate_data[
+                "career_goal"
+            ] = career_goal
+
+        # ========================================================
+        # DETERMINISTIC CANDIDATE INTELLIGENCE
+        # ========================================================
 
         result = self.tools[
             "analyze_candidate"
         ].invoke(
             {
-                "candidate_data": candidate_data,
+                "candidate_data":
+                    candidate_data,
             }
         )
 
@@ -95,12 +241,16 @@ class CandidateAgent:
             result,
             dict,
         ):
+
             raise TypeError(
-                "analyze_candidate tool returned "
-                "an unexpected result type."
+                "analyze_candidate tool "
+                "returned an unexpected "
+                "result type."
             )
 
-        updated_state = dict(state)
+        updated_state = dict(
+            state
+        )
 
         # --------------------------------------------------------
         # Candidate intelligence
@@ -121,18 +271,28 @@ class CandidateAgent:
         updated_state[
             "last_decision"
         ] = {
-            "agent": self.name,
-            "decision": "candidate_analysis_complete",
+
+            "agent":
+                self.name,
+
+            "decision":
+                "candidate_analysis_complete",
+
             "reasoning": (
-                "Candidate profile was analyzed using "
-                "the deterministic candidate-intelligence tool."
+                "Candidate profile and "
+                "persistent Career Twin "
+                "context were analyzed using "
+                "the deterministic "
+                "candidate-intelligence tool."
             ),
-            "next_step": "strategy",
+
+            "next_step":
+                "strategy",
         }
 
-        # --------------------------------------------------------
-        # Agent / tool usage tracking
-        # --------------------------------------------------------
+        # ========================================================
+        # AGENT USAGE
+        # ========================================================
 
         agents_used = list(
             updated_state.get(
@@ -143,6 +303,7 @@ class CandidateAgent:
         )
 
         if self.name not in agents_used:
+
             agents_used.append(
                 self.name
             )
@@ -150,6 +311,10 @@ class CandidateAgent:
         updated_state[
             "agents_used"
         ] = agents_used
+
+        # ========================================================
+        # TOOL USAGE
+        # ========================================================
 
         tools_used = list(
             updated_state.get(
@@ -159,7 +324,11 @@ class CandidateAgent:
             or []
         )
 
-        if "analyze_candidate" not in tools_used:
+        if (
+            "analyze_candidate"
+            not in tools_used
+        ):
+
             tools_used.append(
                 "analyze_candidate"
             )
@@ -168,9 +337,9 @@ class CandidateAgent:
             "tools_used"
         ] = tools_used
 
-        # --------------------------------------------------------
-        # Agent trace
-        # --------------------------------------------------------
+        # ========================================================
+        # AGENT TRACE
+        # ========================================================
 
         agent_trace = list(
             updated_state.get(
@@ -182,12 +351,22 @@ class CandidateAgent:
 
         agent_trace.append(
             {
-                "agent": self.name,
-                "action": "analyze_candidate",
-                "status": "completed",
+
+                "agent":
+                    self.name,
+
+                "action":
+                    "analyze_candidate",
+
+                "status":
+                    "completed",
+
                 "reasoning": (
-                    "Candidate Agent invoked the "
-                    "candidate intelligence tool."
+                    "Candidate Agent merged "
+                    "persistent Career Twin "
+                    "context and invoked the "
+                    "deterministic candidate "
+                    "intelligence engine."
                 ),
             }
         )
@@ -196,9 +375,9 @@ class CandidateAgent:
             "agent_trace"
         ] = agent_trace
 
-        # --------------------------------------------------------
-        # Tool trace
-        # --------------------------------------------------------
+        # ========================================================
+        # TOOL TRACE
+        # ========================================================
 
         tool_trace = list(
             updated_state.get(
@@ -210,9 +389,15 @@ class CandidateAgent:
 
         tool_trace.append(
             {
-                "tool": "analyze_candidate",
-                "agent": self.name,
-                "status": "completed",
+
+                "tool":
+                    "analyze_candidate",
+
+                "agent":
+                    self.name,
+
+                "status":
+                    "completed",
             }
         )
 
@@ -230,12 +415,10 @@ class CandidateAgent:
         self,
         state: Dict[str, Any],
     ) -> Dict[str, Any]:
-        """
-        Alias for run(), useful when agents are invoked uniformly
-        by the future supervisor/orchestrator.
-        """
 
-        return self.run(state)
+        return self.run(
+            state
+        )
 
     # ============================================================
     # SERIALIZATION
@@ -245,9 +428,6 @@ class CandidateAgent:
     def _serialize(
         value: Any,
     ) -> Any:
-        """
-        Convert domain objects into JSON-compatible structures.
-        """
 
         if value is None:
             return None
@@ -256,55 +436,79 @@ class CandidateAgent:
             value,
             "model_dump",
         ):
-            return value.model_dump()
 
-        if is_dataclass(value):
-            return asdict(value)
+            return value.model_dump(
+                mode="json"
+            )
+
+        if is_dataclass(
+            value
+        ):
+
+            return asdict(
+                value
+            )
 
         if isinstance(
             value,
             dict,
         ):
+
             return {
-                str(key): CandidateAgent._serialize(
+                str(key):
+                CandidateAgent._serialize(
                     item
                 )
-                for key, item in value.items()
+                for key, item
+                in value.items()
             }
 
         if isinstance(
             value,
-            (list, tuple, set),
+            (
+                list,
+                tuple,
+                set,
+            ),
         ):
+
             return [
                 CandidateAgent._serialize(
                     item
                 )
-                for item in value
+                for item
+                in value
             ]
 
         if isinstance(
             value,
-            (str, int, float, bool),
+            (
+                str,
+                int,
+                float,
+                bool,
+            ),
         ):
+
             return value
 
-        return str(value)
+        return str(
+            value
+        )
 
 
 # ============================================================
 # MODULE-LEVEL INSTANCE
 # ============================================================
 
-candidate_agent = CandidateAgent()
+candidate_agent = (
+    CandidateAgent()
+)
 
 
 def run_candidate_agent(
     state: Dict[str, Any],
 ) -> Dict[str, Any]:
-    """
-    Convenience entrypoint for LangGraph node wiring.
-    """
 
     return candidate_agent.run(
         state

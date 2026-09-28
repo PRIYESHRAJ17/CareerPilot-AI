@@ -1,7 +1,8 @@
-from dataclasses import dataclass
-from typing import List
+from __future__ import annotations
 
-from sentence_transformers import SentenceTransformer
+import re
+from dataclasses import dataclass
+from typing import List, Sequence
 
 from backend.schemas.candidate import CandidateProfile
 from backend.schemas.job import Job
@@ -12,6 +13,13 @@ from backend.schemas.requirements import JobRequirements
 class SemanticMatch:
     """
     Semantic similarity evidence between a candidate and a job.
+
+    The matcher prefers local embedding similarity when the optional
+    embedding stack is available. When the native dependency chain is
+    unavailable, it falls back to a deterministic lexical similarity
+    method rather than making the entire CareerPilot pipeline fail.
+
+    The fallback is explicitly reported through `backend`.
     """
 
     profile_similarity: float
@@ -25,17 +33,51 @@ class SemanticMatch:
 
 class SemanticMatcher:
     """
-    Local embedding-based semantic matcher.
+    CareerPilot semantic matching engine.
 
-    The embedding model provides semantic similarity.
-    It does not make the final career decision.
+    Primary backend:
+        sentence-transformers / all-MiniLM-L6-v2
+
+    Resilient fallback:
+        deterministic token Jaccard similarity
+
+    The fallback exists for operational resilience only. It does not
+    silently pretend to be an embedding model.
     """
+
+    DEFAULT_MODEL = "all-MiniLM-L6-v2"
 
     def __init__(
         self,
-        model_name: str = "all-MiniLM-L6-v2",
+        model_name: str = DEFAULT_MODEL,
     ) -> None:
-        self.model = SentenceTransformer(model_name)
+        self.model_name = model_name
+        self.model = None
+
+        self.backend = "lexical_fallback"
+        self.backend_error = None
+
+        try:
+            from sentence_transformers import (
+                SentenceTransformer,
+            )
+
+            self.model = SentenceTransformer(
+                model_name
+            )
+
+            self.backend = "sentence_transformers"
+
+        except Exception as exc:
+            self.model = None
+            self.backend = "lexical_fallback"
+            self.backend_error = (
+                f"{type(exc).__name__}: {exc}"
+            )
+
+    # ============================================================
+    # PUBLIC API
+    # ============================================================
 
     def compare(
         self,
@@ -56,8 +98,10 @@ class SemanticMatcher:
             candidate
         )
 
-        job_requirements_text = self._requirements_text(
-            requirements
+        job_requirements_text = (
+            self._requirements_text(
+                requirements
+            )
         )
 
         profile_similarity = self._similarity(
@@ -89,49 +133,173 @@ class SemanticMatcher:
             requirements,
         )
 
+        backend_label = (
+            "embedding"
+            if self.backend
+            == "sentence_transformers"
+            else "deterministic lexical fallback"
+        )
+
         reasoning_context = (
             f"Semantic similarity is "
             f"{overall_similarity:.2f}/100. "
             f"The comparison considers the candidate profile, "
-            f"skills, and extracted job requirements."
+            f"skills, and extracted job requirements using the "
+            f"{backend_label} backend."
         )
+
+        if (
+            self.backend
+            != "sentence_transformers"
+            and self.backend_error
+        ):
+            reasoning_context += (
+                " The embedding backend was unavailable, "
+                "so CareerPilot used its deterministic "
+                "fallback to preserve workflow availability."
+            )
 
         return SemanticMatch(
             profile_similarity=profile_similarity,
             skill_similarity=skill_similarity,
-            requirement_similarity=requirement_similarity,
+            requirement_similarity=(
+                requirement_similarity
+            ),
             overall_similarity=overall_similarity,
             matched_concepts=matched_concepts,
             reasoning_context=reasoning_context,
         )
+
+    # ============================================================
+    # SIMILARITY
+    # ============================================================
 
     def _similarity(
         self,
         left: str,
         right: str,
     ) -> float:
+        """
+        Use embeddings when available.
 
-        embeddings = self.model.encode(
-            [
-                left,
-                right,
-            ],
-            normalize_embeddings=True,
+        Otherwise use deterministic token Jaccard similarity.
+        """
+
+        left = str(left or "").strip()
+        right = str(right or "").strip()
+
+        if not left and not right:
+            return 100.0
+
+        if not left or not right:
+            return 0.0
+
+        if self.model is not None:
+            try:
+                embeddings = self.model.encode(
+                    [
+                        left,
+                        right,
+                    ],
+                    normalize_embeddings=True,
+                )
+
+                similarity = float(
+                    embeddings[0] @ embeddings[1]
+                )
+
+                score = (
+                    (similarity + 1.0)
+                    / 2.0
+                ) * 100.0
+
+                return round(
+                    max(
+                        0.0,
+                        min(
+                            100.0,
+                            score,
+                        ),
+                    ),
+                    2,
+                )
+
+            except Exception as exc:
+                self.backend = (
+                    "lexical_fallback"
+                )
+
+                self.backend_error = (
+                    f"{type(exc).__name__}: {exc}"
+                )
+
+                self.model = None
+
+        return self._lexical_similarity(
+            left,
+            right,
         )
 
-        similarity = float(
-            embeddings[0] @ embeddings[1]
+    @classmethod
+    def _lexical_similarity(
+        cls,
+        left: str,
+        right: str,
+    ) -> float:
+        left_tokens = set(
+            cls._tokenize(left)
+        )
+
+        right_tokens = set(
+            cls._tokenize(right)
+        )
+
+        if not left_tokens and not right_tokens:
+            return 100.0
+
+        if not left_tokens or not right_tokens:
+            return 0.0
+
+        intersection = (
+            left_tokens.intersection(
+                right_tokens
+            )
+        )
+
+        union = (
+            left_tokens.union(
+                right_tokens
+            )
         )
 
         score = (
-            (similarity + 1.0)
-            / 2.0
+            len(intersection)
+            / len(union)
         ) * 100.0
 
         return round(
-            max(0.0, min(100.0, score)),
+            max(
+                0.0,
+                min(
+                    100.0,
+                    score,
+                ),
+            ),
             2,
         )
+
+    @staticmethod
+    def _tokenize(
+        text: str,
+    ) -> Sequence[str]:
+        return re.findall(
+            r"[a-z0-9+#.-]+",
+            str(text or "").casefold(),
+        )
+
+    # ============================================================
+    # CANDIDATE REPRESENTATION
+    # ============================================================
 
     @staticmethod
     def _candidate_text(
@@ -211,6 +379,10 @@ class SemanticMatcher:
                 ),
             ]
         )
+
+    # ============================================================
+    # CONCEPT MATCHING
+    # ============================================================
 
     @staticmethod
     def _matched_concepts(
