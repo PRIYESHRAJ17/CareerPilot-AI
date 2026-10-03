@@ -8,7 +8,7 @@ OAuth connection, encrypted token storage, page creation and block append APIs a
 
 ## 2. Google Workspace
 
-OAuth connection covers Gmail read access, Calendar read access, Drive file access and Contacts read access. Synchronization maps events to Interviews, files to Documents, and contacts to Networking. Career Inbox imports career-relevant mail metadata only.
+OAuth connection covers Gmail read access, Calendar read access, Drive metadata access and Contacts read access. Synchronization maps events to Interviews, files to Documents, and contacts to Networking. Career Inbox imports career-relevant mail metadata only.
 
 Google scopes are intentionally narrow for the current read/sync workflow. Production publishing still requires completing the provider's OAuth consent/review requirements where applicable.
 
@@ -66,3 +66,7 @@ See `.env.example`. Each provider must have its own OAuth app registration and r
 Default redirect pattern:
 
 `{CAREERPILOT_API_PUBLIC_URL}/integrations/oauth/{provider}/callback`
+
+## Provider-version notes
+
+Notion API calls default to `2026-03-11`. Google Drive synchronization reads file metadata only; it uses the least-privileged `drive.metadata.readonly` scope for the implemented sync path. GitLab OAuth access tokens are refreshed automatically before expiry when a refresh token is available.

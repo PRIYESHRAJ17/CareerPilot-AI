@@ -83,7 +83,7 @@ def notion_search(candidate_id: str, query: str) -> list[dict[str, Any]]:
     token = access_token(candidate_id, "notion")
     response = requests.post(
         "https://api.notion.com/v1/search",
-        headers={"Authorization": f"Bearer {token}", "Notion-Version": "2022-06-28", "Content-Type": "application/json"},
+        headers={"Authorization": f"Bearer {token}", "Notion-Version": __import__("os").getenv("NOTION_API_VERSION", "2026-03-11"), "Content-Type": "application/json"},
         json={"query": query[:100], "page_size": 25},
         timeout=25,
     )

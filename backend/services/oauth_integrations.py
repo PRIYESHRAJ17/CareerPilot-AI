@@ -50,7 +50,7 @@ CONFIGS: dict[str, OAuthConfig] = {
             "profile",
             "https://www.googleapis.com/auth/gmail.readonly",
             "https://www.googleapis.com/auth/calendar.readonly",
-            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive.metadata.readonly",
             "https://www.googleapis.com/auth/contacts.readonly",
         ),
         redirect_path="/integrations/oauth/google/callback",
@@ -264,6 +264,73 @@ def _refresh_google(connection: dict[str, Any]) -> dict[str, Any]:
     return connection
 
 
+def _refresh_notion(connection: dict[str, Any]) -> dict[str, Any]:
+    refresh = connection.get("refresh_token")
+    if not refresh:
+        return connection
+    config = CONFIGS["notion"]
+    client_id = os.getenv(config.client_id_env, "")
+    client_secret = os.getenv(config.client_secret_env, "")
+    if not client_id or not client_secret:
+        return connection
+    basic = base64.b64encode(f"{client_id}:{client_secret}".encode("utf-8")).decode("ascii")
+    response = requests.post(
+        config.token_url,
+        json={"grant_type": "refresh_token", "refresh_token": refresh},
+        headers={"Authorization": f"Basic {basic}", "Content-Type": "application/json"},
+        timeout=20,
+    )
+    response.raise_for_status()
+    token = response.json()
+    access = token.get("access_token")
+    if access:
+        save_connection(
+            connection["candidate_id"],
+            "notion",
+            access_token=access,
+            refresh_token=str(token.get("refresh_token") or refresh),
+            expires_at=_extract_expires_at(token.get("expires_in")),
+            scope=token.get("scope") or connection.get("scope"),
+            metadata=connection.get("metadata") or {},
+        )
+        return get_connection(connection["candidate_id"], "notion") or connection
+    return connection
+
+
+def _refresh_gitlab(connection: dict[str, Any]) -> dict[str, Any]:
+    refresh = connection.get("refresh_token")
+    if not refresh:
+        return connection
+    config = CONFIGS["gitlab"]
+    response = requests.post(
+        config.token_url,
+        data={
+            "client_id": os.getenv(config.client_id_env, ""),
+            "client_secret": os.getenv(config.client_secret_env, ""),
+            "refresh_token": refresh,
+            "grant_type": "refresh_token",
+            "redirect_uri": redirect_uri("gitlab"),
+        },
+        headers={"Accept": "application/json"},
+        timeout=20,
+    )
+    response.raise_for_status()
+    token = response.json()
+    access = token.get("access_token")
+    if access:
+        save_connection(
+            connection["candidate_id"],
+            "gitlab",
+            access_token=access,
+            refresh_token=str(token.get("refresh_token") or refresh),
+            expires_at=_extract_expires_at(token.get("expires_in")),
+            scope=token.get("scope") or connection.get("scope"),
+            metadata=connection.get("metadata") or {},
+        )
+        return get_connection(connection["candidate_id"], "gitlab") or connection
+    return connection
+
+
 def _refresh_microsoft(connection: dict[str, Any]) -> dict[str, Any]:
     refresh = connection.get("refresh_token")
     if not refresh:
@@ -306,10 +373,14 @@ def access_token(candidate_id: str, provider: str) -> str:
         try:
             expiry = datetime.fromisoformat(str(expires_at))
             if expiry <= datetime.now(timezone.utc) + timedelta(seconds=60):
-                if provider == "google":
+                if provider == "notion":
+                    connection = _refresh_notion(connection)
+                elif provider == "google":
                     connection = _refresh_google(connection)
                 elif provider == "microsoft":
                     connection = _refresh_microsoft(connection)
+                elif provider == "gitlab":
+                    connection = _refresh_gitlab(connection)
         except ValueError:
             pass
     token = connection.get("access_token")
