@@ -26,6 +26,8 @@ export default function IntegrationsPage() {
   const [message, setMessage] = useState("");
   const [parentPageId, setParentPageId] = useState(() => typeof window === "undefined" ? "" : localStorage.getItem("careerpilot.notion.parentPageId") ?? "");
   const [clipToken, setClipToken] = useState("");
+  const [notionTitle, setNotionTitle] = useState("");
+  const [notionMarkdown, setNotionMarkdown] = useState("");
   const [syncing, setSyncing] = useState<string | null>(null);
 
   async function load() {
@@ -69,6 +71,25 @@ export default function IntegrationsPage() {
     }
   }
 
+
+  async function saveToNotion() {
+    if (!parentPageId.trim()) {
+      setMessage("Set a Notion parent page ID first.");
+      return;
+    }
+    try {
+      await apiJson("/integrations/notion/note", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: notionTitle.trim() || "CareerPilot note", markdown: notionMarkdown.trim(), parent_page_id: parentPageId.trim() }),
+      });
+      setMessage("Note saved to Notion.");
+      setNotionMarkdown("");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Unable to save the Notion note.");
+    }
+  }
+
   async function createClipToken() {
     try {
       const result = await apiJson<{ token: string }>("/integrations/clipper/token", { method: "POST" });
@@ -95,6 +116,16 @@ export default function IntegrationsPage() {
             {message && <p className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/75">{message}</p>}
           </header>
 
+          <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.025] p-6">
+            <h2 className="text-lg font-semibold">Quick career note → Notion</h2>
+            <p className="mt-2 text-sm text-white/60">Capture an important insight without leaving CareerPilot. The note is created under the Notion parent page saved above.</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              <input value={notionTitle} onChange={(event) => setNotionTitle(event.target.value)} placeholder="Note title" className="rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-sm outline-none" />
+              <textarea value={notionMarkdown} onChange={(event) => setNotionMarkdown(event.target.value)} placeholder="Key takeaway, interview insight, job research, learning note…" className="min-h-28 rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-sm outline-none md:row-span-2" />
+              <button type="button" onClick={() => void saveToNotion()} className="w-fit rounded-xl bg-white px-4 py-2.5 text-xs font-semibold text-black">Save to Notion</button>
+            </div>
+          </section>
+
           <section className="mt-6 grid gap-4 lg:grid-cols-2">
             {items.map((item) => (
               <article key={item.provider} className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
@@ -120,7 +151,7 @@ export default function IntegrationsPage() {
             <article className="rounded-3xl border border-white/10 bg-white/[0.025] p-6">
               <h2 className="text-lg font-semibold">Notion destination</h2>
               <p className="mt-2 text-sm text-white/60">Connect Notion, then enter the parent page where CareerPilot should create notes, jobs, research and career-plan pages.</p>
-              <input value={parentPageId} onChange={(event) => setParentPageId(event.target.value)} placeholder="Notion parent page ID" className="mt-4 w-full rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-sm outline-none" />
+              <input value={parentPageId} onChange={(event) => setParentPageId(event.target.value)} placeholder="Notion page ID or page URL" className="mt-4 w-full rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-sm outline-none" />
               <div className="mt-3 flex gap-2"><button type="button" onClick={() => void saveNotionSettings()} className="rounded-xl bg-white px-4 py-2.5 text-xs font-semibold text-black">Save destination</button><a href="https://www.notion.so/my-integrations" target="_blank" rel="noreferrer" className="rounded-xl border border-white/10 px-4 py-2.5 text-xs text-white/70">Notion setup</a></div>
             </article>
 

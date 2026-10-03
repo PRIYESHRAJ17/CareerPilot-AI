@@ -27,10 +27,28 @@ def _request(provider: str, candidate_id: str, url: str, *, params: dict[str, An
     return data if isinstance(data, dict) else {"data": data}
 
 
+
+
+def _normalize_notion_page_id(value: str) -> str:
+    import re
+    from urllib.parse import unquote
+    raw = unquote(str(value or "").strip())
+    candidate = raw.rsplit("/", 1)[-1].split("?", 1)[0].split("#", 1)[0] if raw.startswith("http") else raw
+    compact = candidate.replace("-", "")
+    match = re.fullmatch(r"[0-9a-fA-F]{32}", compact)
+    if not match:
+        return ""
+    normalized = compact.lower()
+    return f"{normalized[:8]}-{normalized[8:12]}-{normalized[12:16]}-{normalized[16:20]}-{normalized[20:]}"
+
+
 def notion_create_note(candidate_id: str, *, title: str, markdown: str, parent_page_id: str) -> dict[str, Any]:
     """Create a simple Notion child page then append paragraph blocks."""
-    api_version = "2022-06-28"
+    api_version = __import__("os").getenv("NOTION_API_VERSION", "2022-06-28")
     token = access_token(candidate_id, "notion")
+    parent_page_id = _normalize_notion_page_id(parent_page_id)
+    if not parent_page_id:
+        raise IntegrationApiError("A valid Notion parent page ID or page URL is required.")
     rich_title = [{"type": "text", "text": {"content": title[:200]}}]
     response = requests.post(
         "https://api.notion.com/v1/pages",
