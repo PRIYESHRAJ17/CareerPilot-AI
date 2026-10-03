@@ -1,0 +1,118 @@
+{
+  "evaluation_version": "2.0",
+  "model": "qwen3.5:9b",
+  "overall_score": 93.0,
+  "cases_total": 6,
+  "cases_completed": 6,
+  "cases_failed": 0,
+  "category_scores": {
+    "career_reasoning": 90.0,
+    "evidence_safety": 100.0,
+    "gap_analysis": 85.0,
+    "actionability": 100.0,
+    "structured_output": 85.0
+  },
+  "cases": [
+    {
+      "case_id": "CP-01",
+      "name": "Job Fit Reasoning",
+      "category": "career_reasoning",
+      "weight": 25.0,
+      "score": 90.0,
+      "weighted_score": 22.5,
+      "latency_seconds": 68.979,
+      "success": true,
+      "output": "### 1. Overall Fit\n**Moderate to High Potential (Conditional)**\nThe candidate possesses the foundational technical stack (Python, C++, Git) and has built relevant projects (AI assistant, sentiment analysis). However, there is a significant disconnect between the *existence* of these items and the *verified proficiency* required for a Software Engineering Intern role. The lack of explicit evidence regarding Data Structures & Algorithms (DSA), REST API implementation details, and cloud infrastructure creates uncertainty about readiness for production-like tasks.\n\n### 2. Explicit Strong Matches\n*   **Programming Languages:** Explicitly listed skills include **Python** and **C++**, which directly satisfy the core language requirement.\n*   **Version Control:** **Git** is explicitly listed as a skill, matching the requirement.\n*   **Project Relevance:** The candidate has built an AI career assistant and a sentiment analysis web app, demonstrating practical application of logic and likely some API usage, even if not fully verified for scale.\n\n### 3. Partial Matches\n*   **REST APIs:** While the projects imply backend development (likely using FastAPI), there is no explicit evidence confirming the candidate has designed, documented, or deployed RESTful endpoints that adhere to standard conventions.\n*   **Problem-Solving Ability:** The existence of completed projects suggests some problem-solving capability, but it does not explicitly verify proficiency in algorithmic complexity analysis or competitive programming standards often expected for \"Strong programming fundamentals.\"\n*   **Cloud Experience:** FastAPI is a framework, not a cloud platform. While the candidate may know cloud services, this is **not verified** by the provided evidence.\n\n### 4. Missing or Unverified Requirements\n*   **Data Structures and Algorithms (DSA):** The requirement for \"Strong programming fundamentals\" specifically regarding DSA is **not explicitly provided**. Possession of a B.Tech degree does not prove competency in DSA.\n*   **Production-Scale Experience:** The candidate has **no verified production-scale experience**. Building a project locally or on a free tier (e.g., Heroku, Render) is distinct from handling high-concurrency, fault-tolerant systems.\n*   **Cloud Infrastructure:** There is no evidence of experience with AWS, Azure, GCP, Docker, Kubernetes, or CI/CD pipelines.\n*   **System Design Basics:** No evidence suggests understanding of database scaling, caching strategies, or load balancing.\n\n### 5. Most Important Gaps\n1.  **Algorithmic Proficiency:** Without",
+      "notes": [
+        "Correctly treats DSA as unverified/missing.",
+        "Correctly identifies cloud as missing.",
+        "Recognized the explicitly supported technical matches.",
+        "Did not clearly discuss internship status.",
+        "Missing explicit next-step guidance."
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CP-02",
+      "name": "Evidence-Safe Rewrite",
+      "category": "evidence_safety",
+      "weight": 20.0,
+      "score": 100.0,
+      "weighted_score": 20.0,
+      "latency_seconds": 2.762,
+      "success": true,
+      "output": "Designed and developed a full-stack project utilizing React for the frontend, FastAPI for the backend, Python, and SQL.",
+      "notes": [
+        "Preserved verified evidence."
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CP-03",
+      "name": "Gap Analysis",
+      "category": "gap_analysis",
+      "weight": 15.0,
+      "score": 85.0,
+      "weighted_score": 12.75,
+      "latency_seconds": 56.475,
+      "success": true,
+      "output": "Based on the strict constraints provided (no assumptions regarding DSA, Cloud, or Production experience), here is the prioritized Evidence-Gap Analysis for the candidate applying to CareerPilot.\n\n### **Gap Analysis Summary**\n\nThe candidate possesses strong foundational coding skills and has built a relevant project, but lacks **verified proof of competency** in three critical areas required by the target role: algorithmic problem-solving, cloud infrastructure deployment, and production-grade system reliability.\n\n---\n\n### **Priority 1: Verified Data Structures & Algorithms (DSA) Competency**\n*   **Missing Evidence:** No record of solving algorithmic problems, passing coding assessments, or demonstrating time/space complexity analysis.\n*   **Why it is critical:** The target role explicitly lists \"Data structures and algorithms\" and \"Problem solving.\" A B.Tech degree does not guarantee these skills; many graduates struggle with LeetCode-style problems despite knowing syntax. Without a portfolio of solved problems (e.g., GitHub contributions to algorithm repos, HackerRank/LeetCode badges, or specific case studies showing optimization logic), the candidate cannot prove they can handle the technical interview or system design challenges inherent in this role.\n*   **Actionable Gap:** Need for a \"Problem Solving Portfolio\" containing links to solved problems with explanations of complexity analysis ($O(n)$ vs $O(n^2)$).\n\n### **Priority 2: Cloud Infrastructure & Deployment Experience**\n*   **Missing Evidence:** No evidence of deploying applications to a cloud provider (AWS, Azure, GCP) or managing containerized environments (Docker/Kubernetes).\n*   **Why it is critical:** The role lists \"Cloud preferred.\" Currently, the candidate's stack (Python/FastAPI) exists only locally or in a development environment. There is no proof they can:\n    *   Provision infrastructure via IaC (Terraform/CloudFormation).\n    *   Configure CI/CD pipelines for automated deployment.\n    *   Manage scaling groups, load balancers, or serverless functions.\n    *   Handle cloud security and cost optimization.\n*   **Actionable Gap:** Need for a \"Deployment Case Study\" showing the candidate's Sentiment Analysis app hosted on a cloud platform with a CI/CD pipeline diagram and cost/performance metrics.\n\n### **Priority 3: Production-Grade System Reliability & Scalability**\n*   **Missing Evidence:** No logs, monitoring dashboards, error handling strategies, or load testing reports for the \"Sentiment",
+      "notes": [
+        "Discussed production.",
+        "Discussed cloud.",
+        "Discussed dsa.",
+        "Did not discuss internship."
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CP-04",
+      "name": "Action Plan",
+      "category": "actionability",
+      "weight": 10.0,
+      "score": 100.0,
+      "weighted_score": 10.0,
+      "latency_seconds": 56.431,
+      "success": true,
+      "output": "Here are five practical next actions tailored to this candidate's profile, specifically addressing the identified gaps without assuming prior closure:\n\n1.  **Build a \"Production-Ready\" Version of the Sentiment Analysis App**\n    Refactor the current CareerPilot AI project to simulate a production environment by adding comprehensive error handling, structured logging (e.g., using `logging` module or libraries like `structlog`), and input validation. Explicitly implement unit tests (using `pytest`) and integration tests for the FastAPI endpoints to demonstrate testing proficiency, then deploy this specific version to a free-tier cloud provider (like AWS Free Tier, Google Cloud Run, or Render) to gain verified deployment experience.\n\n2.  **Develop a Dedicated Data Structures & Algorithms (DSA) Portfolio**\n    Create a separate GitHub repository containing solutions to at least 50 LeetCode-style problems categorized by topic (Arrays, Trees, Graphs, DP). For each solution, include a detailed `README.md` explaining the time/space complexity analysis and edge cases handled. This provides tangible evidence of DSA skills distinct from general coding projects, directly addressing the lack of formal proof in this area.\n\n3.  **Implement CI/CD Pipelines for Existing Projects**\n    Set up a GitHub Actions workflow for one of the candidate's existing repositories (e.g., the Sentiment Analysis app) that automatically runs the test suite and linter on every push, and deploys to the cloud only if tests pass. This action directly bridges the gap between \"writing code\" and \"engineering software,\" demonstrating knowledge of automated testing pipelines and continuous integration without needing a new project idea.\n\n4.  **Contribute to Open Source or Build a Small Internal Tool**\n    Identify an open-source library in the Python/React ecosystem that lacks documentation or has minor bugs, and submit a Pull Request fixing them. Alternatively, build a small internal tool for their college club (e.g., a course registration bot) using FastAPI and React, documenting the entire development lifecycle from requirement gathering to deployment. This generates professional experience artifacts that look more like an internship than a student project.\n\n5.  **Prepare a \"Case Study\" Style Resume Entry**\n    Rewrite the resume entry for the CareerPilot AI project to explicitly highlight the *engineering challenges* solved rather than just the features built. Structure the bullet points to mention specific technologies used for deployment, the testing coverage percentage achieved, and any performance optimizations made (e.g., database indexing in SQL). This refr",
+      "notes": [
+        "Provides a broad and relevant action plan."
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CP-05",
+      "name": "Structured Output",
+      "category": "structured_output",
+      "weight": 15.0,
+      "score": 85.0,
+      "weighted_score": 12.75,
+      "latency_seconds": 17.524,
+      "success": true,
+      "output": "{\n  \"fit_score\": 75,\n  \"strong_matches\": [\n    \"Python\",\n    \"C++\",\n    \"Git\",\n    \"REST APIs (FastAPI)\",\n    \"Problem solving\"\n  ],\n  \"partial_matches\": [\n    \"React\",\n    \"SQL\",\n    \"JavaScript\"\n  ],\n  \"missing_requirements\": [\n    \"DSA\",\n    \"Cloud experience\"\n  ],\n  \"next_actions\": [\n    \"Practice DSA problems on platforms like LeetCode or HackerRank\",\n    \"Explore cloud basics (AWS/Azure/GCP) via free tiers or tutorials\",\n    \"Build a portfolio project using FastAPI and deploy it to a cloud provider if possible\"\n  ]\n}",
+      "notes": [
+        "JSON valid, but it may have failed to preserve important missing-evidence signals."
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CP-06",
+      "name": "Evidence-Constrained Reasoning",
+      "category": "evidence_safety",
+      "weight": 15.0,
+      "score": 100.0,
+      "weighted_score": 15.0,
+      "latency_seconds": 56.469,
+      "success": true,
+      "output": "Based on the candidate evidence provided, here is the separation of verified facts from unsupported assumptions regarding the three specific claims.\n\n### 1. Production-scale backend experience\n*   **Status:** **Not Verified**\n*   **Analysis:**\n    *   **Explicit Evidence:** The candidate lists technologies like `FastAPI`, `Python`, and `SQL`. These are tools used to build backends. However, the evidence also explicitly states there is \"No professional internship listed.\" Furthermore, being a \"B.Tech Computer Science student\" implies current or recent academic status rather than established professional tenure.\n    *   **Unsupported Assumption:** One might assume that knowing `FastAPI` and `SQL` means one has deployed systems handling high traffic (`production-scale`). This is an assumption because these tools can be used for local development, homework assignments, or small prototypes without ever facing production constraints (e.g., latency under load, disaster recovery, scaling strategies). The lack of listed internships removes the primary source of evidence for professional deployment experience.\n\n### 2. AWS experience\n*   **Status:** **Not Verified**\n*   **Analysis:**\n    *   **Explicit Evidence:** The provided list contains `React`, `FastAPI`, `Python`, `SQL`, `Git`, and educational status. There is no mention of any cloud provider (AWS, Azure, GCP) or specific services (EC2, S3, Lambda).\n    *   **Unsupported Assumption:** It is common to assume that a modern backend developer must use AWS. However, the candidate could be using local servers, on-premise hardware, or other cloud providers entirely. Without explicit mention of AWS services in the evidence, claiming they have AWS experience is purely speculative.\n\n### 3. Kubernetes experience\n*   **Status:** **Not Verified**\n*   **Analysis:**\n    *   **Explicit Evidence:** The list includes `React`, `FastAPI`, `Python`, `SQL`, `Git`. None of these are Kubernetes components (like Helm, Kubectl, or specific K8s manifests).\n    *   **Unsupported Assumption:** One might assume that a student learning containerization (`Docker` is often implied with modern Python stacks) automatically knows Kubernetes. However, Docker and Kubernetes are distinct technologies. A candidate can build containers without ever orchestrating them in a cluster. The evidence does not support the claim of K8s experience.\n\n---\n\n### Distinction: Explicit Evidence vs. Reasonable but Unsupported Ass",
+      "notes": [
+        "Correctly rejected unsupported production experience.",
+        "Correctly rejected unsupported AWS experience.",
+        "Correctly rejected unsupported Kubernetes experience.",
+        "Separates verified facts from unsupported assumptions.",
+        "Explicitly labels unsupported assumptions."
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "record_count": 525,
+  "embedding_dimension": 384,
+  "source_count": 98
+}

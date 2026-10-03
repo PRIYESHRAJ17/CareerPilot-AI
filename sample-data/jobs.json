@@ -1,0 +1,52 @@
+[
+  {
+    "id": "CP001",
+    "company": "TCS",
+    "role": "Software Engineer",
+    "location": "Bangalore",
+    "experience": "0-2 years",
+    "salary_lpa": 7,
+    "skills": ["C++", "DSA", "SQL", "OOP"],
+    "work_mode": "Hybrid"
+  },
+  {
+    "id": "CP002",
+    "company": "Infosys",
+    "role": "Graduate Engineer",
+    "location": "Bangalore",
+    "experience": "0-1 years",
+    "salary_lpa": 6,
+    "skills": ["Java", "SQL", "OOP"],
+    "work_mode": "Hybrid"
+  },
+  {
+    "id": "CP003",
+    "company": "Microsoft",
+    "role": "Software Engineer Intern",
+    "location": "Bangalore",
+    "experience": "Student",
+    "salary_lpa": 10,
+    "skills": ["Python", "DSA", "Git", "Problem Solving"],
+    "work_mode": "On-site"
+  },
+  {
+    "id": "CP004",
+    "company": "Wipro",
+    "role": "Project Engineer",
+    "location": "Hyderabad",
+    "experience": "0-2 years",
+    "salary_lpa": 5,
+    "skills": ["Python", "SQL", "Java"],
+    "work_mode": "Hybrid"
+  },
+  {
+    "id": "CP005",
+    "company": "Accenture",
+    "role": "Associate Software Engineer",
+    "location": "Pune",
+    "experience": "0-2 years",
+    "salary_lpa": 7,
+    "skills": ["Java", "SQL", "Cloud"],
+    "work_mode": "Hybrid"
+  }
+]

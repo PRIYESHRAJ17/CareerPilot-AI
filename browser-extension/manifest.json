@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "CareerPilot Job Clipper",
+  "version": "1.0.0",
+  "description": "Capture any public career-page opportunity into CareerPilot Saved Jobs.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "action": {"default_popup": "popup.html"}
+}

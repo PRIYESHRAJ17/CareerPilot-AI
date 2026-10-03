@@ -1,0 +1,2 @@
+"use client";
+export default function GlobalError({ reset }: { error: Error & { digest?: string }; reset: () => void }) { return <html><body style={{margin:0,background:"#080a0f",color:"white",fontFamily:"system-ui"}}><main style={{minHeight:"100vh",display:"grid",placeItems:"center",padding:24}}><section><h1>CareerPilot encountered an unexpected error.</h1><button onClick={() => reset()}>Reload workspace</button></section></main></body></html>; }

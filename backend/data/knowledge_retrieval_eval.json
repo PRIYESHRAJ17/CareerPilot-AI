@@ -1,0 +1,117 @@
+{
+  "queries": 10,
+  "queries_with_results": 10,
+  "avg_top_score": 0.5563,
+  "results": [
+    {
+      "query": "software engineering interview preparation",
+      "result_count": 5,
+      "source_count": 3,
+      "top_score": 0.512129,
+      "top_sources": [
+        "CP-S094",
+        "CP-S094",
+        "CP-S003"
+      ]
+    },
+    {
+      "query": "skills needed for software developer roles",
+      "result_count": 5,
+      "source_count": 4,
+      "top_score": 0.60313,
+      "top_sources": [
+        "CP-S094",
+        "CP-S006",
+        "CP-S003"
+      ]
+    },
+    {
+      "query": "how to improve a resume for internships",
+      "result_count": 5,
+      "source_count": 4,
+      "top_score": 0.56019,
+      "top_sources": [
+        "CP-S077",
+        "CP-S071",
+        "CP-S058"
+      ]
+    },
+    {
+      "query": "career paths in artificial intelligence",
+      "result_count": 5,
+      "source_count": 3,
+      "top_score": 0.533637,
+      "top_sources": [
+        "CP-S070",
+        "CP-S096",
+        "CP-S070"
+      ]
+    },
+    {
+      "query": "how to evaluate and negotiate a job offer",
+      "result_count": 5,
+      "source_count": 4,
+      "top_score": 0.301382,
+      "top_sources": [
+        "CP-S057",
+        "CP-S063",
+        "CP-S070"
+      ]
+    },
+    {
+      "query": "career readiness competencies for students",
+      "result_count": 5,
+      "source_count": 3,
+      "top_score": 0.697552,
+      "top_sources": [
+        "CP-S047",
+        "CP-S046",
+        "CP-S046"
+      ]
+    },
+    {
+      "query": "finding internships and student opportunities",
+      "result_count": 5,
+      "source_count": 4,
+      "top_score": 0.576958,
+      "top_sources": [
+        "CP-S058",
+        "CP-S071",
+        "CP-S075"
+      ]
+    },
+    {
+      "query": "data science skills and career outlook",
+      "result_count": 5,
+      "source_count": 5,
+      "top_score": 0.664231,
+      "top_sources": [
+        "CP-S004",
+        "CP-S093",
+        "CP-S095"
+      ]
+    },
+    {
+      "query": "cybersecurity career skills",
+      "result_count": 5,
+      "source_count": 5,
+      "top_score": 0.591198,
+      "top_sources": [
+        "CP-S005",
+        "CP-S014",
+        "CP-S002"
+      ]
+    },
+    {
+      "query": "learning and upskilling for technology careers",
+      "result_count": 5,
+      "source_count": 5,
+      "top_score": 0.522378,
+      "top_sources": [
+        "CP-S054",
+        "CP-S013",
+        "CP-S015"
+      ]
+    }
+  ]
+}

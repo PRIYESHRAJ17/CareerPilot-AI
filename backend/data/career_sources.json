@@ -1,0 +1,806 @@
+{
+  "dataset": "CareerPilot AI Week 5 Career Intelligence Sources",
+  "version": "1.1.0",
+  "additional_sources": 98,
+  "purpose": "98 additional sources for the Week 5 100-source career intelligence target.",
+  "sources": [
+    {
+      "id": "CP-S001",
+      "publisher": "BLS",
+      "title": "Occupational Outlook Handbook",
+      "category": "labor_market",
+      "url": "https://www.bls.gov/ooh/",
+      "topics": ["career", "occupations", "wages", "outlook"]
+    },
+    {
+      "id": "CP-S002",
+      "publisher": "BLS",
+      "title": "Computer and Information Technology Occupations",
+      "category": "labor_market",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/",
+      "topics": ["technology", "occupations", "wages"]
+    },
+    {
+      "id": "CP-S003",
+      "publisher": "BLS",
+      "title": "Software Developers",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+      "topics": ["software", "skills", "wages", "outlook"]
+    },
+    {
+      "id": "CP-S004",
+      "publisher": "BLS",
+      "title": "Data Scientists",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/math/data-scientists.htm",
+      "topics": ["data science", "skills", "wages", "outlook"]
+    },
+    {
+      "id": "CP-S005",
+      "publisher": "BLS",
+      "title": "Information Security Analysts",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm",
+      "topics": ["cybersecurity", "skills", "wages", "outlook"]
+    },
+    {
+      "id": "CP-S006",
+      "publisher": "BLS",
+      "title": "Web Developers and Digital Designers",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm",
+      "topics": ["web development", "skills"]
+    },
+    {
+      "id": "CP-S007",
+      "publisher": "BLS",
+      "title": "Computer Systems Analysts",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-systems-analysts.htm",
+      "topics": ["systems", "analysis", "skills"]
+    },
+    {
+      "id": "CP-S008",
+      "publisher": "BLS",
+      "title": "Computer and Information Research Scientists",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-and-information-research-scientists.htm",
+      "topics": ["research", "AI", "computer science"]
+    },
+    {
+  "id": "CP-S009",
+  "publisher": "BLS",
+  "title": "Database Administrators and Architects",
+  "category": "occupations",
+  "url": "https://www.bls.gov/ooh/computer-and-information-technology/database-administrators.htm",
+  "topics": ["database", "cloud", "skills"]
+},
+    {
+      "id": "CP-S010",
+      "publisher": "BLS",
+      "title": "Operations Research Analysts",
+      "category": "occupations",
+      "url": "https://www.bls.gov/ooh/math/operations-research-analysts.htm",
+      "topics": ["analytics", "operations", "skills"]
+    },
+    {
+      "id": "CP-S011",
+      "publisher": "O*NET",
+      "title": "O*NET OnLine",
+      "category": "occupations",
+      "url": "https://www.onetonline.org/",
+      "topics": ["occupations", "skills", "tasks"]
+    },
+    {
+      "id": "CP-S012",
+      "publisher": "O*NET",
+      "title": "Software Developers",
+      "category": "occupations",
+      "url": "https://www.onetonline.org/link/summary/15-1252.00",
+      "topics": ["software", "skills", "tasks"]
+    },
+    {
+      "id": "CP-S013",
+      "publisher": "O*NET",
+      "title": "Data Scientists",
+      "category": "occupations",
+      "url": "https://www.onetonline.org/link/summary/15-2051.00",
+      "topics": ["data science", "skills", "tasks"]
+    },
+    {
+      "id": "CP-S014",
+      "publisher": "O*NET",
+      "title": "Information Security Analysts",
+      "category": "occupations",
+      "url": "https://www.onetonline.org/link/summary/15-1212.00",
+      "topics": ["security", "skills", "tasks"]
+    },
+    {
+      "id": "CP-S015",
+      "publisher": "O*NET",
+      "title": "Computer Systems Analysts",
+      "category": "occupations",
+      "url": "https://www.onetonline.org/link/summary/15-1211.00",
+      "topics": ["systems", "skills", "tasks"]
+    },
+    {
+      "id": "CP-S016",
+      "publisher": "CareerOneStop",
+      "title": "Job Search",
+      "category": "job_search",
+      "url": "https://www.careeronestop.org/JobSearch/job-search.aspx",
+      "topics": ["jobs", "search"]
+    },
+    {
+      "id": "CP-S017",
+      "publisher": "CareerOneStop",
+      "title": "Career Exploration",
+      "category": "career_planning",
+      "url": "https://www.careeronestop.org/Toolkit/Careers/careers.aspx",
+      "topics": ["career", "roles"]
+    },
+    {
+      "id": "CP-S018",
+      "publisher": "CareerOneStop",
+      "title": "Find Training",
+      "category": "learning",
+      "url": "https://www.careeronestop.org/Toolkit/Training/find-training.aspx",
+      "topics": ["learning", "training"]
+    },
+    {
+      "id": "CP-S019",
+      "publisher": "CareerOneStop",
+      "title": "Find Jobs",
+      "category": "job_search",
+      "url": "https://www.careeronestop.org/Toolkit/Jobs/find-jobs.aspx",
+      "topics": ["jobs"]
+    },
+    {
+      "id": "CP-S020",
+      "publisher": "CareerOneStop",
+      "title": "Resume Writing",
+      "category": "resume",
+      "url": "https://www.careeronestop.org/Toolkit/Resumes/resume-writing.aspx",
+      "topics": ["resume"]
+    },
+    {
+      "id": "CP-S021",
+      "publisher": "CareerOneStop",
+      "title": "Interviewing",
+      "category": "interview",
+      "url": "https://www.careeronestop.org/Toolkit/Interviews/interviewing.aspx",
+      "topics": ["interview"]
+    },
+    {
+      "id": "CP-S022",
+      "publisher": "CareerOneStop",
+      "title": "Skills Matcher",
+      "category": "skills",
+      "url": "https://www.careeronestop.org/Toolkit/Skills/skills-matcher.aspx",
+      "topics": ["skills", "gaps"]
+    },
+    {
+      "id": "CP-S023",
+      "publisher": "CareerOneStop",
+      "title": "Explore Careers",
+      "category": "career_planning",
+      "url": "https://www.careeronestop.org/Toolkit/ExploreCareers/explore-careers.aspx",
+      "topics": ["career", "occupations"]
+    },
+    {
+      "id": "CP-S024",
+      "publisher": "CareerOneStop",
+      "title": "Find Certifications",
+      "category": "skills",
+      "url": "https://www.careeronestop.org/Toolkit/Training/find-certifications.aspx",
+      "topics": ["certifications", "skills"]
+    },
+    {
+      "id": "CP-S025",
+      "publisher": "CareerOneStop",
+      "title": "Employment Trends",
+      "category": "labor_market",
+      "url": "https://www.careeronestop.org/Toolkit/Employment/employment-trends.aspx",
+      "topics": ["labor market", "trends"]
+    },
+    {
+      "id": "CP-S026",
+      "publisher": "Harvard OCS",
+      "title": "Resume, CV, or Cover Letter",
+      "category": "resume",
+      "url": "https://careerservices.fas.harvard.edu/channels/create-a-resume-cv-or-cover-letter/",
+      "topics": ["resume", "CV"]
+    },
+    {
+      "id": "CP-S027",
+      "publisher": "Harvard OCS",
+      "title": "Interviewing",
+      "category": "interview",
+      "url": "https://careerservices.fas.harvard.edu/resources/interviewing/",
+      "topics": ["interview"]
+    },
+    {
+      "id": "CP-S028",
+      "publisher": "Harvard OCS",
+      "title": "Networking",
+      "category": "networking",
+      "url": "https://careerservices.fas.harvard.edu/channels/expand-your-network/",
+      "topics": ["networking"]
+    },
+    {
+      "id": "CP-S029",
+      "publisher": "Harvard OCS",
+      "title": "Job Search",
+      "category": "job_search",
+      "url": "https://careerservices.fas.harvard.edu/channels/search-for-a-job-employer/",
+      "topics": ["jobs", "applications"]
+    },
+    {
+      "id": "CP-S030",
+      "publisher": "Harvard OCS",
+      "title": "Negotiating Job Offers",
+      "category": "salary",
+      "url": "https://careerservices.fas.harvard.edu/channels/negotiate-an-offer/",
+      "topics": ["salary", "negotiation"]
+    },
+    {
+      "id": "CP-S031",
+      "publisher": "MIT CAPD",
+      "title": "Find a Job or Internship",
+      "category": "job_search",
+      "url": "https://capd.mit.edu/channels/find-a-job-or-internship/",
+      "topics": ["jobs", "internships"]
+    },
+    {
+      "id": "CP-S032",
+      "publisher": "MIT CAPD",
+      "title": "Career Toolkit: Interviewing",
+      "category": "interview",
+      "url": "https://capd.mit.edu/resources/career-toolkit-interviewing/",
+      "topics": ["interview", "STAR"]
+    },
+    {
+      "id": "CP-S033",
+      "publisher": "MIT CAPD",
+      "title": "How to Network",
+      "category": "networking",
+      "url": "https://capd.mit.edu/resources/how-to-network/",
+      "topics": ["networking"]
+    },
+    {
+      "id": "CP-S034",
+      "publisher": "MIT CAPD",
+      "title": "Resume Tips",
+      "category": "resume",
+      "url": "https://capd.mit.edu/channels/make-a-resume-cover-letter-cv/",
+      "topics": ["resume"]
+    },
+    {
+      "id": "CP-S035",
+      "publisher": "MIT CAPD",
+      "title": "Offer Negotiation",
+      "category": "salary",
+      "url": "https://capd.mit.edu/channels/negotiate-job-offers/",
+      "topics": ["salary", "negotiation"]
+    },
+    {
+      "id": "CP-S036",
+      "publisher": "Yale OCS",
+      "title": "Resumes",
+      "category": "resume",
+      "url": "https://ocs.yale.edu/channels/resumes/",
+      "topics": ["resume", "CV"]
+    },
+    {
+      "id": "CP-S037",
+      "publisher": "Yale OCS",
+      "title": "Networking",
+      "category": "networking",
+      "url": "https://ocs.yale.edu/networking/",
+      "topics": ["networking"]
+    },
+    {
+      "id": "CP-S038",
+      "publisher": "Yale OCS",
+      "title": "Jobs, Internships & Other Experiences",
+      "category": "job_search",
+      "url": "https://ocs.yale.edu/channels/applying-to-jobs-internships/",
+      "topics": ["jobs", "internships"]
+    },
+    {
+      "id": "CP-S039",
+      "publisher": "Yale OCS",
+      "title": "Informational Interviewing",
+      "category": "networking",
+      "url": "https://ocs.yale.edu/channels/informational-interviewing/",
+      "topics": ["networking", "career"]
+    },
+    {
+      "id": "CP-S040",
+      "publisher": "Yale OCS",
+      "title": "Negotiating",
+      "category": "salary",
+      "url": "https://ocs.yale.edu/channels/job-offers-salary-negotiations/",
+      "topics": ["salary", "negotiation"]
+    },
+    {
+      "id": "CP-S041",
+      "publisher": "Yale OCS",
+      "title": "Interviewing",
+      "category": "interview",
+      "url": "https://ocs.yale.edu/channels/interview-preparation/",
+      "topics": ["interview"]
+    },
+    {
+      "id": "CP-S042",
+      "publisher": "Yale OCS",
+      "title": "Tell Me About Yourself",
+      "category": "interview",
+      "url": "https://ocs.yale.edu/channels/tell-me-about-yourself/",
+      "topics": ["interview", "pitch"]
+    },
+    {
+      "id": "CP-S043",
+      "publisher": "Yale OCS",
+      "title": "Education and Career Exploration",
+      "category": "career_planning",
+      "url": "https://ocs.yale.edu/channels/education/",
+      "topics": ["career", "employer research"]
+    },
+    {
+      "id": "CP-S044",
+      "publisher": "Yale OCS",
+      "title": "Career Exploration",
+      "category": "career_planning",
+      "url": "https://ocs.yale.edu/channels/ocs-online-tools/",
+      "topics": ["career"]
+    },
+    {
+      "id": "CP-S045",
+      "publisher": "Yale OCS",
+      "title": "LinkedIn",
+      "category": "networking",
+      "url": "https://ocs.yale.edu/channels/next-steps/",
+      "topics": ["LinkedIn", "branding"]
+    },
+    {
+      "id": "CP-S046",
+      "publisher": "NACE",
+      "title": "Career Readiness Defined",
+      "category": "skills",
+      "url": "https://www.naceweb.org/career-readiness/competencies/career-readiness-defined/",
+      "topics": ["career readiness", "competencies"]
+    },
+    {
+      "id": "CP-S047",
+      "publisher": "NACE",
+      "title": "Career Readiness Competencies",
+      "category": "skills",
+      "url": "https://www.naceweb.org/career-readiness/competencies/",
+      "topics": ["skills", "competencies"]
+    },
+    {
+      "id": "CP-S048",
+      "publisher": "NACE",
+      "title": "Internships",
+      "category": "internships",
+      "url": "https://www.naceweb.org/job-market/internships/",
+      "topics": ["internships"]
+    },
+    {
+      "id": "CP-S049",
+      "publisher": "NACE",
+      "title": "Skills-First Hiring",
+      "category": "hiring",
+      "url": "https://www.naceweb.org/talent-acquisition/skills-first-hiring/",
+      "topics": ["skills", "hiring"]
+    },
+    {
+      "id": "CP-S050",
+      "publisher": "Indeed Career Guide",
+      "title": "Career Advice",
+      "category": "career_planning",
+      "url": "https://www.indeed.com/career-advice",
+      "topics": ["career", "jobs"]
+    },
+    {
+      "id": "CP-S051",
+      "publisher": "Indeed Career Guide",
+      "title": "Resumes & Cover Letters",
+      "category": "resume",
+      "url": "https://www.indeed.com/career-advice/resumes-cover-letters",
+      "topics": ["resume"]
+    },
+    {
+      "id": "CP-S052",
+      "publisher": "Indeed Career Guide",
+      "title": "Interviewing",
+      "category": "interview",
+      "url": "https://www.indeed.com/career-advice/interviewing",
+      "topics": ["interview"]
+    },
+    {
+      "id": "CP-S053",
+      "publisher": "Indeed Career Guide",
+      "title": "Career Development",
+      "category": "career_planning",
+      "url": "https://www.indeed.com/career-advice/career-development",
+      "topics": ["career development"]
+    },
+    {
+      "id": "CP-S054",
+      "publisher": "LinkedIn Learning",
+      "title": "LinkedIn Learning",
+      "category": "learning",
+      "url": "https://www.linkedin.com/learning/",
+      "topics": ["learning", "professional development"]
+    },
+    {
+      "id": "CP-S055",
+      "publisher": "LinkedIn Career",
+      "title": "Career Development",
+      "category": "career_planning",
+      "url": "https://www.linkedin.com/pulse/topics/career-development/",
+      "topics": ["career development"]
+    },
+    {
+      "id": "CP-S056",
+      "publisher": "Amazon Jobs",
+      "title": "Amazon Jobs",
+      "category": "employer",
+      "url": "https://www.amazon.jobs/",
+      "topics": ["jobs", "careers"]
+    },
+    {
+      "id": "CP-S057",
+      "publisher": "Amazon Jobs",
+      "title": "Interviewing at Amazon",
+      "category": "interview",
+      "url": "https://amazon.jobs/content/en/how-we-hire",
+      "topics": ["interview", "hiring"]
+    },
+    {
+      "id": "CP-S058",
+      "publisher": "Amazon Jobs",
+      "title": "University Recruiting",
+      "category": "internships",
+      "url": "https://amazon.jobs/content/en/career-programs/university/internships-for-students",
+      "topics": ["internships", "students"]
+    },
+    {
+      "id": "CP-S059",
+      "publisher": "Google Careers",
+      "title": "Google Careers",
+      "category": "employer",
+      "url": "https://www.google.com/about/careers/",
+      "topics": ["jobs", "careers"]
+    },
+    {
+      "id": "CP-S060",
+      "publisher": "Google Tech Dev Guide",
+      "title": "Tech Dev Guide",
+      "category": "learning",
+      "url": "https://techdevguide.withgoogle.com/",
+      "topics": ["software", "computer science"]
+    },
+    {
+      "id": "CP-S061",
+      "publisher": "Google Careers",
+      "title": "Applications",
+      "category": "hiring",
+      "url": "https://www.google.com/about/careers/applications/",
+      "topics": ["applications", "hiring"]
+    },
+    {
+      "id": "CP-S062",
+      "publisher": "Microsoft Careers",
+      "title": "Microsoft Careers",
+      "category": "employer",
+      "url": "https://careers.microsoft.com/",
+      "topics": ["careers", "technology"]
+    },
+    {
+      "id": "CP-S063",
+      "publisher": "Microsoft Careers",
+      "title": "Students and Graduates",
+      "category": "internships",
+      "url": "https://careers.microsoft.com/v2/global/en/students",
+      "topics": ["internships", "students"]
+    },
+    {
+  "id": "CP-S064",
+  "publisher": "Meta",
+  "title": "America's Workforce Academy",
+  "category": "employer",
+  "url": "https://about.fb.com/news/2026/08/americas-workforce-academy-meta-skilled-trade-training-program/",
+  "topics": [
+    "Meta",
+    "workforce",
+    "careers",
+    "skills",
+    "training",
+    "employment"
+  ]
+},
+{
+  "id": "CP-S065",
+  "publisher": "Meta",
+  "title": "Education and Skilling in India",
+  "category": "internships",
+  "url": "https://about.fb.com/news/2023/09/investing-to-advance-the-future-of-education-skilling-in-india/",
+  "topics": [
+    "Meta",
+    "students",
+    "education",
+    "skilling",
+    "India",
+    "career readiness"
+  ]
+},
+    {
+      "id": "CP-S066",
+      "publisher": "NVIDIA Careers",
+      "title": "NVIDIA Careers",
+      "category": "employer",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+      "topics": ["AI", "careers"]
+    },
+    {
+      "id": "CP-S067",
+      "publisher": "NVIDIA Careers",
+      "title": "University Recruiting",
+      "category": "internships",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/careers/university-recruiting/",
+      "topics": ["students", "internships"]
+    },
+    {
+      "id": "CP-S068",
+      "publisher": "IBM Careers",
+      "title": "IBM Careers",
+      "category": "employer",
+      "url": "https://www.ibm.com/careers/us-en/",
+      "topics": ["careers", "AI"]
+    },
+    {
+      "id": "CP-S069",
+      "publisher": "IBM Careers",
+      "title": "IBM Internships",
+      "category": "internships",
+      "url": "https://www.ibm.com/careers/us-en/internships",
+      "topics": ["internships"]
+    },
+    {
+      "id": "CP-S070",
+      "publisher": "Salesforce Careers",
+      "title": "Salesforce Careers",
+      "category": "employer",
+      "url": "https://www.salesforce.com/company/careers/",
+      "topics": ["careers"]
+    },
+    {
+      "id": "CP-S071",
+      "publisher": "Salesforce Careers",
+      "title": "University Recruiting",
+      "category": "internships",
+      "url": "https://www.salesforce.com/company/careers/university-recruiting/",
+      "topics": ["internships"]
+    },
+    {
+      "id": "CP-S072",
+      "publisher": "Adobe Careers",
+      "title": "Adobe Careers",
+      "category": "employer",
+      "url": "https://www.adobe.com/careers.html",
+      "topics": ["careers", "technology"]
+    },
+    {
+      "id": "CP-S073",
+      "publisher": "Adobe Careers",
+      "title": "Adobe Students",
+      "category": "internships",
+      "url": "https://www.adobe.com/careers/university.html",
+      "topics": ["internships", "students"]
+    },
+    {
+      "id": "CP-S074",
+      "publisher": "Apple Careers",
+      "title": "Apple Careers",
+      "category": "employer",
+      "url": "https://www.apple.com/careers/us/",
+      "topics": ["careers", "technology"]
+    },
+    {
+      "id": "CP-S075",
+      "publisher": "Apple Careers",
+      "title": "Apple Students",
+      "category": "internships",
+      "url": "https://www.apple.com/careers/us/students.html",
+      "topics": ["internships", "students"]
+    },
+    {
+      "id": "CP-S076",
+      "publisher": "Levels.fyi",
+      "title": "Levels.fyi",
+      "category": "salary",
+      "url": "https://www.levels.fyi/",
+      "topics": ["salary", "compensation"]
+    },
+    {
+      "id": "CP-S077",
+      "publisher": "Levels.fyi",
+      "title": "Internships",
+      "category": "salary",
+      "url": "https://www.levels.fyi/internships/",
+      "topics": ["internships", "salary"]
+    },
+    {
+      "id": "CP-S078",
+      "publisher": "Levels.fyi",
+      "title": "Companies",
+      "category": "companies",
+      "url": "https://www.levels.fyi/companies/",
+      "topics": ["companies", "compensation"]
+    },
+    {
+      "id": "CP-S079",
+      "publisher": "Robert Half",
+      "title": "Salary Guide",
+      "category": "salary",
+      "url": "https://www.roberthalf.com/us/en/insights/salary-guide",
+      "topics": ["salary", "market"]
+    },
+    {
+      "id": "CP-S080",
+      "publisher": "Robert Half",
+      "title": "Career Insights",
+      "category": "career_planning",
+      "url": "https://www.roberthalf.com/us/en/insights",
+      "topics": ["career", "market"]
+    },
+    {
+      "id": "CP-S081",
+      "publisher": "Robert Half",
+      "title": "Career Advice",
+      "category": "career_planning",
+      "url": "https://www.roberthalf.com/us/en/insights/career-development",
+      "topics": ["career", "jobs"]
+    },
+    {
+      "id": "CP-S082",
+      "publisher": "Hays",
+      "title": "Salary Guide",
+      "category": "salary",
+      "url": "https://www.hays.com/salary-guide/",
+      "topics": ["salary", "market"]
+    },
+    {
+      "id": "CP-S083",
+      "publisher": "Hays",
+      "title": "Career Advice",
+      "category": "career_planning",
+      "url": "https://www.hays.com/career-advice",
+      "topics": ["career"]
+    },
+    {
+      "id": "CP-S084",
+      "publisher": "National Career Service",
+      "title": "NCS",
+      "category": "india",
+      "url": "https://www.ncs.gov.in/",
+      "topics": ["India", "jobs"]
+    },
+    {
+      "id": "CP-S085",
+      "publisher": "National Career Service",
+      "title": "Career Centre",
+      "category": "india",
+      "url": "https://www.ncs.gov.in/Pages/CareerCentre.aspx",
+      "topics": ["India", "career guidance"]
+    },
+    {
+      "id": "CP-S086",
+      "publisher": "NSDC",
+      "title": "National Skill Development Corporation",
+      "category": "india",
+      "url": "https://www.nsdcindia.org/",
+      "topics": ["India", "skills"]
+    },
+    {
+      "id": "CP-S087",
+      "publisher": "NSDC",
+      "title": "Skill Initiatives",
+      "category": "india",
+      "url": "https://www.nsdcindia.org/skill-initiatives",
+      "topics": ["India", "training"]
+    },
+    {
+      "id": "CP-S088",
+      "publisher": "Skill India Digital",
+      "title": "Skill India Digital",
+      "category": "india",
+      "url": "https://www.skillindiadigital.gov.in/",
+      "topics": ["India", "skills"]
+    },
+    {
+      "id": "CP-S089",
+      "publisher": "Skill India Digital",
+      "title": "Home",
+      "category": "india",
+      "url": "https://www.skillindiadigital.gov.in/home",
+      "topics": ["India", "learning"]
+    },
+    {
+      "id": "CP-S090",
+      "publisher": "AICTE",
+      "title": "AICTE",
+      "category": "india",
+      "url": "https://www.aicte-india.org/",
+      "topics": ["India", "education"]
+    },
+    {
+      "id": "CP-S091",
+      "publisher": "AICTE",
+      "title": "Student Opportunities",
+      "category": "india",
+      "url": "https://internship.aicte-india.org/",
+      "topics": ["India", "students"]
+    },
+    {
+      "id": "CP-S092",
+      "publisher": "Coursera",
+      "title": "Career Development Courses",
+      "category": "learning",
+      "url": "https://www.coursera.org/courses?query=career%20development",
+      "topics": ["learning", "career"]
+    },
+    {
+      "id": "CP-S093",
+      "publisher": "Coursera",
+      "title": "Data Science Courses",
+      "category": "learning",
+      "url": "https://www.coursera.org/courses?query=data%20science",
+      "topics": ["data science", "learning"]
+    },
+    {
+      "id": "CP-S094",
+      "publisher": "Coursera",
+      "title": "Software Engineering Courses",
+      "category": "learning",
+      "url": "https://www.coursera.org/courses?query=software%20engineering",
+      "topics": ["software engineering", "learning"]
+    },
+    {
+      "id": "CP-S095",
+      "publisher": "edX",
+      "title": "Career Development",
+      "category": "learning",
+      "url": "https://www.edx.org/learn/career-development",
+      "topics": ["career", "learning"]
+    },
+    {
+      "id": "CP-S096",
+      "publisher": "edX",
+      "title": "Computer Science",
+      "category": "learning",
+      "url": "https://www.edx.org/learn/computer-science",
+      "topics": ["computer science", "learning"]
+    },
+    {
+      "id": "CP-S097",
+      "publisher": "GitHub Skills",
+      "title": "GitHub Skills",
+      "category": "learning",
+      "url": "https://skills.github.com/",
+      "topics": ["GitHub", "software", "learning"]
+    },
+    {
+      "id": "CP-S098",
+      "publisher": "AWS Skill Builder",
+      "title": "AWS Skill Builder",
+      "category": "learning",
+      "url": "https://skillbuilder.aws/",
+      "topics": ["cloud", "AWS", "learning"]
+    }
+  ]
+}

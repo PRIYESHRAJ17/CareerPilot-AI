@@ -1,0 +1,76 @@
+{
+  "model": "qwen3.5:9b",
+  "overall_score": 0.0,
+  "cases_total": 6,
+  "cases_completed": 0,
+  "cases_failed": 6,
+  "category_scores": {},
+  "cases": [
+    {
+      "case_id": "CP-01",
+      "name": "Job Fit Reasoning",
+      "category": "career_reasoning",
+      "score": 0.0,
+      "latency_seconds": 58.144,
+      "success": false,
+      "output": "",
+      "notes": [],
+      "error": "Ollama returned an empty response."
+    },
+    {
+      "case_id": "CP-02",
+      "name": "Evidence-Safe Rewrite",
+      "category": "evidence_safety",
+      "score": 0.0,
+      "latency_seconds": 56.819,
+      "success": false,
+      "output": "",
+      "notes": [],
+      "error": "Ollama returned an empty response."
+    },
+    {
+      "case_id": "CP-03",
+      "name": "Gap Analysis",
+      "category": "gap_analysis",
+      "score": 0.0,
+      "latency_seconds": 57.051,
+      "success": false,
+      "output": "",
+      "notes": [],
+      "error": "Ollama returned an empty response."
+    },
+    {
+      "case_id": "CP-04",
+      "name": "Action Plan",
+      "category": "actionability",
+      "score": 0.0,
+      "latency_seconds": 57.008,
+      "success": false,
+      "output": "",
+      "notes": [],
+      "error": "Ollama returned an empty response."
+    },
+    {
+      "case_id": "CP-05",
+      "name": "Structured Output",
+      "category": "structured_output",
+      "score": 0.0,
+      "latency_seconds": 57.169,
+      "success": false,
+      "output": "",
+      "notes": [],
+      "error": "Ollama returned an empty response."
+    },
+    {
+      "case_id": "CP-06",
+      "name": "Evidence-Constrained Reasoning",
+      "category": "evidence_safety",
+      "score": 0.0,
+      "latency_seconds": 56.949,
+      "success": false,
+      "output": "",
+      "notes": [],
+      "error": "Ollama returned an empty response."
+    }
+  ]
+}

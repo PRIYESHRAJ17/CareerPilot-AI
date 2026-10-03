@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080a0f;
+  --foreground: #f5f7fb;
+  --muted-foreground: #9ca3af;
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --background: #f7f8fb;
+  --foreground: #111827;
+  --muted-foreground: #6b7280;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:root { --background: #080a0f; --foreground: #f8fafc; --muted: #a1a1aa; }
+:root[data-theme='light'] { --background: #f7f8fa; --foreground: #101214; --muted: #52525b; }
+body { background-color: var(--background); color: var(--foreground); }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.skip-link { position: fixed; left: 1rem; top: -4rem; z-index: 100; padding: .75rem 1rem; border-radius: .75rem; background: #fff; color: #000; transition: top .15s; }
+.skip-link:focus { top: 1rem; }

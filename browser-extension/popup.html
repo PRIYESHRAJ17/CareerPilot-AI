@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CareerPilot Clipper</title><style>body{font:14px system-ui,sans-serif;width:330px;padding:16px;background:#0b0e14;color:#fff}h1{font-size:18px;margin:0 0 12px}label{display:block;margin:9px 0 4px;color:#aeb4c0;font-size:11px}input,textarea{box-sizing:border-box;width:100%;background:#121722;border:1px solid #273041;color:#fff;border-radius:9px;padding:8px;font:12px system-ui}textarea{min-height:60px}button{width:100%;margin-top:12px;border:0;border-radius:10px;padding:10px;font-weight:700;cursor:pointer}#save{background:#fff;color:#000}#status{margin-top:10px;font-size:11px;color:#aeb4c0;line-height:1.4}</style></head>
+<body>
+<h1>CareerPilot Job Clipper</h1>
+<label>CareerPilot API URL</label><input id="api" value="http://localhost:8000">
+<label>Clipper token</label><input id="token" type="password" placeholder="cpclip_…">
+<label>Title</label><input id="title">
+<label>Company</label><input id="company">
+<label>Location</label><input id="location">
+<label>Notes</label><textarea id="notes"></textarea>
+<button id="save">Save to CareerPilot</button>
+<div id="status"></div>
+<script src="popup.js"></script>
+</body></html>

@@ -1,0 +1,4 @@
+"use client";
+import { useEffect } from "react";
+import { reportTelemetry } from "@/lib/telemetry";
+export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) { useEffect(() => { reportTelemetry({ name: "react.error", detail: { message: error.message.slice(0, 500), digest: error.digest ?? null } }); }, [error]); return <main className="min-h-screen grid place-items-center p-8 text-white"><section className="max-w-lg rounded-3xl border border-white/10 p-8 text-center"><h1 className="text-2xl font-semibold">Something went wrong</h1><p className="mt-3 text-sm text-white/45">CareerPilot captured the failure. You can retry without losing the rest of your workspace.</p><button className="mt-6 rounded-xl bg-white px-4 py-2.5 text-xs font-semibold text-black" onClick={() => reset()}>Try again</button></section></main>; }

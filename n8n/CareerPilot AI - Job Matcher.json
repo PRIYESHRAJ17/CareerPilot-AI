@@ -1,0 +1,142 @@
+{
+  "name": "CareerPilot AI - Job Matcher",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "careerpilot/jobs",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "aa1bd726-e54e-46b7-ac53-72ab985eb48d",
+      "name": "Webhook",
+      "webhookId": "c53cf255-7129-41a6-8e27-aa0f63c30d85"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\n\nconst jobs = [\n  {\n    company: \"TCS\",\n    role: \"Software Engineer\",\n    location: \"Bangalore\",\n    experience: \"0-2 years\",\n    salary_lpa: 7,\n    skills: [\"C++\", \"DSA\", \"SQL\", \"OOP\"]\n  },\n  {\n    company: \"Infosys\",\n    role: \"Graduate Engineer\",\n    location: \"Bangalore\",\n    experience: \"0-1 years\",\n    salary_lpa: 6,\n    skills: [\"Java\", \"SQL\", \"OOP\"]\n  },\n  {\n    company: \"Microsoft\",\n    role: \"Software Engineer Intern\",\n    location: \"Bangalore\",\n    experience: \"Student\",\n    salary_lpa: 10,\n    skills: [\"Python\", \"DSA\", \"Git\", \"Problem Solving\"]\n  },\n  {\n    company: \"Wipro\",\n    role: \"Project Engineer\",\n    location: \"Hyderabad\",\n    experience: \"0-2 years\",\n    salary_lpa: 5,\n    skills: [\"Python\", \"SQL\", \"Java\"]\n  },\n  {\n    company: \"Accenture\",\n    role: \"Associate Software Engineer\",\n    location: \"Pune\",\n    experience: \"0-2 years\",\n    salary_lpa: 7,\n    skills: [\"Java\", \"SQL\", \"Cloud\"]\n  }\n];\n\nreturn [{\n  json: {\n    user: {\n      role: body.role || \"Software Engineer\",\n      location: body.location || \"Bangalore\",\n      experience: body.experience || \"Fresher\",\n      minimum_salary: Number(body.minimum_salary || 0)\n    },\n    jobs\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "98c081f3-4145-4b00-a9b3-00f13e064c7f",
+      "name": "Prepare Input + Jobs"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        832,
+        0
+      ],
+      "id": "69fc9c1b-c918-41bb-8973-14b6e4a6eb14",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are CareerPilot AI, an intelligent career matching assistant.\n\nYou are given a user's job-search preferences and a list of available job listings from the previous node.\n\nUSER PREFERENCES:\n{{ JSON.stringify($json.user) }}\n\nAVAILABLE JOBS:\n{{ JSON.stringify($json.jobs) }}\n\nAnalyze all available jobs and rank the best matches.\n\nConsider:\n1. Role similarity\n2. Location\n3. Experience compatibility\n4. Minimum salary\n5. Relevant skills\n\nReturn the TOP 3 matching jobs.\n\nFor each recommendation provide:\n- Company\n- Role\n- Location\n- Salary in LPA\n- Match Score from 0-100\n- Matching Skills\n- Missing Skills\n- Short Explanation\n\nRules:\n- Use ONLY the supplied job data.\n- Do not invent companies, salaries, locations, or skills.\n- Rank the strongest matches first.\n- Return valid JSON.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "80a2ef4e-d98b-4621-ac83-478d42f42c15",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        320,
+        208
+      ],
+      "id": "cf0c41b4-0f93-4859-a843-57c26d44e8bf",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "ez4MsZfq4wBZkOnm",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Prepare Input + Jobs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Input + Jobs": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "9480d888-9e4c-424a-9577-f7b2f441e6fb",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "87961d8051d6fc001cb8d0ae1d9061e7fa009ac3f22d9b1b1f72cf123b25c886"
+  },
+  "nodeGroups": [],
+  "id": "K8EzycUGP6SRb9iF",
+  "tags": []
+}

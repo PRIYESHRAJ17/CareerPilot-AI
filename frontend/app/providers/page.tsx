@@ -1,0 +1,14 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
+import { AppShell } from "@/components/AppShell";
+import { apiJson } from "@/lib/apiClient";
+
+type Provider = Record<string, unknown> & { name: string };
+export default function ProvidersPage() {
+  const [providers, setProviders] = useState<Provider[]>([]);
+  const [filter, setFilter] = useState("");
+  useEffect(()=>{ apiJson<{providers:Provider[]}>("/providers/catalog").then((data)=>setProviders(data.providers ?? [])).catch(()=>undefined); },[]);
+  const visible = useMemo(()=>providers.filter((p)=>String(p.display_name ?? p.name).toLowerCase().includes(filter.toLowerCase()) || String(p.platform).toLowerCase().includes(filter.toLowerCase())),[providers,filter]);
+  async function toggle(provider: Provider) { const enabled=!Boolean(provider.enabled); await apiJson("/providers/preferences", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({provider:provider.name,enabled}) }).catch(()=>undefined); setProviders((items)=>items.map((item)=>item.name===provider.name?{...item,enabled}:item)); }
+  return <AppShell><main className="min-h-screen p-5 text-white md:p-8"><div className="mx-auto max-w-7xl"><header className="border-b border-white/10 pb-6"><p className="text-xs uppercase tracking-[0.2em] text-white/60">Source control center</p><h1 className="mt-2 text-4xl font-semibold">Providers</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">Canonical provider catalog, persisted verification state, source health and per-user enable/disable preferences.</p></header><div className="mt-6 flex gap-3"><input value={filter} onChange={(e)=>setFilter(e.target.value)} placeholder="Search provider or platform" className="w-full max-w-xl rounded-xl border border-white/10 bg-black/10 px-4 py-3 text-sm"/></div><div className="mt-6 overflow-hidden rounded-3xl border border-white/10"><div className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-3 border-b border-white/10 px-4 py-3 text-[11px] uppercase tracking-wider text-white/45"><span>Provider</span><span>Platform</span><span>State</span><span>Jobs</span><span>Control</span></div>{visible.map((provider)=><div key={provider.name} className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr] items-center gap-3 border-b border-white/8 px-4 py-4 text-xs"><div><div className="font-medium text-white/90">{String(provider.display_name ?? provider.name)}</div><div className="mt-1 text-white/40">{provider.name}</div></div><span className="text-white/60">{String(provider.platform)}</span><span className={String(provider.state)==="LIVE"?"text-emerald-300":"text-amber-200"}>{String(provider.state)}</span><span className="text-white/60">{String(provider.jobs_returned ?? 0)}</span><button type="button" onClick={()=>void toggle(provider)} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs">{provider.enabled ? "Enabled" : "Disabled"}</button></div>)}</div></div></main></AppShell>;
+}
