@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from typing import List, Optional
 
 from pydantic import BaseModel, Field, field_validator
@@ -68,7 +69,6 @@ class JobSearchRequest(BaseModel):
 
 
 # ==========================================================
-
 # MATCH INTELLIGENCE
 # ==========================================================
 
@@ -132,6 +132,75 @@ class SourceRecord(BaseModel):
     salary_evidence: Optional[str] = None
 
     posted_at: Optional[str] = None
+
+    @field_validator("posted_at", mode="before")
+    @classmethod
+    def normalize_posted_at(cls, value):
+        """
+        Normalize provider-specific posted_at formats into
+        an ISO-8601 string.
+
+        Supported inputs include:
+        - ISO/date strings
+        - datetime objects
+        - Unix timestamps in seconds
+        - Unix timestamps in milliseconds
+        - numeric timestamp strings
+        """
+
+        if value is None:
+            return None
+
+        # Already a datetime object
+        if isinstance(value, datetime):
+            if value.tzinfo is None:
+                value = value.replace(tzinfo=timezone.utc)
+            else:
+                value = value.astimezone(timezone.utc)
+
+            return value.isoformat()
+
+        # Numeric Unix timestamp
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            try:
+                timestamp = float(value)
+
+                # Millisecond timestamps are much larger than
+                # normal Unix-second timestamps.
+                if abs(timestamp) >= 10_000_000_000:
+                    timestamp /= 1000.0
+
+                return datetime.fromtimestamp(
+                    timestamp,
+                    tz=timezone.utc,
+                ).isoformat()
+
+            except (OverflowError, OSError, ValueError):
+                return str(value)
+
+        # Numeric timestamp represented as a string
+        if isinstance(value, str):
+            cleaned = value.strip()
+
+            if not cleaned:
+                return None
+
+            try:
+                numeric_value = float(cleaned)
+
+                if abs(numeric_value) >= 10_000_000_000:
+                    numeric_value /= 1000.0
+
+                return datetime.fromtimestamp(
+                    numeric_value,
+                    tz=timezone.utc,
+                ).isoformat()
+
+            except (ValueError, OverflowError, OSError):
+                return cleaned
+
+        # Final defensive fallback
+        return str(value)
 
 
 # ==========================================================

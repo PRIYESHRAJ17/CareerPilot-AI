@@ -41,12 +41,29 @@ export default function IntegrationsPage() {
   }
 
   useEffect(() => {
-    void load();
+    let cancelled = false;
+    apiJson<{ integrations: Integration[]; setup: Setup }>("/integrations/status")
+      .then((result) => {
+        if (!cancelled) {
+          setItems(result.integrations ?? []);
+          setSetup(result.setup ?? {});
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) setMessage(error instanceof Error ? error.message : "Unable to load integrations.");
+      });
+
     const params = new URLSearchParams(window.location.search);
     const connected = params.get("connected");
     const error = params.get("error");
-    if (connected) setMessage(`${connected} connected successfully.`);
-    if (error) setMessage(`Integration error: ${error}`);
+    const statusMessage = connected
+      ? `${connected} connected successfully.`
+      : error
+        ? `Integration error: ${error}`
+        : "";
+    if (statusMessage) queueMicrotask(() => { if (!cancelled) setMessage(statusMessage); });
+
+    return () => { cancelled = true; };
   }, []);
 
   async function disconnect(provider: string) {

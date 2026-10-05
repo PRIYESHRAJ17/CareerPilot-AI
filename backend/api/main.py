@@ -78,13 +78,29 @@ from backend.api.career_twin import (
 )
 
 from backend.api.agentic import router as agentic_router
-from backend.api.session import ensure_session, get_candidate_id, router as session_router
-from backend.api.workspace import router as workspace_router
-from backend.api.providers import router as providers_router
-from backend.api.integrations import router as integrations_router
-from backend.api.inbox import router as inbox_router
-from backend.api.learning import router as learning_router
-from backend.services.workspace_store import list_records
+from backend.api.session import (
+    ensure_session,
+    get_candidate_id,
+    router as session_router,
+)
+from backend.api.workspace import (
+    router as workspace_router,
+)
+from backend.api.providers import (
+    router as providers_router,
+)
+from backend.api.integrations import (
+    router as integrations_router,
+)
+from backend.api.inbox import (
+    router as inbox_router,
+)
+from backend.api.learning import (
+    router as learning_router,
+)
+from backend.services.workspace_store import (
+    list_records,
+)
 
 
 # ============================================================
@@ -124,18 +140,38 @@ app.include_router(
     knowledge_router
 )
 
+
 # ============================================================
-# CORS
+# CORS / MIDDLEWARE
 # ============================================================
 
 
 @app.middleware("http")
-async def csrf_middleware(request: Request, call_next):
+async def csrf_middleware(
+    request: Request,
+    call_next,
+):
     if not _csrf_valid(request):
-        raise HTTPException(status_code=403, detail="CSRF validation failed.")
+        raise HTTPException(
+            status_code=403,
+            detail="CSRF validation failed.",
+        )
+
     response = await call_next(request)
-    if not request.cookies.get(CSRF_COOKIE):
-        response.set_cookie(CSRF_COOKIE, secrets.token_urlsafe(32), httponly=False, secure=False, samesite="lax", max_age=31536000, path="/")
+
+    if not request.cookies.get(
+        CSRF_COOKIE
+    ):
+        response.set_cookie(
+            CSRF_COOKIE,
+            secrets.token_urlsafe(32),
+            httponly=False,
+            secure=False,
+            samesite="lax",
+            max_age=31536000,
+            path="/",
+        )
+
     return response
 
 
@@ -199,23 +235,56 @@ resume_rewrite_engine = ResumeRewriteEngine()
 llm_resume_reasoner = LLMResumeReasoner()
 
 
-
-
+# ============================================================
+# SECURITY / UPLOAD HELPERS
+# ============================================================
 
 CSRF_COOKIE = "careerpilot_csrf"
-CSRF_EXEMPT_PATHS = {"/health", "/career-twin/session", "/docs", "/openapi.json", "/integrations/clipper/jobs"}
+
+CSRF_EXEMPT_PATHS = {
+    "/health",
+    "/career-twin/session",
+    "/docs",
+    "/openapi.json",
+    "/integrations/clipper/jobs",
+}
+
+MAX_RESUME_BYTES = (
+    10 * 1024 * 1024
+)
 
 
-def _csrf_valid(request: Request) -> bool:
-    if request.method.upper() in {"GET", "HEAD", "OPTIONS"}:
+def _csrf_valid(
+    request: Request,
+) -> bool:
+    if request.method.upper() in {
+        "GET",
+        "HEAD",
+        "OPTIONS",
+    }:
         return True
-    if request.url.path in CSRF_EXEMPT_PATHS:
-        return True
-    cookie = request.cookies.get(CSRF_COOKIE)
-    header = request.headers.get("x-csrf-token")
-    return bool(cookie and header and hmac.compare_digest(cookie, header))
 
-MAX_RESUME_BYTES = 10 * 1024 * 1024
+    if request.url.path in (
+        CSRF_EXEMPT_PATHS
+    ):
+        return True
+
+    cookie = request.cookies.get(
+        CSRF_COOKIE
+    )
+
+    header = request.headers.get(
+        "x-csrf-token"
+    )
+
+    return bool(
+        cookie
+        and header
+        and hmac.compare_digest(
+            cookie,
+            header,
+        )
+    )
 
 
 def read_upload_limited(
@@ -228,7 +297,10 @@ def read_upload_limited(
     if len(data) > MAX_RESUME_BYTES:
         raise HTTPException(
             status_code=413,
-            detail="Resume file exceeds the 10 MB limit.",
+            detail=(
+                "Resume file exceeds "
+                "the 10 MB limit."
+            ),
         )
 
     return data
@@ -237,6 +309,7 @@ def read_upload_limited(
 # ============================================================
 # ROOT
 # ============================================================
+
 
 @app.get("/")
 def root():
@@ -257,13 +330,16 @@ def root():
             "rewrite-validation",
         ],
         "docs": "/docs",
-        "week7_phase6": "core product workstreams enabled",
+        "week7_phase6": (
+            "core product workstreams enabled"
+        ),
     }
 
 
 # ============================================================
 # HEALTH
 # ============================================================
+
 
 @app.get("/health")
 def health():
@@ -277,6 +353,7 @@ def health():
 # ============================================================
 # JOB SEARCH
 # ============================================================
+
 
 @app.post(
     "/jobs/search",
@@ -331,12 +408,36 @@ def search_jobs(
             ),
         )
 
-        authenticated_candidate_id = get_candidate_id(http_request)
-        provider_settings = next((item for item in list_records(authenticated_candidate_id, "settings") if item.get("id") == "providers"), {})
-        provider_preferences = provider_settings.get("providers") or {}
+        authenticated_candidate_id = (
+            get_candidate_id(
+                http_request
+            )
+        )
+
+        provider_settings = next(
+            (
+                item
+                for item in list_records(
+                    authenticated_candidate_id,
+                    "settings",
+                )
+                if item.get("id")
+                == "providers"
+            ),
+            {},
+        )
+
+        provider_preferences = (
+            provider_settings.get(
+                "providers"
+            )
+            or {}
+        )
 
         candidate = CandidateProfile(
-            candidate_id=authenticated_candidate_id,
+            candidate_id=(
+                authenticated_candidate_id
+            ),
             name="CareerPilot User",
             headline=request.role,
             skills=request.skills,
@@ -353,7 +454,10 @@ def search_jobs(
                 request.preferred_work_modes
             ),
             career_goal=career_goal,
-            metadata={"provider_preferences": provider_preferences},
+            metadata={
+                "provider_preferences":
+                    provider_preferences
+            },
         )
 
         # ----------------------------------------------------
@@ -368,7 +472,9 @@ def search_jobs(
 
         candidate_intelligence = (
             CandidateIntelligenceResponse(
-                **asdict(intelligence)
+                **asdict(
+                    intelligence
+                )
             )
         )
 
@@ -376,13 +482,17 @@ def search_jobs(
         # 3. CAREER STRATEGY
         # ----------------------------------------------------
 
-        strategy = generate_career_strategy(
-            intelligence
+        strategy = (
+            generate_career_strategy(
+                intelligence
+            )
         )
 
         career_strategy = (
             CareerStrategyResponse(
-                **asdict(strategy)
+                **asdict(
+                    strategy
+                )
             )
         )
 
@@ -452,7 +562,10 @@ def search_jobs(
 # RESUME ANALYSIS
 # ============================================================
 
-@app.post("/resume/analyze")
+
+@app.post(
+    "/resume/analyze"
+)
 async def analyze_resume(
     file: UploadFile = File(...),
 ):
@@ -473,7 +586,9 @@ async def analyze_resume(
     if not file.filename:
         raise HTTPException(
             status_code=400,
-            detail="Resume filename is missing.",
+            detail=(
+                "Resume filename is missing."
+            ),
         )
 
     if not file.filename.lower().endswith(
@@ -482,8 +597,8 @@ async def analyze_resume(
         raise HTTPException(
             status_code=400,
             detail=(
-                "Only PDF resumes are currently "
-                "supported."
+                "Only PDF resumes are "
+                "currently supported."
             ),
         )
 
@@ -492,13 +607,16 @@ async def analyze_resume(
         # 1. READ FILE
         # ----------------------------------------------------
 
-        file_bytes = read_upload_limited(file)
+        file_bytes = read_upload_limited(
+            file
+        )
 
         if not file_bytes:
             raise HTTPException(
                 status_code=400,
                 detail=(
-                    "Uploaded resume file is empty."
+                    "Uploaded resume file "
+                    "is empty."
                 ),
             )
 
@@ -574,7 +692,10 @@ async def analyze_resume(
 # + LLM REASONING / VALIDATION
 # ============================================================
 
-@app.post("/resume/ats-analyze")
+
+@app.post(
+    "/resume/ats-analyze"
+)
 async def analyze_resume_for_job(
     file: UploadFile = File(...),
     job_description: str = Form(...),
@@ -624,7 +745,9 @@ async def analyze_resume_for_job(
     if not file.filename:
         raise HTTPException(
             status_code=400,
-            detail="Resume filename is missing.",
+            detail=(
+                "Resume filename is missing."
+            ),
         )
 
     if not file.filename.lower().endswith(
@@ -633,8 +756,8 @@ async def analyze_resume_for_job(
         raise HTTPException(
             status_code=400,
             detail=(
-                "Only PDF resumes are currently "
-                "supported."
+                "Only PDF resumes are "
+                "currently supported."
             ),
         )
 
@@ -642,7 +765,8 @@ async def analyze_resume_for_job(
         raise HTTPException(
             status_code=400,
             detail=(
-                "Job description cannot be empty."
+                "Job description cannot "
+                "be empty."
             ),
         )
 
@@ -651,13 +775,16 @@ async def analyze_resume_for_job(
         # 1. READ PDF
         # ----------------------------------------------------
 
-        file_bytes = read_upload_limited(file)
+        file_bytes = read_upload_limited(
+            file
+        )
 
         if not file_bytes:
             raise HTTPException(
                 status_code=400,
                 detail=(
-                    "Uploaded resume file is empty."
+                    "Uploaded resume file "
+                    "is empty."
                 ),
             )
 
@@ -706,29 +833,107 @@ async def analyze_resume_for_job(
         # ----------------------------------------------------
         # 6. BUILD VERIFIED TARGET REQUIREMENTS
         # ----------------------------------------------------
+        #
+        # Combine requirements discovered by BOTH:
+        #
+        #   ATS Analyzer
+        #   Job Resume Analyzer
+        #
+        # This prevents the rewrite layer from depending
+        # on only the smaller subset detected by one
+        # analyzer.
+        # ----------------------------------------------------
 
         extracted_requirements = []
+
+        # ----------------------------------------------------
+        # ATS REQUIREMENTS
+        # ----------------------------------------------------
+
+        for item in (
+            getattr(
+                ats_result,
+                "requirements",
+                [],
+            )
+            or []
+        ):
+            requirement_text = str(
+                getattr(
+                    item,
+                    "text",
+                    "",
+                )
+                or ""
+            ).strip()
+
+            if requirement_text:
+                extracted_requirements.append(
+                    requirement_text
+                )
+
+        # ----------------------------------------------------
+        # JOB ANALYZER — STRONG MATCHES
+        # ----------------------------------------------------
 
         for item in (
             job_resume_result.strong_matches
         ):
-            extracted_requirements.append(
-                item.requirement
-            )
+            requirement_text = str(
+                getattr(
+                    item,
+                    "requirement",
+                    "",
+                )
+                or ""
+            ).strip()
+
+            if requirement_text:
+                extracted_requirements.append(
+                    requirement_text
+                )
+
+        # ----------------------------------------------------
+        # JOB ANALYZER — PARTIAL MATCHES
+        # ----------------------------------------------------
 
         for item in (
             job_resume_result.partial_matches
         ):
-            extracted_requirements.append(
-                item.requirement
-            )
+            requirement_text = str(
+                getattr(
+                    item,
+                    "requirement",
+                    "",
+                )
+                or ""
+            ).strip()
+
+            if requirement_text:
+                extracted_requirements.append(
+                    requirement_text
+                )
+
+        # ----------------------------------------------------
+        # JOB ANALYZER — MISSING REQUIREMENTS
+        # ----------------------------------------------------
 
         for item in (
             job_resume_result.missing_requirements
         ):
-            extracted_requirements.append(
-                item.requirement
-            )
+            requirement_text = str(
+                getattr(
+                    item,
+                    "requirement",
+                    "",
+                )
+                or ""
+            ).strip()
+
+            if requirement_text:
+                extracted_requirements.append(
+                    requirement_text
+                )
 
         # ----------------------------------------------------
         # 7. DEDUPLICATE REQUIREMENTS
@@ -742,7 +947,9 @@ async def analyze_resume_for_job(
             extracted_requirements
         ):
             normalized = (
-                requirement.strip().lower()
+                requirement
+                .strip()
+                .casefold()
             )
 
             if not normalized:
@@ -914,7 +1121,9 @@ async def analyze_resume_for_job(
             # LLM Reasoning
             # ------------------------------------------------
 
-            "llm_reasoning": llm_reasoning,
+            "llm_reasoning": (
+                llm_reasoning
+            ),
 
             # ------------------------------------------------
             # Pipeline Metadata
@@ -962,7 +1171,7 @@ async def analyze_resume_for_job(
         raise HTTPException(
             status_code=500,
             detail=(
-                "Unable to analyze the resume "
-                "for the target job."
+                "Unable to analyze the "
+                "resume for the target job."
             ),
         ) from exc

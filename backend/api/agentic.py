@@ -514,7 +514,9 @@ def run_agentic_workflow(
                     )
                     or {}
                 ),
-
+                
+                candidate_id=candidate_id,
+                
                 candidate_intelligence=(
                     state.get(
                         "candidate_intelligence"

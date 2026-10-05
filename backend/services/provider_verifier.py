@@ -171,6 +171,11 @@ class ProviderFleetVerifier:
                 32,
             ),
         )
+        self.last_search_attempt: dict[str, Any] = {
+            "query": self.query,
+            "location": self.location,
+            "attempts": [],
+        }
 
     # ================================================================
     # PUBLIC API
@@ -398,6 +403,10 @@ class ProviderFleetVerifier:
             result.jobs_normalized = len(
                 normalized_jobs
             )
+
+            result.evidence[
+                "search"
+            ] = dict(self.last_search_attempt)
 
             result.evidence[
                 "normalization"
@@ -660,30 +669,74 @@ class ProviderFleetVerifier:
                 "Provider source does not implement search()."
             )
 
-        try:
-            value = search(
-                query=self.query,
-                location=self.location,
-                limit=self.limit,
-            )
-        except TypeError:
+        # Provider verification must not classify a healthy employer board as
+        # degraded merely because one narrow query/location pair has no match.
+        # Keep the requested query first, then broaden only for verification.
+        attempts = [
+            (self.query, self.location),
+            ("engineer", ""),
+            ("developer", ""),
+            ("software", ""),
+            ("data", ""),
+            ("product", ""),
+            ("", ""),
+        ]
+        seen: set[tuple[str, str]] = set()
+        attempt_log: list[dict[str, Any]] = []
+
+        for query, location in attempts:
+            pair = (str(query or "").strip(), str(location or "").strip())
+            if pair in seen:
+                continue
+            seen.add(pair)
+
             try:
-                value = search(
-                    self.query,
-                    self.location,
-                    self.limit,
-                )
-            except TypeError:
-                value = search(
-                    self.query
-                )
+                try:
+                    value = search(
+                        query=pair[0],
+                        location=pair[1],
+                        limit=self.limit,
+                    )
+                except TypeError:
+                    try:
+                        value = search(
+                            pair[0],
+                            pair[1],
+                            self.limit,
+                        )
+                    except TypeError:
+                        value = search(pair[0])
 
-        if inspect.isawaitable(
-            value
-        ):
-            return await value
+                if inspect.isawaitable(value):
+                    value = await value
 
-        return value
+                count = len(self._coerce_sequence(value))
+                attempt_log.append({
+                    "query": pair[0],
+                    "location": pair[1],
+                    "jobs_returned": count,
+                })
+
+                if count > 0:
+                    self.last_search_attempt = {
+                        "query": pair[0],
+                        "location": pair[1],
+                        "attempts": attempt_log,
+                    }
+                    return value
+            except Exception as exc:
+                attempt_log.append({
+                    "query": pair[0],
+                    "location": pair[1],
+                    "error": str(exc),
+                })
+
+        self.last_search_attempt = {
+            "query": self.query,
+            "location": self.location,
+            "attempts": attempt_log,
+        }
+        return []
 
     # ================================================================
     # CANONICAL JOB DETECTION

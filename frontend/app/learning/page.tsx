@@ -7,17 +7,14 @@ import { saveWorkspace, listWorkspace } from "@/lib/productWorkspace";
 
 interface Recommendation { id: string; skill: string; provider: string; url: string; category: string; provider_url: string; }
 
+const INITIAL_SKILLS = "python, system design, cloud, docker";
+
 export default function LearningPage() {
-  const [skills, setSkills] = useState("python, system design, cloud, docker");
+  const [skills, setSkills] = useState(INITIAL_SKILLS);
   const [items, setItems] = useState<Recommendation[]>([]);
   const [progress, setProgress] = useState<Record<string, unknown>[]>([]);
   const [message, setMessage] = useState("");
 
-  async function load() {
-    const saved = await listWorkspace("learning").catch(() => []);
-    setProgress(saved);
-    await recommend();
-  }
 
   async function recommend() {
     try {
@@ -26,7 +23,23 @@ export default function LearningPage() {
     } catch (error) { setMessage(error instanceof Error ? error.message : "Unable to load learning recommendations."); }
   }
 
-  useEffect(() => { void load(); }, []); // intentionally once on page load
+  useEffect(() => {
+    let cancelled = false;
+    listWorkspace("learning")
+      .catch(() => [])
+      .then((saved) => {
+        if (cancelled) return;
+        setProgress(saved);
+        return apiJson<{ recommendations?: Recommendation[] }>(`/learning/recommendations?skills=${encodeURIComponent(INITIAL_SKILLS)}`);
+      })
+      .then((result) => {
+        if (!cancelled && result) setItems(result.recommendations ?? []);
+      })
+      .catch((error) => {
+        if (!cancelled) setMessage(error instanceof Error ? error.message : "Unable to load learning recommendations.");
+      });
+    return () => { cancelled = true; };
+  }, []);
 
   async function markStarted(item: Recommendation) {
     await saveWorkspace("learning", { id: item.id, skill: item.skill, provider: item.provider, url: item.url, status: "in_progress", updated_at: new Date().toISOString() }, item.id);

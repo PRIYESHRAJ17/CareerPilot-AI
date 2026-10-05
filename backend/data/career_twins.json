@@ -1,7 +1,7 @@
 {
   "week6-test-user": {
     "candidate_id": "week6-test-user",
-    "version": 47,
+    "version": 53,
     "profile": {
       "name": "Test User",
       "headline": null,
@@ -821,14 +821,82 @@
           "readiness_score": 72.0,
           "recommendation_count": 1
         }
+      },
+      {
+        "event_id": "evt-4a227c65da8f",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T01:47:25.411792+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 72.0,
+          "recommendation_count": 1
+        }
+      },
+      {
+        "event_id": "evt-02bfd1f8d252",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:21:06.269994+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 72.0,
+          "recommendation_count": 1
+        }
+      },
+      {
+        "event_id": "evt-9140e985972d",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:46:55.983361+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 72.0,
+          "recommendation_count": 1
+        }
+      },
+      {
+        "event_id": "evt-8e2650c6fdae",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:48:42.809967+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 72.0,
+          "recommendation_count": 1
+        }
       }
     ],
     "created_at": "2026-09-26T17:44:15.612370+00:00",
-    "updated_at": "2026-10-03T00:41:40.979887+00:00"
+    "updated_at": "2026-10-03T13:37:16.092531+00:00"
   },
   "week6-persistence-test": {
     "candidate_id": "week6-persistence-test",
-    "version": 47,
+    "version": 53,
     "profile": {
       "name": null,
       "headline": null,
@@ -1499,14 +1567,70 @@
           "readiness_score": 0.0,
           "recommendation_count": 0
         }
+      },
+      {
+        "event_id": "evt-6ea21809e816",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T01:47:25.421944+00:00",
+        "payload": {
+          "skills": [
+            "Docker"
+          ],
+          "target_roles": [],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
+      },
+      {
+        "event_id": "evt-cabeab03f950",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:21:06.280422+00:00",
+        "payload": {
+          "skills": [
+            "Docker"
+          ],
+          "target_roles": [],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
+      },
+      {
+        "event_id": "evt-9cad8a0e715b",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:46:55.993666+00:00",
+        "payload": {
+          "skills": [
+            "Docker"
+          ],
+          "target_roles": [],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
+      },
+      {
+        "event_id": "evt-775bd1e2868f",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:48:42.820662+00:00",
+        "payload": {
+          "skills": [
+            "Docker"
+          ],
+          "target_roles": [],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
       }
     ],
     "created_at": "2026-09-26T17:44:15.620889+00:00",
-    "updated_at": "2026-10-03T00:41:40.985054+00:00"
+    "updated_at": "2026-10-03T13:37:16.163373+00:00"
   },
   "week6-merge-test": {
     "candidate_id": "week6-merge-test",
-    "version": 47,
+    "version": 53,
     "profile": {
       "name": null,
       "headline": null,
@@ -2271,40 +2395,124 @@
           "readiness_score": 0.0,
           "recommendation_count": 0
         }
+      },
+      {
+        "event_id": "evt-497c8b8dd92e",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T01:47:25.434408+00:00",
+        "payload": {
+          "skills": [
+            "Python"
+          ],
+          "target_roles": [
+            "Backend Engineer"
+          ],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
+      },
+      {
+        "event_id": "evt-de7437ee75b5",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:21:06.291568+00:00",
+        "payload": {
+          "skills": [
+            "Python"
+          ],
+          "target_roles": [
+            "Backend Engineer"
+          ],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
+      },
+      {
+        "event_id": "evt-8cec9e561875",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:46:56.005010+00:00",
+        "payload": {
+          "skills": [
+            "Python"
+          ],
+          "target_roles": [
+            "Backend Engineer"
+          ],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
+      },
+      {
+        "event_id": "evt-d7a3c64a81dd",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T02:48:42.831628+00:00",
+        "payload": {
+          "skills": [
+            "Python"
+          ],
+          "target_roles": [
+            "Backend Engineer"
+          ],
+          "readiness_score": 0.0,
+          "recommendation_count": 0
+        }
       }
     ],
     "created_at": "2026-09-26T17:44:15.627829+00:00",
-    "updated_at": "2026-10-03T00:41:40.989567+00:00"
+    "updated_at": "2026-10-03T13:37:16.176342+00:00"
   },
   "agentic-user": {
     "candidate_id": "agentic-user",
-    "version": 2,
+    "version": 8,
     "profile": {
       "name": "CareerPilot User",
-      "headline": "I want to become a backend engineer",
-      "skills": [],
-      "technical_skills": [],
+      "headline": "AI Engineer",
+      "skills": [
+        "Python",
+        "FastAPI",
+        "SQL"
+      ],
+      "technical_skills": [
+        "Python",
+        "FastAPI",
+        "SQL"
+      ],
       "soft_skills": [],
       "education": [],
       "certifications": [],
-      "projects": [],
+      "projects": [
+        "Netflix APP"
+      ],
       "experience": [],
       "target_roles": [
-        "I want to become a backend engineer"
+        "I want to become a backend engineer",
+        "AI Engineer"
       ],
       "target_industries": [],
-      "target_locations": [],
+      "target_locations": [
+        "Bangalore"
+      ],
       "preferred_work_modes": [],
       "minimum_salary_lpa": null,
       "timeline_months": null
     },
     "derived": {
-      "strengths": [],
+      "strengths": [
+        "Programming foundation",
+        "Backend development",
+        "Data and database capability",
+        "Hands-on project experience"
+      ],
       "skill_gaps": [],
-      "readiness_score": 10.71,
-      "readiness_level": "EARLY_STAGE",
+      "readiness_score": 82.57,
+      "readiness_level": "JOB_READY",
       "career_directions": [
-        "Backend Engineering"
+        "Backend Engineering",
+        "AI / ML Engineering",
+        "Data Engineering / Analytics"
       ]
     },
     "memory": [
@@ -2321,10 +2529,124 @@
           "readiness_score": 10.71,
           "recommendation_count": 3
         }
+      },
+      {
+        "event_id": "evt-f8892600ce6f",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T03:33:15.187821+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "I want to become a backend engineer",
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      },
+      {
+        "event_id": "evt-c90b2c40a47e",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T04:03:20.101057+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "I want to become a backend engineer",
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      },
+      {
+        "event_id": "evt-689714f4beb1",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T04:10:28.149025+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "I want to become a backend engineer",
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      },
+      {
+        "event_id": "evt-cc092b4f3208",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T09:35:13.705017+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "I want to become a backend engineer",
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      },
+      {
+        "event_id": "evt-e178ba7a97ea",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T09:35:43.483293+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "I want to become a backend engineer",
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      },
+      {
+        "event_id": "evt-e3979890fa3c",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T09:38:27.139314+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "I want to become a backend engineer",
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
       }
     ],
     "created_at": "2026-09-26T17:46:25.771833+00:00",
-    "updated_at": "2026-09-26T17:46:31.086869+00:00"
+    "updated_at": "2026-10-03T09:38:27.141915+00:00"
   },
   "pipeline-test-user": {
     "candidate_id": "pipeline-test-user",
@@ -2522,5 +2844,902 @@
     ],
     "created_at": "2026-09-28T16:18:46.392373+00:00",
     "updated_at": "2026-09-28T16:18:51.880547+00:00"
+  },
+  "e6de5686-7c1d-495b-9ad2-6f9efa19a8fc": {
+    "candidate_id": "e6de5686-7c1d-495b-9ad2-6f9efa19a8fc",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:22:41.698999+00:00",
+    "updated_at": "2026-10-03T03:22:41.699019+00:00"
+  },
+  "4ab2e00b-1aa6-4e35-9bb4-22775de5a818": {
+    "candidate_id": "4ab2e00b-1aa6-4e35-9bb4-22775de5a818",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:22:42.772003+00:00",
+    "updated_at": "2026-10-03T03:22:42.772022+00:00"
+  },
+  "534d73f9-c713-4775-8635-d6f2e833cc39": {
+    "candidate_id": "534d73f9-c713-4775-8635-d6f2e833cc39",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:13.161600+00:00",
+    "updated_at": "2026-10-03T03:23:13.161617+00:00"
+  },
+  "0a202e9e-ff65-4d3e-a0be-5d8dfd9fe60c": {
+    "candidate_id": "0a202e9e-ff65-4d3e-a0be-5d8dfd9fe60c",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:14.647775+00:00",
+    "updated_at": "2026-10-03T03:23:14.647796+00:00"
+  },
+  "b5220d23-f280-41eb-9162-20811d8ae747": {
+    "candidate_id": "b5220d23-f280-41eb-9162-20811d8ae747",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:15.531034+00:00",
+    "updated_at": "2026-10-03T03:23:15.531055+00:00"
+  },
+  "3c77c577-ae09-4eab-a7b1-94a1b055099e": {
+    "candidate_id": "3c77c577-ae09-4eab-a7b1-94a1b055099e",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:16.081850+00:00",
+    "updated_at": "2026-10-03T03:23:16.081877+00:00"
+  },
+  "918c36b6-ccf5-4f7e-9739-c203495d931f": {
+    "candidate_id": "918c36b6-ccf5-4f7e-9739-c203495d931f",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:16.305798+00:00",
+    "updated_at": "2026-10-03T03:23:16.305821+00:00"
+  },
+  "9e5cdd99-2151-428f-8588-14cd62ada79e": {
+    "candidate_id": "9e5cdd99-2151-428f-8588-14cd62ada79e",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:16.516582+00:00",
+    "updated_at": "2026-10-03T03:23:16.516603+00:00"
+  },
+  "104c6582-9ae2-450f-a3a6-72ae6275f3b9": {
+    "candidate_id": "104c6582-9ae2-450f-a3a6-72ae6275f3b9",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:16.717594+00:00",
+    "updated_at": "2026-10-03T03:23:16.717615+00:00"
+  },
+  "33b04c4f-1ce0-4b50-8fc7-3479ed09774c": {
+    "candidate_id": "33b04c4f-1ce0-4b50-8fc7-3479ed09774c",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:16.920298+00:00",
+    "updated_at": "2026-10-03T03:23:16.920320+00:00"
+  },
+  "d12c1df0-4e66-4703-83ee-bc3d8e35d4e1": {
+    "candidate_id": "d12c1df0-4e66-4703-83ee-bc3d8e35d4e1",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:17.124116+00:00",
+    "updated_at": "2026-10-03T03:23:17.124138+00:00"
+  },
+  "73abc343-374b-4c4b-8ebe-2c0dfe9b5e41": {
+    "candidate_id": "73abc343-374b-4c4b-8ebe-2c0dfe9b5e41",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:17.304279+00:00",
+    "updated_at": "2026-10-03T03:23:17.304305+00:00"
+  },
+  "9532867e-b6c3-4e41-a161-ed8a4047ed59": {
+    "candidate_id": "9532867e-b6c3-4e41-a161-ed8a4047ed59",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:21.877008+00:00",
+    "updated_at": "2026-10-03T03:23:21.877026+00:00"
+  },
+  "e115c6c7-004c-4efe-8081-6684c08f39ac": {
+    "candidate_id": "e115c6c7-004c-4efe-8081-6684c08f39ac",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:24.718221+00:00",
+    "updated_at": "2026-10-03T03:23:24.718237+00:00"
+  },
+  "98ab0b0c-da40-46d5-b162-7260fd0fbb16": {
+    "candidate_id": "98ab0b0c-da40-46d5-b162-7260fd0fbb16",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:26.885259+00:00",
+    "updated_at": "2026-10-03T03:23:26.885275+00:00"
+  },
+  "35e9ccb7-25a5-4a92-a9cc-5f1978c30875": {
+    "candidate_id": "35e9ccb7-25a5-4a92-a9cc-5f1978c30875",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:28.416160+00:00",
+    "updated_at": "2026-10-03T03:23:28.416175+00:00"
+  },
+  "2258d182-c6fc-4786-aba1-42cfbfcd5f66": {
+    "candidate_id": "2258d182-c6fc-4786-aba1-42cfbfcd5f66",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:29.637445+00:00",
+    "updated_at": "2026-10-03T03:23:29.637459+00:00"
+  },
+  "73527886-d84e-4f88-a0f7-7e681224bf8f": {
+    "candidate_id": "73527886-d84e-4f88-a0f7-7e681224bf8f",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:29.854458+00:00",
+    "updated_at": "2026-10-03T03:23:29.854474+00:00"
+  },
+  "57c33bf5-6c73-4e3b-b840-d6539f1c2dd8": {
+    "candidate_id": "57c33bf5-6c73-4e3b-b840-d6539f1c2dd8",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:30.065191+00:00",
+    "updated_at": "2026-10-03T03:23:30.065211+00:00"
+  },
+  "abe53e6b-beed-4d0a-aed4-cf6507c6401d": {
+    "candidate_id": "abe53e6b-beed-4d0a-aed4-cf6507c6401d",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:30.251959+00:00",
+    "updated_at": "2026-10-03T03:23:30.251977+00:00"
+  },
+  "780a5d20-1529-48e7-b2ca-6eb6dec975ff": {
+    "candidate_id": "780a5d20-1529-48e7-b2ca-6eb6dec975ff",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:30.448333+00:00",
+    "updated_at": "2026-10-03T03:23:30.448349+00:00"
+  },
+  "4609c0ad-0efe-488a-b460-d6282420f79c": {
+    "candidate_id": "4609c0ad-0efe-488a-b460-d6282420f79c",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:23:30.619412+00:00",
+    "updated_at": "2026-10-03T03:23:30.619426+00:00"
+  },
+  "3823bfdc-4785-4d3e-8df7-bd7b26244b89": {
+    "candidate_id": "3823bfdc-4785-4d3e-8df7-bd7b26244b89",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:25:34.431339+00:00",
+    "updated_at": "2026-10-03T03:25:34.431355+00:00"
+  },
+  "be42466f-8483-4190-a86a-4453e4e0ef4b": {
+    "candidate_id": "be42466f-8483-4190-a86a-4453e4e0ef4b",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:26:41.646018+00:00",
+    "updated_at": "2026-10-03T03:26:41.646036+00:00"
+  },
+  "81538727-7532-4440-a7fa-7b7190528197": {
+    "candidate_id": "81538727-7532-4440-a7fa-7b7190528197",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:31:28.102727+00:00",
+    "updated_at": "2026-10-03T03:31:28.102744+00:00"
+  },
+  "fd52d525-d6e6-41a5-9e95-a14c583ab607": {
+    "candidate_id": "fd52d525-d6e6-41a5-9e95-a14c583ab607",
+    "version": 1,
+    "profile": {
+      "name": null,
+      "headline": null,
+      "skills": [],
+      "technical_skills": [],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [],
+      "experience": [],
+      "target_roles": [],
+      "target_industries": [],
+      "target_locations": [],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [],
+      "skill_gaps": [],
+      "readiness_score": 0.0,
+      "readiness_level": "EARLY_STAGE",
+      "career_directions": []
+    },
+    "memory": [],
+    "created_at": "2026-10-03T03:33:09.269256+00:00",
+    "updated_at": "2026-10-03T03:33:09.269272+00:00"
+  },
+  "918e99f1-4bf4-4c7c-8d06-7b549c54b40d": {
+    "candidate_id": "918e99f1-4bf4-4c7c-8d06-7b549c54b40d",
+    "version": 3,
+    "profile": {
+      "name": null,
+      "headline": "AI Engineer",
+      "skills": [
+        "Python",
+        "FastAPI",
+        "SQL"
+      ],
+      "technical_skills": [
+        "Python",
+        "FastAPI",
+        "SQL"
+      ],
+      "soft_skills": [],
+      "education": [],
+      "certifications": [],
+      "projects": [
+        "Netflix APP"
+      ],
+      "experience": [],
+      "target_roles": [
+        "AI Engineer"
+      ],
+      "target_industries": [],
+      "target_locations": [
+        "Bangalore"
+      ],
+      "preferred_work_modes": [],
+      "minimum_salary_lpa": null,
+      "timeline_months": null
+    },
+    "derived": {
+      "strengths": [
+        "Programming foundation",
+        "Backend development",
+        "Data and database capability",
+        "Hands-on project experience"
+      ],
+      "skill_gaps": [],
+      "readiness_score": 82.57,
+      "readiness_level": "JOB_READY",
+      "career_directions": [
+        "AI / ML Engineering",
+        "Backend Engineering",
+        "Data Engineering / Analytics"
+      ]
+    },
+    "memory": [
+      {
+        "event_id": "evt-95cd294cc795",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T09:51:02.058908+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      },
+      {
+        "event_id": "evt-964e8fd93fc3",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-03T11:07:42.606334+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
+      }
+    ],
+    "created_at": "2026-10-03T03:33:09.294616+00:00",
+    "updated_at": "2026-10-03T11:07:42.609017+00:00"
   }
 }

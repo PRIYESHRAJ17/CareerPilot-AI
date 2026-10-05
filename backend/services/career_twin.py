@@ -195,17 +195,17 @@ def update_from_candidate(
     candidate_intelligence: dict[str, Any] | None = None,
     skill_gaps: Any = None,
     recommendations: list[Any] | None = None,
+    candidate_id: str | None = None,
 ) -> CareerTwin:
 
-    candidate_id = str(
-        candidate.get(
-            "candidate_id"
-        )
+    resolved_candidate_id = str(
+        candidate_id
+        or candidate.get("candidate_id")
         or "agentic-user"
     )
 
     twin = get_or_create(
-        candidate_id
+        resolved_candidate_id
     )
 
     current = twin.profile

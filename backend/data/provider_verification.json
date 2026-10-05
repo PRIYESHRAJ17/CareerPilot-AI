@@ -1,17 +1,17 @@
 {
   "total": 128,
-  "live": 96,
+  "live": 113,
   "configured": 0,
-  "degraded": 32,
+  "degraded": 15,
   "offline": 0,
   "unverified": 0,
   "rejected": 0,
-  "jobs_returned": 417,
-  "jobs_normalized": 417,
-  "jobs_with_provenance": 417,
-  "jobs_with_url": 417,
-  "fresh_jobs": 354,
-  "live_percentage": 75.0,
+  "jobs_returned": 491,
+  "jobs_normalized": 491,
+  "jobs_with_provenance": 491,
+  "jobs_with_url": 491,
+  "fresh_jobs": 395,
+  "live_percentage": 88.28,
   "results": [
     {
       "name": "ats_greenhouse_stripe",
@@ -26,19 +26,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1803.66,
+      "latency_ms": 2159.5,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:23.751976+00:00",
+      "checked_at": "2026-10-03T02:39:42.569268+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_stripe",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1000.67,
-          "jobs_available": 701,
+          "latency_ms": 1252.92,
+          "jobs_available": 715,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -65,37 +76,53 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
       "fresh_jobs": 0,
-      "latency_ms": 2785.99,
-      "message": "Search succeeded but returned no jobs.",
+      "latency_ms": 6275.82,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:25.555667+00:00",
+      "checked_at": "2026-10-03T02:39:44.728829+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_anyscale",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1166.14,
+          "latency_ms": 3498.56,
           "jobs_available": 1,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
           "fresh": 0,
           "freshness_days": 180
         }
@@ -114,19 +141,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 1,
-      "latency_ms": 1773.62,
+      "latency_ms": 3732.73,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:28.341688+00:00",
+      "checked_at": "2026-10-03T02:39:51.004723+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_openai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 822.29,
-          "jobs_available": 830,
+          "latency_ms": 1923.25,
+          "jobs_available": 829,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -158,19 +196,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1187.37,
+      "latency_ms": 1607.92,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:30.115339+00:00",
+      "checked_at": "2026-10-03T02:39:54.737483+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_figma",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 474.55,
-          "jobs_available": 163,
+          "latency_ms": 588.65,
+          "jobs_available": 162,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -202,19 +251,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 2,
-      "latency_ms": 19509.7,
+      "latency_ms": 7783.45,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:31.302733+00:00",
+      "checked_at": "2026-10-03T02:39:56.345429+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_palantir",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 3839.81,
-          "jobs_available": 321,
+          "latency_ms": 3967.53,
+          "jobs_available": 319,
           "message": "lever public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -245,20 +305,31 @@
       "jobs_normalized": 3,
       "jobs_with_provenance": 3,
       "jobs_with_url": 3,
-      "fresh_jobs": 2,
-      "latency_ms": 723.21,
+      "fresh_jobs": 1,
+      "latency_ms": 1059.64,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:50.812462+00:00",
+      "checked_at": "2026-10-03T02:40:04.128914+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_perplexity",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 361.03,
-          "jobs_available": 123,
+          "latency_ms": 661.08,
+          "jobs_available": 127,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 3
+            }
+          ]
         },
         "normalization": {
           "returned": 3,
@@ -272,7 +343,7 @@
           "normalized": 3,
           "with_provenance": 3,
           "with_url": 3,
-          "fresh": 2,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -290,19 +361,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1993.67,
+      "latency_ms": 1637.63,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:51.535703+00:00",
+      "checked_at": "2026-10-03T02:40:05.188597+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_anthropic",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1037.44,
-          "jobs_available": 618,
+          "latency_ms": 768.41,
+          "jobs_available": 642,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -333,20 +415,31 @@
       "jobs_normalized": 5,
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
-      "fresh_jobs": 4,
-      "latency_ms": 6154.09,
+      "fresh_jobs": 5,
+      "latency_ms": 6074.74,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:53.529425+00:00",
+      "checked_at": "2026-10-03T02:40:06.826263+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_zoox",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 3159.0,
-          "jobs_available": 241,
+          "latency_ms": 3053.59,
+          "jobs_available": 234,
           "message": "lever public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -360,7 +453,7 @@
           "normalized": 5,
           "with_provenance": 5,
           "with_url": 5,
-          "fresh": 4,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -378,19 +471,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 1,
-      "latency_ms": 802.94,
+      "latency_ms": 1011.69,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:30:59.683537+00:00",
+      "checked_at": "2026-10-03T02:40:12.901041+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_cursor",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 542.43,
-          "jobs_available": 126,
+          "latency_ms": 636.3,
+          "jobs_available": 132,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -422,19 +526,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 992.71,
+      "latency_ms": 1196.39,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:00.486499+00:00",
+      "checked_at": "2026-10-03T02:40:13.912765+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_robinhood",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 485.5,
-          "jobs_available": 159,
+          "latency_ms": 591.91,
+          "jobs_available": 162,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -457,42 +572,58 @@
       "name": "ats_lever_spotify",
       "display_name": "spotify (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 5090.62,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 7960.46,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:01.479243+00:00",
+      "checked_at": "2026-10-03T02:40:15.109193+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_spotify",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 2680.51,
-          "jobs_available": 79,
+          "latency_ms": 2661.74,
+          "jobs_available": 82,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -510,19 +641,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 2,
-      "latency_ms": 638.26,
+      "latency_ms": 837.09,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:06.569885+00:00",
+      "checked_at": "2026-10-03T02:40:23.069730+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_cohere",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 303.48,
-          "jobs_available": 147,
+          "latency_ms": 427.09,
+          "jobs_available": 136,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -554,19 +696,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1065.45,
+      "latency_ms": 1227.27,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:07.208169+00:00",
+      "checked_at": "2026-10-03T02:40:23.906864+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_brex",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 539.14,
-          "jobs_available": 259,
+          "latency_ms": 609.02,
+          "jobs_available": 282,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -598,19 +751,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 5962.1,
+      "latency_ms": 6021.55,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:08.273648+00:00",
+      "checked_at": "2026-10-03T02:40:25.134176+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_waabi",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 3006.05,
-          "jobs_available": 87,
+          "latency_ms": 3067.78,
+          "jobs_available": 92,
           "message": "lever public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -642,19 +806,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 2,
-      "latency_ms": 879.88,
+      "latency_ms": 1018.51,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:14.235780+00:00",
+      "checked_at": "2026-10-03T02:40:31.155760+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_cerebras",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 574.56,
-          "jobs_available": 112,
+          "latency_ms": 628.89,
+          "jobs_available": 117,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -686,19 +861,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1468.8,
+      "latency_ms": 1897.99,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:15.115700+00:00",
+      "checked_at": "2026-10-03T02:40:32.174298+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_databricks",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 692.28,
-          "jobs_available": 887,
+          "latency_ms": 914.72,
+          "jobs_available": 885,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -730,19 +916,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 1,
-      "latency_ms": 4326.43,
+      "latency_ms": 4663.53,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:16.584520+00:00",
+      "checked_at": "2026-10-03T02:40:34.072324+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_wealthfront",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 2160.64,
+          "latency_ms": 2257.23,
           "jobs_available": 23,
           "message": "lever public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -774,19 +971,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 986.78,
+      "latency_ms": 1163.38,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:20.910977+00:00",
+      "checked_at": "2026-10-03T02:40:38.735929+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_harvey",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 638.91,
-          "jobs_available": 304,
+          "latency_ms": 717.22,
+          "jobs_available": 326,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -818,17 +1026,17 @@
       "jobs_with_provenance": 0,
       "jobs_with_url": 0,
       "fresh_jobs": 0,
-      "latency_ms": 5383.18,
+      "latency_ms": 5554.2,
       "message": "Provider endpoint is reachable only partially or failed health validation.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:21.897777+00:00",
+      "checked_at": "2026-10-03T02:40:39.899335+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_deepmind",
           "healthy": false,
           "status_code": null,
-          "latency_ms": 5383.13,
+          "latency_ms": 5554.12,
           "jobs_available": 0,
           "message": "ats_greenhouse_deepmind request failed after 3 attempts: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true"
         }
@@ -838,42 +1046,58 @@
       "name": "ats_lever_neon",
       "display_name": "neon (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 3805.26,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 1,
+      "latency_ms": 6128.26,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:27.280980+00:00",
+      "checked_at": "2026-10-03T02:40:45.453591+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_neon",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1891.11,
+          "latency_ms": 1978.76,
           "jobs_available": 12,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 2
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 2,
+          "canonical_jobs_reused": 2,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -886,38 +1110,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 3,
-      "jobs_normalized": 3,
-      "jobs_with_provenance": 3,
-      "jobs_with_url": 3,
-      "fresh_jobs": 3,
-      "latency_ms": 999.86,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 878.06,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:31.086258+00:00",
+      "checked_at": "2026-10-03T02:40:51.581895+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_sierra",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 649.76,
-          "jobs_available": 207,
+          "latency_ms": 437.23,
+          "jobs_available": 194,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 3,
-          "canonical_jobs_reused": 3,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 3,
-          "normalized": 3,
-          "with_provenance": 3,
-          "with_url": 3,
-          "fresh": 3,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -935,19 +1170,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1036.72,
+      "latency_ms": 1799.4,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:32.086155+00:00",
+      "checked_at": "2026-10-03T02:40:52.460003+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_coinbase",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 511.45,
-          "jobs_available": 210,
+          "latency_ms": 1005.06,
+          "jobs_available": 229,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -970,42 +1216,58 @@
       "name": "ats_lever_zilliz",
       "display_name": "zilliz (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 3749.28,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 5935.5,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:33.122897+00:00",
+      "checked_at": "2026-10-03T02:40:54.259432+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_zilliz",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1869.34,
+          "latency_ms": 1984.43,
           "jobs_available": 12,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -1014,42 +1276,53 @@
       "name": "ats_ashby_decagon",
       "display_name": "decagon (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 2,
-      "jobs_normalized": 2,
-      "jobs_with_provenance": 2,
-      "jobs_with_url": 2,
-      "fresh_jobs": 0,
-      "latency_ms": 942.94,
-      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 1,
+      "latency_ms": 1082.46,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:36.872212+00:00",
+      "checked_at": "2026-10-03T02:41:00.194995+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_decagon",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 646.91,
-          "jobs_available": 146,
+          "latency_ms": 689.58,
+          "jobs_available": 148,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 3
+            }
+          ]
+        },
         "normalization": {
-          "returned": 2,
-          "canonical_jobs_reused": 2,
+          "returned": 3,
+          "canonical_jobs_reused": 3,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 2,
-          "normalized": 2,
-          "with_provenance": 2,
-          "with_url": 2,
-          "fresh": 0,
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -1067,19 +1340,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 997.45,
+      "latency_ms": 1156.28,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:37.815169+00:00",
+      "checked_at": "2026-10-03T02:41:01.277509+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_affirm",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 494.11,
-          "jobs_available": 180,
+          "latency_ms": 560.89,
+          "jobs_available": 189,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1102,42 +1386,58 @@
       "name": "ats_lever_meesho",
       "display_name": "meesho (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 5123.6,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 8605.91,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:38.812648+00:00",
+      "checked_at": "2026-10-03T02:41:02.433818+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_meesho",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 2651.9,
-          "jobs_available": 54,
+          "latency_ms": 2755.66,
+          "jobs_available": 57,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -1155,19 +1455,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 2,
-      "latency_ms": 935.39,
+      "latency_ms": 1283.37,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:43.936270+00:00",
+      "checked_at": "2026-10-03T02:41:11.039784+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_elevenlabs",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 604.0,
-          "jobs_available": 207,
+          "latency_ms": 821.49,
+          "jobs_available": 170,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1199,19 +1510,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1068.52,
+      "latency_ms": 1242.82,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:44.871686+00:00",
+      "checked_at": "2026-10-03T02:41:12.323185+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_block",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 508.56,
-          "jobs_available": 214,
+          "latency_ms": 589.93,
+          "jobs_available": 227,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1234,42 +1556,58 @@
       "name": "ats_lever_fampay",
       "display_name": "fampay (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 4503.54,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 6708.65,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:45.940249+00:00",
+      "checked_at": "2026-10-03T02:41:13.566039+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_fampay",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 2324.03,
-          "jobs_available": 15,
+          "latency_ms": 2275.38,
+          "jobs_available": 17,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
           "freshness_days": 180
         }
       }
@@ -1287,19 +1625,30 @@
       "jobs_with_provenance": 3,
       "jobs_with_url": 3,
       "fresh_jobs": 2,
-      "latency_ms": 835.96,
+      "latency_ms": 1068.14,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:50.443810+00:00",
+      "checked_at": "2026-10-03T02:41:20.274741+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_etched",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 551.33,
-          "jobs_available": 109,
+          "latency_ms": 658.48,
+          "jobs_available": 108,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 3
+            }
+          ]
         },
         "normalization": {
           "returned": 3,
@@ -1331,19 +1680,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1145.78,
+      "latency_ms": 1181.72,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:51.279788+00:00",
+      "checked_at": "2026-10-03T02:41:21.342914+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_chime",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 666.05,
+          "latency_ms": 610.77,
           "jobs_available": 66,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1366,42 +1726,58 @@
       "name": "ats_lever_cred",
       "display_name": "cred (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 3305.93,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 5134.03,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:52.425686+00:00",
+      "checked_at": "2026-10-03T02:41:22.524734+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_cred",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1611.95,
-          "jobs_available": 12,
+          "latency_ms": 1695.85,
+          "jobs_available": 8,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -1419,19 +1795,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 897.74,
+      "latency_ms": 1352.92,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:55.731647+00:00",
+      "checked_at": "2026-10-03T02:41:27.658827+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_cognition",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 612.12,
+          "latency_ms": 673.28,
           "jobs_available": 103,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -1463,19 +1850,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1059.68,
+      "latency_ms": 1098.79,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:56.629408+00:00",
+      "checked_at": "2026-10-03T02:41:29.011812+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_sofi",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 471.59,
-          "jobs_available": 58,
+          "latency_ms": 538.04,
+          "jobs_available": 56,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1507,19 +1905,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 0,
-      "latency_ms": 14398.16,
+      "latency_ms": 10058.51,
       "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:31:57.689250+00:00",
+      "checked_at": "2026-10-03T02:41:30.110662+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_veeva",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 5356.67,
-          "jobs_available": 916,
+          "latency_ms": 5124.41,
+          "jobs_available": 937,
           "message": "lever public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -1551,19 +1960,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 3,
-      "latency_ms": 693.9,
+      "latency_ms": 1064.95,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:12.087441+00:00",
+      "checked_at": "2026-10-03T02:41:40.169210+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_deepgram",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 338.82,
-          "jobs_available": 91,
+          "latency_ms": 658.07,
+          "jobs_available": 95,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1595,19 +2015,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1096.77,
+      "latency_ms": 1148.71,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:12.781397+00:00",
+      "checked_at": "2026-10-03T02:41:41.234196+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_upstart",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 556.14,
-          "jobs_available": 91,
+          "latency_ms": 567.51,
+          "jobs_available": 88,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1639,19 +2070,60 @@
       "jobs_with_provenance": 0,
       "jobs_with_url": 0,
       "fresh_jobs": 0,
-      "latency_ms": 5048.68,
+      "latency_ms": 10227.12,
       "message": "Search succeeded but returned no jobs.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:13.878214+00:00",
+      "checked_at": "2026-10-03T02:41:42.382972+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_swordhealth",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 1260.13,
+          "latency_ms": 1290.56,
           "jobs_available": 0,
           "message": "lever public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 0
+            },
+            {
+              "query": "developer",
+              "location": "",
+              "jobs_returned": 0
+            },
+            {
+              "query": "software",
+              "location": "",
+              "jobs_returned": 0
+            },
+            {
+              "query": "data",
+              "location": "",
+              "jobs_returned": 0
+            },
+            {
+              "query": "product",
+              "location": "",
+              "jobs_returned": 0
+            },
+            {
+              "query": "",
+              "location": "",
+              "jobs_returned": 0
+            }
+          ]
         },
         "normalization": {
           "returned": 0,
@@ -1683,19 +2155,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 2,
-      "latency_ms": 952.14,
+      "latency_ms": 707.71,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:18.926927+00:00",
+      "checked_at": "2026-10-03T02:41:52.610149+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_fireworks",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 598.22,
-          "jobs_available": 82,
+          "latency_ms": 361.64,
+          "jobs_available": 84,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -1718,42 +2201,58 @@
       "name": "ats_greenhouse_carta",
       "display_name": "carta (Greenhouse)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 1069.18,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1692.02,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:19.879094+00:00",
+      "checked_at": "2026-10-03T02:41:53.317886+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_carta",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 503.68,
-          "jobs_available": 78,
+          "latency_ms": 566.86,
+          "jobs_available": 75,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -1762,42 +2261,58 @@
       "name": "ats_lever_matchgroup",
       "display_name": "matchgroup (Lever)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 5696.38,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 8857.95,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:20.948338+00:00",
+      "checked_at": "2026-10-03T02:41:55.009986+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_matchgroup",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 2881.08,
-          "jobs_available": 75,
+          "latency_ms": 3316.47,
+          "jobs_available": 72,
           "message": "lever public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -1810,37 +2325,53 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
       "fresh_jobs": 0,
-      "latency_ms": 927.87,
-      "message": "Search succeeded but returned no jobs.",
+      "latency_ms": 1335.41,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:26.644743+00:00",
+      "checked_at": "2026-10-03T02:42:03.867988+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_suno",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 564.57,
-          "jobs_available": 63,
+          "latency_ms": 626.18,
+          "jobs_available": 66,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
           "fresh": 0,
           "freshness_days": 180
         }
@@ -1859,19 +2390,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1090.7,
+      "latency_ms": 1349.83,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:27.572643+00:00",
+      "checked_at": "2026-10-03T02:42:05.203432+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_gusto",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 536.95,
-          "jobs_available": 96,
+          "latency_ms": 753.49,
+          "jobs_available": 94,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -1903,17 +2445,17 @@
       "jobs_with_provenance": 0,
       "jobs_with_url": 0,
       "fresh_jobs": 0,
-      "latency_ms": 8081.07,
+      "latency_ms": 7858.75,
       "message": "Provider endpoint is reachable only partially or failed health validation.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:28.663392+00:00",
+      "checked_at": "2026-10-03T02:42:06.553325+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_samsara",
           "healthy": false,
           "status_code": null,
-          "latency_ms": 8081.01,
+          "latency_ms": 7858.66,
           "jobs_available": 0,
           "message": "ats_lever_samsara request failed after 3 attempts: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/samsara?mode=json"
         }
@@ -1932,19 +2474,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 850.42,
+      "latency_ms": 968.48,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:36.744481+00:00",
+      "checked_at": "2026-10-03T02:42:14.412135+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_midjourney",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 561.67,
+          "latency_ms": 636.26,
           "jobs_available": 18,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -1976,19 +2529,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1263.41,
+      "latency_ms": 1421.69,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:37.594920+00:00",
+      "checked_at": "2026-10-03T02:42:15.380668+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_airbnb",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 599.78,
-          "jobs_available": 159,
+          "latency_ms": 768.51,
+          "jobs_available": 154,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2020,17 +2584,17 @@
       "jobs_with_provenance": 0,
       "jobs_with_url": 0,
       "fresh_jobs": 0,
-      "latency_ms": 7762.81,
+      "latency_ms": 7765.63,
       "message": "Provider endpoint is reachable only partially or failed health validation.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:38.858363+00:00",
+      "checked_at": "2026-10-03T02:42:16.802392+00:00",
       "evidence": {
         "health": {
           "source": "ats_lever_postman",
           "healthy": false,
           "status_code": null,
-          "latency_ms": 7762.77,
+          "latency_ms": 7765.56,
           "jobs_available": 0,
           "message": "ats_lever_postman request failed after 3 attempts: 404 Client Error: Not Found for url: https://api.lever.co/v0/postings/postman?mode=json"
         }
@@ -2049,19 +2613,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 917.61,
+      "latency_ms": 948.94,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:46.621194+00:00",
+      "checked_at": "2026-10-03T02:42:24.568085+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_poolside",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 588.65,
-          "jobs_available": 6,
+          "latency_ms": 611.11,
+          "jobs_available": 5,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2093,19 +2668,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1105.26,
+      "latency_ms": 1197.92,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:47.538824+00:00",
+      "checked_at": "2026-10-03T02:42:25.517051+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_reddit",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 533.65,
-          "jobs_available": 150,
+          "latency_ms": 595.44,
+          "jobs_available": 152,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2132,37 +2718,53 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
       "fresh_jobs": 0,
-      "latency_ms": 1089.56,
-      "message": "Search succeeded but returned no jobs.",
+      "latency_ms": 888.08,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:48.644124+00:00",
+      "checked_at": "2026-10-03T02:42:26.715010+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_character",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 575.82,
+          "latency_ms": 287.82,
           "jobs_available": 13,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
           "fresh": 0,
           "freshness_days": 180
         }
@@ -2181,19 +2783,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1070.78,
+      "latency_ms": 1190.38,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:49.733702+00:00",
+      "checked_at": "2026-10-03T02:42:27.603122+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_pinterest",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 559.87,
-          "jobs_available": 153,
+          "latency_ms": 583.78,
+          "jobs_available": 168,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2225,19 +2838,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 0,
-      "latency_ms": 721.76,
+      "latency_ms": 891.81,
       "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:50.804514+00:00",
+      "checked_at": "2026-10-03T02:42:28.793538+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_runway",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 504.34,
+          "latency_ms": 570.36,
           "jobs_available": 4,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -2269,19 +2893,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 968.19,
+      "latency_ms": 1512.91,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:51.526295+00:00",
+      "checked_at": "2026-10-03T02:42:29.685376+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_discord",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 477.83,
-          "jobs_available": 49,
+          "latency_ms": 954.96,
+          "jobs_available": 51,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2313,19 +2948,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 0,
-      "latency_ms": 930.96,
+      "latency_ms": 1686.32,
       "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:52.494516+00:00",
+      "checked_at": "2026-10-03T02:42:31.198324+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_ashby",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 599.67,
-          "jobs_available": 66,
+          "latency_ms": 1265.44,
+          "jobs_available": 62,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2357,19 +3003,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1576.85,
+      "latency_ms": 1657.31,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:53.425529+00:00",
+      "checked_at": "2026-10-03T02:42:32.884803+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_cloudflare",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 778.72,
-          "jobs_available": 394,
+          "latency_ms": 902.14,
+          "jobs_available": 405,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2401,19 +3058,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 588.2,
+      "latency_ms": 820.92,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:55.002431+00:00",
+      "checked_at": "2026-10-03T02:42:34.542179+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_notion",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 285.84,
-          "jobs_available": 128,
+          "latency_ms": 398.76,
+          "jobs_available": 137,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -2445,19 +3113,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1216.43,
+      "latency_ms": 1931.66,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:55.590659+00:00",
+      "checked_at": "2026-10-03T02:42:35.363130+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_datadog",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 599.99,
-          "jobs_available": 449,
+          "latency_ms": 1224.91,
+          "jobs_available": 445,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2489,19 +3168,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 4,
-      "latency_ms": 718.72,
+      "latency_ms": 1911.72,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:56.807127+00:00",
+      "checked_at": "2026-10-03T02:42:37.294843+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_ramp",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 350.26,
-          "jobs_available": 158,
+          "latency_ms": 1493.2,
+          "jobs_available": 157,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2524,43 +3214,28 @@
       "name": "ats_greenhouse_amplitude",
       "display_name": "amplitude (Greenhouse)",
       "adapter_type": "ats_public",
-      "state": "LIVE",
+      "state": "DEGRADED",
       "configuration_ok": true,
-      "health_ok": true,
-      "search_ok": true,
-      "jobs_returned": 4,
-      "jobs_normalized": 4,
-      "jobs_with_provenance": 4,
-      "jobs_with_url": 4,
-      "fresh_jobs": 4,
-      "latency_ms": 1097.79,
-      "message": "Provider passed live verification.",
+      "health_ok": false,
+      "search_ok": false,
+      "jobs_returned": 0,
+      "jobs_normalized": 0,
+      "jobs_with_provenance": 0,
+      "jobs_with_url": 0,
+      "fresh_jobs": 0,
+      "latency_ms": 5541.26,
+      "message": "Provider endpoint is reachable only partially or failed health validation.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:57.525869+00:00",
+      "checked_at": "2026-10-03T02:42:39.206622+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_amplitude",
-          "healthy": true,
-          "status_code": 200,
-          "latency_ms": 551.35,
-          "jobs_available": 37,
-          "message": "greenhouse public job-board endpoint reachable."
-        },
-        "normalization": {
-          "returned": 4,
-          "canonical_jobs_reused": 4,
-          "normalized_from_raw": 0,
-          "errors": 0,
-          "error_samples": []
-        },
-        "job_validation": {
-          "returned": 4,
-          "normalized": 4,
-          "with_provenance": 4,
-          "with_url": 4,
-          "fresh": 4,
-          "freshness_days": 180
+          "healthy": false,
+          "status_code": null,
+          "latency_ms": 5541.18,
+          "jobs_available": 0,
+          "message": "ats_greenhouse_amplitude request failed after 3 attempts: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/amplitude/jobs?content=true"
         }
       }
     },
@@ -2568,42 +3243,58 @@
       "name": "ats_ashby_plaid",
       "display_name": "plaid (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 978.48,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1160.48,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:58.623689+00:00",
+      "checked_at": "2026-10-03T02:42:44.747935+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_plaid",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 623.96,
-          "jobs_available": 122,
+          "latency_ms": 373.82,
+          "jobs_available": 119,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -2621,19 +3312,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1359.58,
+      "latency_ms": 1123.22,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:32:59.602211+00:00",
+      "checked_at": "2026-10-03T02:42:45.908458+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_vercel",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 779.4,
-          "jobs_available": 88,
+          "latency_ms": 558.65,
+          "jobs_available": 85,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2665,19 +3367,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1305.34,
+      "latency_ms": 981.56,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:00.961830+00:00",
+      "checked_at": "2026-10-03T02:42:47.031708+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_snowflake",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 810.81,
-          "jobs_available": 349,
+          "latency_ms": 473.7,
+          "jobs_available": 347,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2709,19 +3422,30 @@
       "jobs_with_provenance": 4,
       "jobs_with_url": 4,
       "fresh_jobs": 4,
-      "latency_ms": 1160.83,
+      "latency_ms": 1150.42,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:02.267199+00:00",
+      "checked_at": "2026-10-03T02:42:48.013306+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_lyft",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 566.02,
-          "jobs_available": 175,
+          "latency_ms": 549.57,
+          "jobs_available": 192,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 4
+            }
+          ]
         },
         "normalization": {
           "returned": 4,
@@ -2753,19 +3477,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 993.01,
+      "latency_ms": 1027.59,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:03.428056+00:00",
+      "checked_at": "2026-10-03T02:42:49.163751+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_replit",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 649.03,
-          "jobs_available": 75,
+          "latency_ms": 645.35,
+          "jobs_available": 72,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2797,19 +3532,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1815.85,
+      "latency_ms": 1629.89,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:04.421244+00:00",
+      "checked_at": "2026-10-03T02:42:50.191468+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_doordashusa",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 836.57,
-          "jobs_available": 457,
+          "latency_ms": 793.65,
+          "jobs_available": 458,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2841,19 +3587,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 679.24,
+      "latency_ms": 679.9,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:06.237168+00:00",
+      "checked_at": "2026-10-03T02:42:51.821420+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_supabase",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 340.99,
-          "jobs_available": 56,
+          "latency_ms": 335.95,
+          "jobs_available": 48,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2885,19 +3642,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1203.4,
+      "latency_ms": 1145.58,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:06.916433+00:00",
+      "checked_at": "2026-10-03T02:42:52.501351+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_instacart",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 593.85,
-          "jobs_available": 116,
+          "latency_ms": 560.26,
+          "jobs_available": 131,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2928,20 +3696,31 @@
       "jobs_normalized": 5,
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
-      "fresh_jobs": 3,
-      "latency_ms": 980.31,
+      "fresh_jobs": 2,
+      "latency_ms": 762.25,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:08.119867+00:00",
+      "checked_at": "2026-10-03T02:42:53.646993+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_temporal",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 652.74,
-          "jobs_available": 63,
+          "latency_ms": 390.21,
+          "jobs_available": 64,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -2955,7 +3734,7 @@
           "normalized": 5,
           "with_provenance": 5,
           "with_url": 5,
-          "fresh": 3,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -2973,19 +3752,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1243.24,
+      "latency_ms": 1226.74,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:09.100224+00:00",
+      "checked_at": "2026-10-03T02:42:54.409272+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_roblox",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 594.13,
-          "jobs_available": 257,
+          "latency_ms": 591.86,
+          "jobs_available": 254,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3008,42 +3798,58 @@
       "name": "ats_ashby_modal",
       "display_name": "modal (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 864.84,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 1,
+      "latency_ms": 992.43,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:10.343497+00:00",
+      "checked_at": "2026-10-03T02:42:55.636043+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_modal",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 565.81,
-          "jobs_available": 39,
+          "latency_ms": 346.15,
+          "jobs_available": 38,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -3056,38 +3862,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 4,
-      "jobs_normalized": 4,
-      "jobs_with_provenance": 4,
-      "jobs_with_url": 4,
-      "fresh_jobs": 4,
-      "latency_ms": 1181.72,
+      "jobs_returned": 2,
+      "jobs_normalized": 2,
+      "jobs_with_provenance": 2,
+      "jobs_with_url": 2,
+      "fresh_jobs": 2,
+      "latency_ms": 1103.88,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:11.208361+00:00",
+      "checked_at": "2026-10-03T02:42:56.628511+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_dropbox",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 584.23,
-          "jobs_available": 44,
+          "latency_ms": 535.78,
+          "jobs_available": 39,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
+        },
         "normalization": {
-          "returned": 4,
-          "canonical_jobs_reused": 4,
+          "returned": 2,
+          "canonical_jobs_reused": 2,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 4,
-          "normalized": 4,
-          "with_provenance": 4,
-          "with_url": 4,
-          "fresh": 4,
+          "returned": 2,
+          "normalized": 2,
+          "with_provenance": 2,
+          "with_url": 2,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -3105,19 +3922,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 2,
-      "latency_ms": 586.35,
+      "latency_ms": 918.41,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:12.390131+00:00",
+      "checked_at": "2026-10-03T02:42:57.732454+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_linear",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 303.84,
+          "latency_ms": 590.45,
           "jobs_available": 30,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3149,19 +3977,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1224.63,
+      "latency_ms": 1162.09,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:12.976503+00:00",
+      "checked_at": "2026-10-03T02:42:58.650891+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_twilio",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 613.01,
-          "jobs_available": 138,
+          "latency_ms": 571.84,
+          "jobs_available": 126,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3193,19 +4032,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 914.95,
+      "latency_ms": 969.19,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:14.201162+00:00",
+      "checked_at": "2026-10-03T02:42:59.813033+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_sentry",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 594.13,
+          "latency_ms": 617.55,
           "jobs_available": 41,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -3237,19 +4087,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1503.57,
+      "latency_ms": 1377.92,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:15.116143+00:00",
+      "checked_at": "2026-10-03T02:43:00.782251+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_okta",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 659.36,
-          "jobs_available": 333,
+          "latency_ms": 643.92,
+          "jobs_available": 368,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3281,19 +4142,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 0,
-      "latency_ms": 942.14,
+      "latency_ms": 952.48,
       "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:16.619756+00:00",
+      "checked_at": "2026-10-03T02:43:02.160219+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_render",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 610.92,
+          "latency_ms": 610.86,
           "jobs_available": 40,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3325,19 +4197,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1436.43,
+      "latency_ms": 1326.81,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:17.561920+00:00",
+      "checked_at": "2026-10-03T02:43:03.112746+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_mongodb",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 657.4,
-          "jobs_available": 396,
+          "latency_ms": 629.94,
+          "jobs_available": 390,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3369,19 +4252,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 0,
-      "latency_ms": 926.62,
+      "latency_ms": 887.9,
       "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:18.998390+00:00",
+      "checked_at": "2026-10-03T02:43:04.439592+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_railway",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 624.14,
+          "latency_ms": 586.83,
           "jobs_available": 8,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -3413,19 +4307,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1654.66,
+      "latency_ms": 1463.62,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:19.925043+00:00",
+      "checked_at": "2026-10-03T02:43:05.327524+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_elastic",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 821.29,
-          "jobs_available": 384,
+          "latency_ms": 691.43,
+          "jobs_available": 394,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3457,19 +4362,30 @@
       "jobs_with_provenance": 3,
       "jobs_with_url": 3,
       "fresh_jobs": 3,
-      "latency_ms": 987.32,
+      "latency_ms": 970.66,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:21.579752+00:00",
+      "checked_at": "2026-10-03T02:43:06.791204+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_benchling",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 648.41,
+          "latency_ms": 624.05,
           "jobs_available": 56,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 3
+            }
+          ]
         },
         "normalization": {
           "returned": 3,
@@ -3501,19 +4417,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1376.4,
+      "latency_ms": 1274.69,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:22.567098+00:00",
+      "checked_at": "2026-10-03T02:43:07.761898+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_samsara",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 656.44,
-          "jobs_available": 248,
+          "latency_ms": 635.65,
+          "jobs_available": 242,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3545,19 +4472,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 3,
-      "latency_ms": 1322.33,
+      "latency_ms": 1179.95,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:23.943581+00:00",
+      "checked_at": "2026-10-03T02:43:09.036649+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_applied",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 831.54,
-          "jobs_available": 306,
+          "latency_ms": 703.57,
+          "jobs_available": 315,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3589,19 +4527,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1326.65,
+      "latency_ms": 1263.61,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:25.265944+00:00",
+      "checked_at": "2026-10-03T02:43:10.216626+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_verkada",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 657.39,
-          "jobs_available": 304,
+          "latency_ms": 613.55,
+          "jobs_available": 307,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3633,19 +4582,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 4,
-      "latency_ms": 993.82,
+      "latency_ms": 996.66,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:26.592643+00:00",
+      "checked_at": "2026-10-03T02:43:11.480286+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_handshake",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 635.33,
-          "jobs_available": 72,
+          "latency_ms": 608.24,
+          "jobs_available": 77,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3668,42 +4628,58 @@
       "name": "ats_greenhouse_duolingo",
       "display_name": "duolingo (Greenhouse)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 1215.18,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1739.88,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:27.586508+00:00",
+      "checked_at": "2026-10-03T02:43:12.476989+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_duolingo",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 644.32,
-          "jobs_available": 82,
+          "latency_ms": 556.89,
+          "jobs_available": 61,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -3721,19 +4697,30 @@
       "jobs_with_provenance": 3,
       "jobs_with_url": 3,
       "fresh_jobs": 3,
-      "latency_ms": 892.46,
+      "latency_ms": 873.13,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:28.801726+00:00",
+      "checked_at": "2026-10-03T02:43:14.216921+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_substack",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 618.2,
-          "jobs_available": 16,
+          "latency_ms": 566.64,
+          "jobs_available": 17,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 3
+            }
+          ]
         },
         "normalization": {
           "returned": 3,
@@ -3758,41 +4745,26 @@
       "adapter_type": "ats_public",
       "state": "DEGRADED",
       "configuration_ok": true,
-      "health_ok": true,
-      "search_ok": true,
+      "health_ok": false,
+      "search_ok": false,
       "jobs_returned": 0,
       "jobs_normalized": 0,
       "jobs_with_provenance": 0,
       "jobs_with_url": 0,
       "fresh_jobs": 0,
-      "latency_ms": 1053.39,
-      "message": "Search succeeded but returned no jobs.",
+      "latency_ms": 5585.15,
+      "message": "Provider endpoint is reachable only partially or failed health validation.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:29.694243+00:00",
+      "checked_at": "2026-10-03T02:43:15.090084+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_linkedin",
-          "healthy": true,
-          "status_code": 200,
-          "latency_ms": 519.33,
-          "jobs_available": 53,
-          "message": "greenhouse public job-board endpoint reachable."
-        },
-        "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
-          "normalized_from_raw": 0,
-          "errors": 0,
-          "error_samples": []
-        },
-        "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
-          "freshness_days": 180
+          "healthy": false,
+          "status_code": null,
+          "latency_ms": 5585.08,
+          "jobs_available": 0,
+          "message": "ats_greenhouse_linkedin request failed after 3 attempts: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/linkedin/jobs?content=true"
         }
       }
     },
@@ -3809,19 +4781,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 4,
-      "latency_ms": 876.0,
+      "latency_ms": 997.49,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:30.747647+00:00",
+      "checked_at": "2026-10-03T02:43:20.675293+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_thumbtack",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 554.52,
-          "jobs_available": 54,
+          "latency_ms": 642.3,
+          "jobs_available": 57,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3853,19 +4836,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1037.66,
+      "latency_ms": 1230.86,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:31.623673+00:00",
+      "checked_at": "2026-10-03T02:43:21.672811+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_asana",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 526.84,
+          "latency_ms": 617.14,
           "jobs_available": 97,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3888,42 +4882,58 @@
       "name": "ats_ashby_miro",
       "display_name": "miro (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 776.44,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 1034.77,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:32.661364+00:00",
+      "checked_at": "2026-10-03T02:43:22.903737+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_miro",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 534.02,
+          "latency_ms": 342.44,
           "jobs_available": 28,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
           "freshness_days": 180
         }
       }
@@ -3941,19 +4951,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1264.71,
+      "latency_ms": 1370.49,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:33.437839+00:00",
+      "checked_at": "2026-10-03T02:43:23.938569+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_gitlab",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 611.15,
-          "jobs_available": 199,
+          "latency_ms": 660.74,
+          "jobs_available": 211,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -3985,19 +5006,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 2,
-      "latency_ms": 911.34,
+      "latency_ms": 629.1,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:34.702611+00:00",
+      "checked_at": "2026-10-03T02:43:25.309113+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_airbyte",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 575.78,
+          "latency_ms": 314.0,
           "jobs_available": 12,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -4020,42 +5052,58 @@
       "name": "ats_greenhouse_klaviyo",
       "display_name": "klaviyo (Greenhouse)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 1298.28,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 5,
+      "latency_ms": 1776.16,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:35.613987+00:00",
+      "checked_at": "2026-10-03T02:43:25.938237+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_klaviyo",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 635.11,
-          "jobs_available": 148,
+          "latency_ms": 587.58,
+          "jobs_available": 133,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 5,
           "freshness_days": 180
         }
       }
@@ -4073,19 +5121,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 978.05,
+      "latency_ms": 911.69,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:36.912306+00:00",
+      "checked_at": "2026-10-03T02:43:27.714450+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_astronomer",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 605.68,
-          "jobs_available": 20,
+          "latency_ms": 588.24,
+          "jobs_available": 24,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4117,19 +5176,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1212.56,
+      "latency_ms": 1204.89,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:37.890387+00:00",
+      "checked_at": "2026-10-03T02:43:28.626190+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_rubrik",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 602.41,
-          "jobs_available": 140,
+          "latency_ms": 595.04,
+          "jobs_available": 128,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4156,38 +5226,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 5,
-      "jobs_normalized": 5,
-      "jobs_with_provenance": 5,
-      "jobs_with_url": 5,
-      "fresh_jobs": 3,
-      "latency_ms": 1098.49,
+      "jobs_returned": 4,
+      "jobs_normalized": 4,
+      "jobs_with_provenance": 4,
+      "jobs_with_url": 4,
+      "fresh_jobs": 2,
+      "latency_ms": 725.05,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:39.102984+00:00",
+      "checked_at": "2026-10-03T02:43:29.831128+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_baseten",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 671.05,
-          "jobs_available": 101,
+          "latency_ms": 363.03,
+          "jobs_available": 105,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 4
+            }
+          ]
+        },
         "normalization": {
-          "returned": 5,
-          "canonical_jobs_reused": 5,
+          "returned": 4,
+          "canonical_jobs_reused": 4,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 5,
-          "normalized": 5,
-          "with_provenance": 5,
-          "with_url": 5,
-          "fresh": 3,
+          "returned": 4,
+          "normalized": 4,
+          "with_provenance": 4,
+          "with_url": 4,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -4205,19 +5286,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1315.91,
+      "latency_ms": 1298.65,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:40.201513+00:00",
+      "checked_at": "2026-10-03T02:43:30.556203+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_toast",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 644.78,
-          "jobs_available": 345,
+          "latency_ms": 607.39,
+          "jobs_available": 328,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4249,19 +5341,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 2,
-      "latency_ms": 1006.55,
+      "latency_ms": 886.08,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:41.517468+00:00",
+      "checked_at": "2026-10-03T02:43:31.854889+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_clerk",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 662.53,
+          "latency_ms": 568.15,
           "jobs_available": 2,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -4293,19 +5396,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1180.94,
+      "latency_ms": 1077.22,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:42.524040+00:00",
+      "checked_at": "2026-10-03T02:43:32.740996+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_twitch",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 578.42,
-          "jobs_available": 59,
+          "latency_ms": 530.23,
+          "jobs_available": 50,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4337,19 +5451,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1102.51,
+      "latency_ms": 1016.08,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:43.705014+00:00",
+      "checked_at": "2026-10-03T02:43:33.818265+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_clickhouse",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 699.93,
-          "jobs_available": 189,
+          "latency_ms": 634.86,
+          "jobs_available": 195,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4381,19 +5506,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1370.99,
+      "latency_ms": 1355.11,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:44.807559+00:00",
+      "checked_at": "2026-10-03T02:43:34.834375+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_zscaler",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 664.82,
-          "jobs_available": 380,
+          "latency_ms": 644.99,
+          "jobs_available": 365,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4425,19 +5561,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 2,
-      "latency_ms": 894.18,
+      "latency_ms": 917.93,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:46.178622+00:00",
+      "checked_at": "2026-10-03T02:43:36.189521+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_confluent",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 561.56,
-          "jobs_available": 20,
+          "latency_ms": 588.91,
+          "jobs_available": 17,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4464,38 +5611,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 2,
-      "jobs_normalized": 2,
-      "jobs_with_provenance": 2,
-      "jobs_with_url": 2,
-      "fresh_jobs": 2,
-      "latency_ms": 1108.61,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 1093.42,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:47.072849+00:00",
+      "checked_at": "2026-10-03T02:43:37.107484+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_squarespace",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 563.54,
-          "jobs_available": 34,
+          "latency_ms": 525.23,
+          "jobs_available": 33,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 2,
-          "canonical_jobs_reused": 2,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 2,
-          "normalized": 2,
-          "with_provenance": 2,
-          "with_url": 2,
-          "fresh": 2,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -4513,19 +5671,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 1,
-      "latency_ms": 1005.24,
+      "latency_ms": 1033.8,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:48.181485+00:00",
+      "checked_at": "2026-10-03T02:43:38.200949+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_docker",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 607.04,
-          "jobs_available": 58,
+          "latency_ms": 652.74,
+          "jobs_available": 61,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4552,38 +5721,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 2,
-      "jobs_normalized": 2,
-      "jobs_with_provenance": 2,
-      "jobs_with_url": 2,
-      "fresh_jobs": 2,
-      "latency_ms": 901.14,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 1070.26,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:49.186797+00:00",
+      "checked_at": "2026-10-03T02:43:39.234823+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_nextdoor",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 468.34,
-          "jobs_available": 23,
+          "latency_ms": 526.79,
+          "jobs_available": 19,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 2,
-          "canonical_jobs_reused": 2,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 2,
-          "normalized": 2,
-          "with_provenance": 2,
-          "with_url": 2,
-          "fresh": 2,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -4596,37 +5776,53 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
       "fresh_jobs": 0,
-      "latency_ms": 700.29,
-      "message": "Search succeeded but returned no jobs.",
+      "latency_ms": 1145.45,
+      "message": "Provider returned jobs but no recent freshness evidence was found within 180 days.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:50.087956+00:00",
+      "checked_at": "2026-10-03T02:43:40.305109+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_inngest",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 495.59,
+          "latency_ms": 576.9,
           "jobs_available": 1,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
           "fresh": 0,
           "freshness_days": 180
         }
@@ -4645,19 +5841,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1005.77,
+      "latency_ms": 1187.36,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:50.788277+00:00",
+      "checked_at": "2026-10-03T02:43:41.450592+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_oscar",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 503.76,
-          "jobs_available": 280,
+          "latency_ms": 569.17,
+          "jobs_available": 246,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4689,19 +5896,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1121.35,
+      "latency_ms": 686.66,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:51.794069+00:00",
+      "checked_at": "2026-10-03T02:43:42.637991+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_langchain",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 568.23,
+          "latency_ms": 323.02,
           "jobs_available": 102,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4733,19 +5951,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 1000.88,
+      "latency_ms": 1220.95,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:52.915445+00:00",
+      "checked_at": "2026-10-03T02:43:43.324687+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_flexport",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 494.31,
+          "latency_ms": 614.18,
           "jobs_available": 199,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -4768,42 +5997,58 @@
       "name": "ats_ashby_llamaindex",
       "display_name": "llamaindex (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 864.04,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 3,
+      "latency_ms": 1150.28,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:53.916353+00:00",
+      "checked_at": "2026-10-03T02:43:44.545742+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_llamaindex",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 499.03,
+          "latency_ms": 586.81,
           "jobs_available": 9,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 3,
           "freshness_days": 180
         }
       }
@@ -4821,19 +6066,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1182.68,
+      "latency_ms": 1074.42,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:54.780422+00:00",
+      "checked_at": "2026-10-03T02:43:45.696047+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_checkr",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 610.89,
-          "jobs_available": 49,
+          "latency_ms": 539.31,
+          "jobs_available": 47,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4856,42 +6112,53 @@
       "name": "ats_ashby_lumaai",
       "display_name": "lumaai (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 909.39,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
+      "fresh_jobs": 1,
+      "latency_ms": 889.72,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:55.963128+00:00",
+      "checked_at": "2026-10-03T02:43:46.770504+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_lumaai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 582.51,
+          "latency_ms": 581.93,
           "jobs_available": 30,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
+          "fresh": 1,
           "freshness_days": 180
         }
       }
@@ -4909,19 +6176,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1123.51,
+      "latency_ms": 1460.5,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:56.872565+00:00",
+      "checked_at": "2026-10-03T02:43:47.660252+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_cockroachlabs",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 544.25,
+          "latency_ms": 719.27,
           "jobs_available": 19,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -4944,42 +6222,58 @@
       "name": "ats_ashby_materialize",
       "display_name": "materialize (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 909.64,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 3,
+      "jobs_normalized": 3,
+      "jobs_with_provenance": 3,
+      "jobs_with_url": 3,
+      "fresh_jobs": 2,
+      "latency_ms": 1179.58,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:57.996112+00:00",
+      "checked_at": "2026-10-03T02:43:49.120788+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_materialize",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 585.01,
+          "latency_ms": 598.18,
           "jobs_available": 3,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 3
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 3,
+          "canonical_jobs_reused": 3,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 3,
+          "normalized": 3,
+          "with_provenance": 3,
+          "with_url": 3,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -4997,19 +6291,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1283.06,
+      "latency_ms": 1242.3,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:33:58.905787+00:00",
+      "checked_at": "2026-10-03T02:43:50.300395+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_xai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 639.17,
-          "jobs_available": 276,
+          "latency_ms": 601.47,
+          "jobs_available": 301,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -5041,19 +6346,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 836.24,
+      "latency_ms": 843.65,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:00.188873+00:00",
+      "checked_at": "2026-10-03T02:43:51.542730+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_nousresearch",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 534.19,
-          "jobs_available": 10,
+          "latency_ms": 535.22,
+          "jobs_available": 14,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -5085,19 +6401,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1183.62,
+      "latency_ms": 1160.75,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:01.025139+00:00",
+      "checked_at": "2026-10-03T02:43:52.386409+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_scaleai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 590.05,
-          "jobs_available": 203,
+          "latency_ms": 581.36,
+          "jobs_available": 192,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -5129,19 +6456,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 2,
-      "latency_ms": 991.89,
+      "latency_ms": 914.19,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:02.208796+00:00",
+      "checked_at": "2026-10-03T02:43:53.547190+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_physicalintelligence",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 666.21,
-          "jobs_available": 35,
+          "latency_ms": 598.96,
+          "jobs_available": 34,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -5173,19 +6511,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1093.94,
+      "latency_ms": 1327.01,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:03.200708+00:00",
+      "checked_at": "2026-10-03T02:43:54.461404+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_togetherai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 551.36,
-          "jobs_available": 78,
+          "latency_ms": 545.84,
+          "jobs_available": 77,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -5212,37 +6561,48 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 2,
-      "jobs_normalized": 2,
-      "jobs_with_provenance": 2,
-      "jobs_with_url": 2,
+      "jobs_returned": 1,
+      "jobs_normalized": 1,
+      "jobs_with_provenance": 1,
+      "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 941.91,
+      "latency_ms": 861.26,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:04.294672+00:00",
+      "checked_at": "2026-10-03T02:43:55.788449+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_pinecone",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 604.57,
-          "jobs_available": 7,
+          "latency_ms": 553.05,
+          "jobs_available": 5,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
+        },
         "normalization": {
-          "returned": 2,
-          "canonical_jobs_reused": 2,
+          "returned": 1,
+          "canonical_jobs_reused": 1,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 2,
-          "normalized": 2,
-          "with_provenance": 2,
-          "with_url": 2,
+          "returned": 1,
+          "normalized": 1,
+          "with_provenance": 1,
+          "with_url": 1,
           "fresh": 1,
           "freshness_days": 180
         }
@@ -5261,19 +6621,30 @@
       "jobs_with_provenance": 5,
       "jobs_with_url": 5,
       "fresh_jobs": 5,
-      "latency_ms": 1219.95,
+      "latency_ms": 1366.11,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:05.236602+00:00",
+      "checked_at": "2026-10-03T02:43:56.649733+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_gleanwork",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 599.92,
-          "jobs_available": 130,
+          "latency_ms": 565.53,
+          "jobs_available": 127,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 5
+            }
+          ]
         },
         "normalization": {
           "returned": 5,
@@ -5305,19 +6676,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 2,
-      "latency_ms": 892.23,
+      "latency_ms": 865.93,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:06.456624+00:00",
+      "checked_at": "2026-10-03T02:43:58.015918+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_posthog",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 581.66,
+          "latency_ms": 549.04,
           "jobs_available": 8,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -5344,38 +6726,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 5,
-      "jobs_normalized": 5,
-      "jobs_with_provenance": 5,
-      "jobs_with_url": 5,
-      "fresh_jobs": 5,
-      "latency_ms": 1149.97,
+      "jobs_returned": 4,
+      "jobs_normalized": 4,
+      "jobs_with_provenance": 4,
+      "jobs_with_url": 4,
+      "fresh_jobs": 4,
+      "latency_ms": 1096.41,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:07.348906+00:00",
+      "checked_at": "2026-10-03T02:43:58.881876+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_snorkelai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 568.28,
-          "jobs_available": 38,
+          "latency_ms": 542.29,
+          "jobs_available": 41,
           "message": "greenhouse public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 4
+            }
+          ]
+        },
         "normalization": {
-          "returned": 5,
-          "canonical_jobs_reused": 5,
+          "returned": 4,
+          "canonical_jobs_reused": 4,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 5,
-          "normalized": 5,
-          "with_provenance": 5,
-          "with_url": 5,
-          "fresh": 5,
+          "returned": 4,
+          "normalized": 4,
+          "with_provenance": 4,
+          "with_url": 4,
+          "fresh": 4,
           "freshness_days": 180
         }
       }
@@ -5393,19 +6786,30 @@
       "jobs_with_provenance": 2,
       "jobs_with_url": 2,
       "fresh_jobs": 2,
-      "latency_ms": 892.41,
+      "latency_ms": 902.68,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:08.498912+00:00",
+      "checked_at": "2026-10-03T02:43:59.978356+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_prefect",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 593.19,
-          "jobs_available": 8,
+          "latency_ms": 593.39,
+          "jobs_available": 9,
           "message": "ashby public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 2
+            }
+          ]
         },
         "normalization": {
           "returned": 2,
@@ -5437,19 +6841,30 @@
       "jobs_with_provenance": 1,
       "jobs_with_url": 1,
       "fresh_jobs": 1,
-      "latency_ms": 956.91,
+      "latency_ms": 1056.81,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:09.391350+00:00",
+      "checked_at": "2026-10-03T02:44:00.881059+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_assemblyai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 506.86,
+          "latency_ms": 525.02,
           "jobs_available": 10,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 1
+            }
+          ]
         },
         "normalization": {
           "returned": 1,
@@ -5472,42 +6887,58 @@
       "name": "ats_ashby_reflectionai",
       "display_name": "reflectionai (Ashby)",
       "adapter_type": "ats_public",
-      "state": "DEGRADED",
+      "state": "LIVE",
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 0,
-      "jobs_normalized": 0,
-      "jobs_with_provenance": 0,
-      "jobs_with_url": 0,
-      "fresh_jobs": 0,
-      "latency_ms": 795.58,
-      "message": "Search succeeded but returned no jobs.",
+      "jobs_returned": 5,
+      "jobs_normalized": 5,
+      "jobs_with_provenance": 5,
+      "jobs_with_url": 5,
+      "fresh_jobs": 2,
+      "latency_ms": 1254.39,
+      "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:10.348282+00:00",
+      "checked_at": "2026-10-03T02:44:01.937924+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_reflectionai",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 549.68,
-          "jobs_available": 55,
+          "latency_ms": 598.26,
+          "jobs_available": 51,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "engineer",
+          "location": "",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 0
+            },
+            {
+              "query": "engineer",
+              "location": "",
+              "jobs_returned": 5
+            }
+          ]
+        },
         "normalization": {
-          "returned": 0,
-          "canonical_jobs_reused": 0,
+          "returned": 5,
+          "canonical_jobs_reused": 5,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 0,
-          "normalized": 0,
-          "with_provenance": 0,
-          "with_url": 0,
-          "fresh": 0,
+          "returned": 5,
+          "normalized": 5,
+          "with_provenance": 5,
+          "with_url": 5,
+          "fresh": 2,
           "freshness_days": 180
         }
       }
@@ -5525,19 +6956,30 @@
       "jobs_with_provenance": 3,
       "jobs_with_url": 3,
       "fresh_jobs": 3,
-      "latency_ms": 942.11,
+      "latency_ms": 1080.62,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:11.143890+00:00",
+      "checked_at": "2026-10-03T02:44:03.192384+00:00",
       "evidence": {
         "health": {
           "source": "ats_greenhouse_sambanovasystems",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 482.5,
-          "jobs_available": 61,
+          "latency_ms": 533.67,
+          "jobs_available": 63,
           "message": "greenhouse public job-board endpoint reachable."
+        },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 3
+            }
+          ]
         },
         "normalization": {
           "returned": 3,
@@ -5564,38 +7006,49 @@
       "configuration_ok": true,
       "health_ok": true,
       "search_ok": true,
-      "jobs_returned": 2,
-      "jobs_normalized": 2,
-      "jobs_with_provenance": 2,
-      "jobs_with_url": 2,
-      "fresh_jobs": 2,
-      "latency_ms": 750.59,
+      "jobs_returned": 4,
+      "jobs_normalized": 4,
+      "jobs_with_provenance": 4,
+      "jobs_with_url": 4,
+      "fresh_jobs": 4,
+      "latency_ms": 850.87,
       "message": "Provider passed live verification.",
       "error_type": null,
       "error": null,
-      "checked_at": "2026-09-27T11:34:12.086033+00:00",
+      "checked_at": "2026-10-03T02:44:04.273037+00:00",
       "evidence": {
         "health": {
           "source": "ats_ashby_resend",
           "healthy": true,
           "status_code": 200,
-          "latency_ms": 518.68,
-          "jobs_available": 9,
+          "latency_ms": 552.71,
+          "jobs_available": 10,
           "message": "ashby public job-board endpoint reachable."
         },
+        "search": {
+          "query": "software engineer",
+          "location": "remote",
+          "attempts": [
+            {
+              "query": "software engineer",
+              "location": "remote",
+              "jobs_returned": 4
+            }
+          ]
+        },
         "normalization": {
-          "returned": 2,
-          "canonical_jobs_reused": 2,
+          "returned": 4,
+          "canonical_jobs_reused": 4,
           "normalized_from_raw": 0,
           "errors": 0,
           "error_samples": []
         },
         "job_validation": {
-          "returned": 2,
-          "normalized": 2,
-          "with_provenance": 2,
-          "with_url": 2,
-          "fresh": 2,
+          "returned": 4,
+          "normalized": 4,
+          "with_provenance": 4,
+          "with_url": 4,
+          "fresh": 4,
           "freshness_days": 180
         }
       }
@@ -5615,7 +7068,7 @@
     "location": "remote",
     "limit": 5,
     "freshness_days": 180,
-    "concurrency": 8
+    "concurrency": 16
   },
   "admission_policy": {
     "configured_is_not_live": true,

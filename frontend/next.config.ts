@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   output: "standalone",
   experimental: { optimizePackageImports: ["lucide-react"] },
   poweredByHeader: false,
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
 
   async headers() {
     return [
@@ -13,7 +14,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+              "default-src 'self'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://127.0.0.1:8000 http://localhost:8000 https: ws: wss:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
           },
           {
             key: "Strict-Transport-Security",
@@ -38,3 +39,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
