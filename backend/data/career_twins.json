@@ -3653,7 +3653,7 @@
   },
   "918e99f1-4bf4-4c7c-8d06-7b549c54b40d": {
     "candidate_id": "918e99f1-4bf4-4c7c-8d06-7b549c54b40d",
-    "version": 3,
+    "version": 4,
     "profile": {
       "name": null,
       "headline": "AI Engineer",
@@ -3737,9 +3737,27 @@
           "readiness_score": 82.57,
           "recommendation_count": 2
         }
+      },
+      {
+        "event_id": "evt-214fc0514c5f",
+        "event_type": "profile_sync",
+        "summary": "Career Twin synchronized from the active CareerPilot workflow.",
+        "timestamp": "2026-10-05T15:30:03.064433+00:00",
+        "payload": {
+          "skills": [
+            "Python",
+            "FastAPI",
+            "SQL"
+          ],
+          "target_roles": [
+            "AI Engineer"
+          ],
+          "readiness_score": 82.57,
+          "recommendation_count": 2
+        }
       }
     ],
     "created_at": "2026-10-03T03:33:09.294616+00:00",
-    "updated_at": "2026-10-03T11:07:42.609017+00:00"
+    "updated_at": "2026-10-05T15:30:03.066826+00:00"
   }
 }
